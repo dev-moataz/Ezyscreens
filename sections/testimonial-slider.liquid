@@ -1,0 +1,379 @@
+<style>
+  .testimonials-section {
+    padding: 80px 0px;
+    background: #ffffff;
+  }
+
+  .test-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    margin: auto;
+  }
+
+  .testimonials-section .left-content {
+    text-align: left;
+  }
+    .testimonials-section .left-container{
+      
+        max-width: 450px;
+        margin: 0 auto;
+    }
+  .testimonial-slider {
+    box-shadow: none !important;
+
+  }
+
+  .carousel-cell {
+    width: 80%;
+    max-width: 700px;
+    margin-right: 20px;
+  }
+
+  .testimonial-card {
+    background: #F5F7FA;
+    border-radius: 12px;
+    padding: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .testimonial-card .image-wrapper {
+    position: relative;    aspect-ratio: 1 / 1;
+    MAX-width: 50%;
+    border-radius: 10px;
+    overflow: hidden;
+    FLEX-SHRINK: 0;
+
+  }
+
+  .testimonial-card .image-wrapper img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .testimonial-card .label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #191A24;
+    color: white;
+    border-radius: 5px;
+    font-size: 11px;
+    padding: 5px;
+    text-transform:  capitalize;
+  }
+
+  .testimonial-card .review {
+    text-align: left;
+  }
+
+  .testimonial-card .stars {
+    color: #facc15;
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .testimonial-card .quote {
+    font-style: italic;
+    margin-bottom: 30px;
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  .testimonial-card .author {
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .bb_buttons {
+    display: flex;
+    gap: 5px;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+    padding-right: 120px;
+}
+.bb_button{
+    transition: all 0.2s ease;
+  cursor: pointer !important;
+}
+
+.bb_button:hover{
+  cursor: pointer !important;
+}
+/* mobile */
+@media screen and (max-width: 749px) {
+  .testimonials-section .left-content {
+    padding-inline: 24px;
+    text-align: center;
+    max-width: 100%;
+  }
+    .testimonials-section {
+    padding: 50px 0px;
+    }
+        .testimonials-section .score {
+        font-size: 11px;
+    }
+  .testimonials-section  h2{
+    
+    max-width: 300px;
+    margin-inline: auto;
+  }
+  .bb_buttons{
+    
+    margin-bottom: 20px;
+    padding-inline: 24px;
+    justify-content: center;
+  }
+.carousel-cell {
+    width: calc(100% - 50px);
+    margin-inline: 5px;
+  max-width: initial;
+}
+.testimonial-card{
+  
+    flex-direction: column;
+}
+
+  .testimonial-card .image-wrapper{
+    
+    MAX-width: 100%;
+  }
+
+
+
+}
+
+</style>
+
+
+<section class="testimonials-section" id="testimonials-section">
+  <div class="">
+    <div class="test-container grid grid--gapless  grid--1-col grid--35-col-tablet ">
+        <div class="left-content grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+              style="--animation-order: 1;"
+            {% endif %}>
+          <div class="left-container">
+            <div class="rating">
+              <a href="{{settings.google_link}}" class="full-unstyled-link rating-link">
+                <svg class="svg-stars" width="70" height="14" viewBox="0 0 70 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_2047_3269)">
+                  <path d="M6.99965 11.3907L3.60648 13.3781C3.45658 13.4708 3.29986 13.5106 3.13634 13.4973C2.97281 13.4841 2.82972 13.4311 2.70708 13.3384C2.58443 13.2456 2.48904 13.1298 2.42091 12.991C2.35277 12.8521 2.33915 12.6963 2.38003 12.5235L3.27942 8.76742L0.274623 6.24347C0.138351 6.12423 0.0533171 5.9883 0.0195216 5.83567C-0.0142739 5.68304 -0.00418977 5.53412 0.049774 5.38891C0.103738 5.2437 0.185501 5.12446 0.295064 5.03118C0.404627 4.93791 0.554526 4.87829 0.744762 4.85232L4.71028 4.51447L6.24334 0.976967C6.31148 0.817978 6.41722 0.698736 6.56058 0.619242C6.70394 0.539747 6.8503 0.5 6.99965 0.5C7.14901 0.5 7.29536 0.539747 7.43872 0.619242C7.58208 0.698736 7.68783 0.817978 7.75596 0.976967L9.28902 4.51447L13.2545 4.85232C13.4453 4.87882 13.5952 4.93844 13.7042 5.03118C13.8133 5.12393 13.895 5.24317 13.9495 5.38891C14.004 5.53465 14.0144 5.68383 13.9806 5.83646C13.9468 5.98909 13.8615 6.12476 13.7247 6.24347L10.7199 8.76742L11.6193 12.5235C11.6602 12.6958 11.6465 12.8516 11.5784 12.991C11.5103 13.1303 11.4149 13.2461 11.2922 13.3384C11.1696 13.4306 11.0265 13.4836 10.863 13.4973C10.6994 13.5111 10.5427 13.4714 10.3928 13.3781L6.99965 11.3907Z" fill="#EDB200"/>
+                  <path d="M20.9997 11.3907L17.6065 13.3781C17.4566 13.4708 17.2999 13.5106 17.1363 13.4973C16.9728 13.4841 16.8297 13.4311 16.7071 13.3384C16.5844 13.2456 16.489 13.1298 16.4209 12.991C16.3528 12.8521 16.3391 12.6963 16.38 12.5235L17.2794 8.76742L14.2746 6.24347C14.1384 6.12423 14.0533 5.9883 14.0195 5.83567C13.9857 5.68304 13.9958 5.53412 14.0498 5.38891C14.1037 5.2437 14.1855 5.12446 14.2951 5.03118C14.4046 4.93791 14.5545 4.87829 14.7448 4.85232L18.7103 4.51447L20.2433 0.976967C20.3115 0.817978 20.4172 0.698736 20.5606 0.619242C20.7039 0.539747 20.8503 0.5 20.9997 0.5C21.149 0.5 21.2954 0.539747 21.4387 0.619242C21.5821 0.698736 21.6878 0.817978 21.756 0.976967L23.289 4.51447L27.2545 4.85232C27.4453 4.87882 27.5952 4.93844 27.7042 5.03118C27.8133 5.12393 27.895 5.24317 27.9495 5.38891C28.004 5.53465 28.0144 5.68383 27.9806 5.83646C27.9468 5.98909 27.8615 6.12476 27.7247 6.24347L24.7199 8.76742L25.6193 12.5235C25.6602 12.6958 25.6465 12.8516 25.5784 12.991C25.5103 13.1303 25.4149 13.2461 25.2922 13.3384C25.1696 13.4306 25.0265 13.4836 24.863 13.4973C24.6994 13.5111 24.5427 13.4714 24.3928 13.3781L20.9997 11.3907Z" fill="#EDB200"/>
+                  <path d="M34.9997 11.3907L31.6065 13.3781C31.4566 13.4708 31.2999 13.5106 31.1363 13.4973C30.9728 13.4841 30.8297 13.4311 30.7071 13.3384C30.5844 13.2456 30.489 13.1298 30.4209 12.991C30.3528 12.8521 30.3391 12.6963 30.38 12.5235L31.2794 8.76742L28.2746 6.24347C28.1384 6.12423 28.0533 5.9883 28.0195 5.83567C27.9857 5.68304 27.9958 5.53412 28.0498 5.38891C28.1037 5.2437 28.1855 5.12446 28.2951 5.03118C28.4046 4.93791 28.5545 4.87829 28.7448 4.85232L32.7103 4.51447L34.2433 0.976967C34.3115 0.817978 34.4172 0.698736 34.5606 0.619242C34.7039 0.539747 34.8503 0.5 34.9997 0.5C35.149 0.5 35.2954 0.539747 35.4387 0.619242C35.5821 0.698736 35.6878 0.817978 35.756 0.976967L37.289 4.51447L41.2545 4.85232C41.4453 4.87882 41.5952 4.93844 41.7042 5.03118C41.8133 5.12393 41.895 5.24317 41.9495 5.38891C42.004 5.53465 42.0144 5.68383 41.9806 5.83646C41.9468 5.98909 41.8615 6.12476 41.7247 6.24347L38.7199 8.76742L39.6193 12.5235C39.6602 12.6958 39.6465 12.8516 39.5784 12.991C39.5103 13.1303 39.4149 13.2461 39.2922 13.3384C39.1696 13.4306 39.0265 13.4836 38.863 13.4973C38.6994 13.5111 38.5427 13.4714 38.3928 13.3781L34.9997 11.3907Z" fill="#EDB200"/>
+                  <path d="M48.9997 11.3907L45.6065 13.3781C45.4566 13.4708 45.2999 13.5106 45.1363 13.4973C44.9728 13.4841 44.8297 13.4311 44.7071 13.3384C44.5844 13.2456 44.489 13.1298 44.4209 12.991C44.3528 12.8521 44.3391 12.6963 44.38 12.5235L45.2794 8.76742L42.2746 6.24347C42.1384 6.12423 42.0533 5.9883 42.0195 5.83567C41.9857 5.68304 41.9958 5.53412 42.0498 5.38891C42.1037 5.2437 42.1855 5.12446 42.2951 5.03118C42.4046 4.93791 42.5545 4.87829 42.7448 4.85232L46.7103 4.51447L48.2433 0.976967C48.3115 0.817978 48.4172 0.698736 48.5606 0.619242C48.7039 0.539747 48.8503 0.5 48.9997 0.5C49.149 0.5 49.2954 0.539747 49.4387 0.619242C49.5821 0.698736 49.6878 0.817978 49.756 0.976967L51.289 4.51447L55.2545 4.85232C55.4453 4.87882 55.5952 4.93844 55.7042 5.03118C55.8133 5.12393 55.895 5.24317 55.9495 5.38891C56.004 5.53465 56.0144 5.68383 55.9806 5.83646C55.9468 5.98909 55.8615 6.12476 55.7247 6.24347L52.7199 8.76742L53.6193 12.5235C53.6602 12.6958 53.6465 12.8516 53.5784 12.991C53.5103 13.1303 53.4149 13.2461 53.2922 13.3384C53.1696 13.4306 53.0265 13.4836 52.863 13.4973C52.6994 13.5111 52.5427 13.4714 52.3928 13.3781L48.9997 11.3907Z" fill="#EDB200"/>
+                  <path d="M62.9997 11.3907L59.6065 13.3781C59.4566 13.4708 59.2999 13.5106 59.1363 13.4973C58.9728 13.4841 58.8297 13.4311 58.7071 13.3384C58.5844 13.2456 58.489 13.1298 58.4209 12.991C58.3528 12.8521 58.3391 12.6963 58.38 12.5235L59.2794 8.76742L56.2746 6.24347C56.1384 6.12423 56.0533 5.9883 56.0195 5.83567C55.9857 5.68304 55.9958 5.53412 56.0498 5.38891C56.1037 5.2437 56.1855 5.12446 56.2951 5.03118C56.4046 4.93791 56.5545 4.87829 56.7448 4.85232L60.7103 4.51447L62.2433 0.976967C62.3115 0.817978 62.4172 0.698736 62.5606 0.619242C62.7039 0.539747 62.8503 0.5 62.9997 0.5C63.149 0.5 63.2954 0.539747 63.4387 0.619242C63.5821 0.698736 63.6878 0.817978 63.756 0.976967L65.289 4.51447L69.2545 4.85232C69.4453 4.87882 69.5952 4.93844 69.7042 5.03118C69.8133 5.12393 69.895 5.24317 69.9495 5.38891C70.004 5.53465 70.0144 5.68383 69.9806 5.83646C69.9468 5.98909 69.8615 6.12476 69.7247 6.24347L66.7199 8.76742L67.6193 12.5235C67.6602 12.6958 67.6465 12.8516 67.5784 12.991C67.5103 13.1303 67.4149 13.2461 67.2922 13.3384C67.1696 13.4306 67.0265 13.4836 66.863 13.4973C66.6994 13.5111 66.5427 13.4714 66.3928 13.3781L62.9997 11.3907Z" fill="#EDB200"/>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0_2047_3269">
+                  <rect width="70" height="13" fill="white" transform="translate(0 0.5)"/>
+                  </clipPath>
+                  </defs>
+                </svg>
+                <img src="{{settings.google_logo | image_url: width: 16}}" alt="Google logo" class="google-icon" />
+                <span class="score">{{settings.google_rating_text}}</span>
+              </a>
+            </div>
+            <h2>{{ section.settings.heading }}</h2>
+            {% if section.settings.button_label and section.settings.button_url %}
+              <a href="{{ section.settings.button_url }}" class="button button--primary hide-mobile">{{ section.settings.button_label }}</a>
+            {% endif %}          
+          </div>
+
+      </div>
+
+      <div class="right-content grid__item  grid__item-2{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+              style="--animation-order: 2;"
+            {% endif %}>
+        <div class="bb_buttons">
+            <!-- External Arrow Container -->
+          <a class="full-unstyled-link bb_button bb_button--prev">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_78_220)">
+            <rect x="29.0625" y="29.0625" width="28.125" height="28.125" rx="14.0625" transform="rotate(-180 29.0625 29.0625)" fill="#5082A7"/>
+            <rect x="29.0625" y="29.0625" width="28.125" height="28.125" rx="14.0625" transform="rotate(-180 29.0625 29.0625)" stroke="#5082A7" stroke-width="1.875"/>
+            <path d="M14.2563 10.587C14.0805 10.4112 13.8421 10.3125 13.5935 10.3125C13.3449 10.3125 13.1065 10.4112 12.9307 10.587L8.71194 14.8057C8.53619 14.9815 8.43746 15.22 8.43746 15.4685C8.43746 15.7171 8.53619 15.9556 8.71194 16.1314L12.9307 20.3501C13.1075 20.5209 13.3443 20.6154 13.5901 20.6132C13.8359 20.6111 14.0711 20.5125 14.2449 20.3387C14.4187 20.1649 14.5173 19.9297 14.5195 19.6839C14.5216 19.4381 14.4271 19.2013 14.2563 19.0245L11.7185 16.406H20.6248C20.8734 16.406 21.1119 16.3073 21.2877 16.1315C21.4635 15.9556 21.5623 15.7172 21.5623 15.4685C21.5623 15.2199 21.4635 14.9815 21.2877 14.8056C21.1119 14.6298 20.8734 14.531 20.6248 14.531H11.7185L14.2563 11.9126C14.4321 11.7368 14.5308 11.4984 14.5308 11.2498C14.5308 11.0012 14.4321 10.7628 14.2563 10.587Z" fill="white"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_78_220">
+            <rect width="30" height="30" fill="white"/>
+            </clipPath>
+            </defs>
+            </svg>
+
+          </a>
+          <a class="bb_button bb_button--next">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_78_217)">
+            <rect x="0.9375" y="-0.9375" width="28.125" height="28.125" rx="14.0625" transform="matrix(1 0 0 -1 0 28.125)" fill="#5082A7"/>
+            <rect x="0.9375" y="-0.9375" width="28.125" height="28.125" rx="14.0625" transform="matrix(1 0 0 -1 0 28.125)" stroke="#5082A7" stroke-width="1.875"/>
+            <path d="M15.7437 10.587C15.9195 10.4112 16.1579 10.3125 16.4065 10.3125C16.6551 10.3125 16.8935 10.4112 17.0693 10.587L21.288 14.8057C21.4638 14.9815 21.5625 15.22 21.5625 15.4685C21.5625 15.7171 21.4638 15.9556 21.288 16.1314L17.0693 20.3501C16.8925 20.5209 16.6556 20.6154 16.4098 20.6132C16.164 20.6111 15.9289 20.5125 15.7551 20.3387C15.5813 20.1649 15.4827 19.9297 15.4805 19.6839C15.4784 19.4381 15.5729 19.2013 15.7437 19.0245L18.2815 16.406H9.37521C9.12657 16.406 8.88812 16.3073 8.7123 16.1315C8.53649 15.9556 8.43771 15.7172 8.43771 15.4685C8.43771 15.2199 8.53649 14.9815 8.7123 14.8056C8.88812 14.6298 9.12657 14.531 9.37521 14.531H18.2815L15.7437 11.9126C15.5679 11.7368 15.4692 11.4984 15.4692 11.2498C15.4692 11.0012 15.5679 10.7628 15.7437 10.587Z" fill="white"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_78_217">
+            <rect width="30" height="30" fill="white" transform="matrix(-1 0 0 1 30 0)"/>
+            </clipPath>
+            </defs>
+            </svg>
+
+          </a>
+        </div>
+        <div class="testimonial-slider js-flickity" >
+          {% for block in section.blocks %}
+            <div class="carousel-cell">
+              <div class="testimonial-card">
+                <div class="image-wrapper">
+                  {% if block.settings.label %}
+                    <span class="label tagline">{{ block.settings.label }}</span>
+                  {% endif %}
+                  <img src="
+                  {% if block.settings.image_url != blank %}
+                    {{ block.settings.image_url }}
+                  {% else %}
+                    {{ block.settings.image | image_url: width: 600 }}
+                  {% endif %}
+                  " alt="testimonial image">
+                </div>
+                <div class="review">
+                    <svg width="98" height="16" viewBox="0 0 98 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.09662 12.5815L10.5384 14.6649C11.1687 15.0468 11.94 14.4823 11.7741 13.7685L10.8618 9.85066L13.9055 7.2111C14.4611 6.72967 14.1626 5.81662 13.4328 5.75851L9.42706 5.41819L7.85961 1.71617C7.57763 1.04383 6.6156 1.04383 6.33362 1.71617L4.76617 5.40989L0.760468 5.75021C0.0306503 5.80831 -0.267912 6.72137 0.287745 7.2028L3.33142 9.84236L2.41915 13.7602C2.25328 14.474 3.02456 15.0385 3.65486 14.6566L7.09662 12.5815Z" fill="#EDB200"/>
+                    <path d="M22.7983 12.5815L26.2401 14.6649C26.8704 15.0468 27.6417 14.4823 27.4758 13.7685L26.5635 9.85066L29.6072 7.2111C30.1629 6.72967 29.8643 5.81662 29.1345 5.75851L25.1288 5.41819L23.5613 1.71617C23.2794 1.04383 22.3173 1.04383 22.0353 1.71617L20.4679 5.40989L16.4622 5.75021C15.7324 5.80831 15.4338 6.72137 15.9895 7.2028L19.0331 9.84236L18.1209 13.7602C17.955 14.474 18.7263 15.0385 19.3566 14.6566L22.7983 12.5815Z" fill="#EDB200"/>
+                    <path d="M38.5 12.5815L41.9418 14.6649C42.5721 15.0468 43.3433 14.4823 43.1775 13.7685L42.2652 9.85066L45.3089 7.2111C45.8645 6.72967 45.566 5.81662 44.8361 5.75851L40.8304 5.41819L39.263 1.71617C38.981 1.04383 38.019 1.04383 37.737 1.71617L36.1696 5.40989L32.1638 5.75021C31.434 5.80831 31.1355 6.72137 31.6911 7.2028L34.7348 9.84236L33.8225 13.7602C33.6567 14.474 34.4279 15.0385 35.0582 14.6566L38.5 12.5815Z" fill="#EDB200"/>
+                    <path d="M54.2017 12.5815L57.6435 14.6649C58.2738 15.0468 59.0451 14.4823 58.8792 13.7685L57.9669 9.85066L61.0106 7.2111C61.5662 6.72967 61.2677 5.81662 60.5379 5.75851L56.5322 5.41819L54.9647 1.71617C54.6827 1.04383 53.7207 1.04383 53.4387 1.71617L51.8713 5.40989L47.8656 5.75021C47.1358 5.80831 46.8372 6.72137 47.3928 7.2028L50.4365 9.84236L49.5242 13.7602C49.3584 14.474 50.1297 15.0385 50.76 14.6566L54.2017 12.5815Z" fill="#EDB200"/>
+                    <path d="M69.9034 12.5815L73.3451 14.6649C73.9754 15.0468 74.7467 14.4823 74.5809 13.7685L73.6686 9.85066L76.7123 7.2111C77.2679 6.72967 76.9693 5.81662 76.2395 5.75851L72.2338 5.41819L70.6664 1.71617C70.3844 1.04383 69.4224 1.04383 69.1404 1.71617L67.5729 5.40989L63.5672 5.75021C62.8374 5.80831 62.5389 6.72137 63.0945 7.2028L66.1382 9.84236L65.2259 13.7602C65.06 14.474 65.8313 15.0385 66.4616 14.6566L69.9034 12.5815Z" fill="#EDB200"/>
+                    <path d="M87.6902 15.1051L86.3948 12.9396L83.9402 12.3983L84.1789 9.89453L82.5084 7.99979L84.1789 6.10506L83.9402 3.6013L86.3948 3.05994L87.6902 0.894531L90.0084 1.87573L92.3266 0.894531L93.6221 3.05994L96.0766 3.6013L95.838 6.10506L97.5084 7.99979L95.838 9.89453L96.0766 12.3983L93.6221 12.9396L92.3266 15.1051L90.0084 14.1239L87.6902 15.1051ZM89.2925 10.4021L93.1448 6.57874L92.1902 5.59754L89.2925 8.47348L87.8266 7.05243L86.8721 7.99979L89.2925 10.4021Z" fill="#007BFF"/>
+                    </svg>
+
+                  <p class="quote">{{ block.settings.quote }}</p>
+                  <p class="author"> {{ block.settings.author }}</p>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+          {% if section.settings.button_label and section.settings.button_url %}
+            <a href="{{ section.settings.button_url }}" class="button button--primary hide-desktop silder-mob-button">{{ section.settings.button_label }}</a>
+          {% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Flickity CSS -->
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+<!-- Flickity JS -->
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+
+<script>
+  // Initialize Flickity
+
+  let sliderAlignment = (window.matchMedia("(max-width: 749px)").matches)? 'center' : 'left' ;
+
+  var flkty = new Flickity('.testimonial-slider', {
+    cellAlign: sliderAlignment,
+    contain: true,
+    pageDots: false,
+    wrapAround: true,
+    autoPlay: 4000,
+    prevNextButtons: false,
+  });
+
+  // External Buttons
+  document.querySelector('.bb_button--prev').addEventListener('click', function () {
+    flkty.previous();
+  });
+
+  document.querySelector('.bb_button--next').addEventListener('click', function () {
+    flkty.next();
+  });
+</script>
+
+
+
+{% schema %}
+{
+  "name": "Customer Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "What Our Customers Say"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL",
+      "default": "/collections/all"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "image_url",
+          "label": "Image url",
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Image Label (e.g. Single Window)"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Testimonial Text",
+          "default": "This is a sample testimonial quote from a happy customer."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author Name",
+          "default": "Customer Name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials Slider",
+      "category": "Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

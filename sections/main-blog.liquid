@@ -1,0 +1,112 @@
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- paginate blog.articles by 9 -%}
+  <div class="main-blog section-{{ section.id }}-padding">
+    <div class="page-width">
+        <div class=" grid grid--1-col-tablet-down grid--3-col-desktop ">
+      {%- for article in blog.articles -%}
+
+          <div class="dawn-article-card grid__item">
+            <a href="{{ article.url }}" class="full-unstyled-link">
+                <div class="thumbnail">
+                    <span class="tag">Retractable Fly Screens & <br>Blockout Screens Insights</span>
+                    {% if article.image %}
+                      <img src="{{ article.image | img_url: '800x' }}" alt="{{ article.title | escape }}">
+                    {% else %}
+                      <img src="https://cdn.shopify.com/s/files/1/0081/5628/2932/files/default-blog-image.jpg?v=17479047193" alt="Default image">
+                    {% endif %}
+                </div>
+                <div class="article-content">
+                  <h3>{{ article.title }}</h3>
+                  <p>{{ article.content | strip_html | truncate: 150 }}</p>
+                  
+                  <span class="read-more">Continue Reading <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.3661 3.25061C10.3645 3.09285 10.3003 2.94094 10.1877 2.82828C10.075 2.71561 9.92308 2.65143 9.76532 2.64983L5.00568 2.60238C4.92668 2.60022 4.84835 2.61381 4.77527 2.64235C4.70219 2.6709 4.63581 2.71383 4.58002 2.76864C4.52423 2.82345 4.48014 2.88905 4.45032 2.9616C4.42049 3.03414 4.40554 3.1122 4.40633 3.19119C4.40712 3.27019 4.42363 3.34856 4.4549 3.42172C4.48618 3.49487 4.53159 3.56136 4.58848 3.61729C4.64538 3.67323 4.71262 3.71749 4.78629 3.7475C4.85995 3.77751 4.93856 3.79266 5.01754 3.79208L8.34096 3.82521L2.82535 9.34082C2.71489 9.45128 2.65372 9.60198 2.65529 9.75976C2.65687 9.91755 2.72106 10.0695 2.83374 10.1822C2.94643 10.2949 3.09838 10.3591 3.25616 10.3606C3.41395 10.3622 3.56465 10.301 3.67511 10.1906L9.19072 4.67497L9.22385 7.99839C9.22812 8.15439 9.29346 8.3037 9.40581 8.41415C9.51816 8.5246 9.66853 8.58737 9.82453 8.58892C9.98053 8.59048 10.1297 8.5307 10.2398 8.42247C10.35 8.31423 10.4124 8.1662 10.4136 8.01025L10.3661 3.25061Z" fill="#198A28"/></svg></span>
+                </div>
+              </a>
+            </div>
+      {%- endfor -%}
+    </div>
+
+      {%- if paginate.pages > 1 -%}
+        {%- render 'pagination', paginate: paginate -%}
+      {%- endif -%}
+    </div>
+
+
+
+  </div>
+{%- endpaginate -%}
+
+{% schema %}
+{
+  "name": "t:sections.main-blog.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "image_height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.main-blog.settings.image_height.options__1.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.main-blog.settings.image_height.options__2.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.main-blog.settings.image_height.options__3.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.main-blog.settings.image_height.options__4.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.main-blog.settings.image_height.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

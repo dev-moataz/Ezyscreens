@@ -1,0 +1,53 @@
+{% doc %}
+  @prompt
+    just a small space to separate the two sections
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-spacer-{{ ai_gen_id }} {
+    width: 100%;
+    height: {{ block.settings.space_desktop }}px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-spacer-{{ ai_gen_id }} {
+      height: {{ block.settings.space_mobile }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-spacer-{{ ai_gen_id }}" {{ block.shopify_attributes }}></div>
+
+{% schema %}
+{
+  "name": "Spacer",
+  "settings": [
+    {
+      "type": "range",
+      "id": "space_desktop",
+      "min": 10,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Space on desktop",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "space_mobile",
+      "min": 10,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Space on mobile",
+      "default": 30
+    }
+  ],
+  "presets": [
+    {
+      "name": "Spacer"
+    }
+  ]
+}
+{% endschema %}

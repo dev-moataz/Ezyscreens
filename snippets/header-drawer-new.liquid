@@ -1,0 +1,113 @@
+{% comment %}
+  Renders a header drawer menu for mobile and desktop.
+
+  Usage:
+  {% render 'header-drawer' %}
+{% endcomment %}
+
+<header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
+  <details id="Details-menu-drawer-container" class="menu-drawer-container">
+    <summary
+      class="header__icon header__icon--menu header__icon--summary link focus-inset"
+      aria-label="{{ 'sections.header.menu' | t }}"
+    >
+      <span>
+        {{- 'icon-hamburger.svg' | inline_asset_content -}}
+        {{- 'icon-close.svg' | inline_asset_content -}}
+      </span>
+    </summary>
+    <div id="menu-drawer" class="gradient menu-drawer motion-reduce color-{{ section.settings.menu_color_scheme }}">
+      <div class="menu-drawer__inner-container">
+        <div class="menu-drawer__navigation-container">
+          <nav class="menu-drawer__navigation">
+    <div class="page-width">
+
+    <ul class="products-list"style="list-style: none; padding: 0; margin: 0;">
+    {% for block in section.blocks %}
+    <li style="">
+      <a href="{{block.settings.product.url}} " class="product-link" style="text-decoration: none; color: black; font-size: 17px;">
+        {{block.settings.product.title}} 
+          <svg width="11" height="9" viewBox="0 0 11 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.4334 4.33661C10.5461 4.44929 10.6094 4.6021 10.6094 4.76143C10.6094 4.92076 10.5461 5.07357 10.4334 5.18625L7.03432 8.58538C6.97889 8.64276 6.91259 8.68854 6.83928 8.72003C6.76597 8.75152 6.68712 8.7681 6.60734 8.76879C6.52756 8.76948 6.44844 8.75428 6.37459 8.72407C6.30075 8.69386 6.23366 8.64924 6.17724 8.59282C6.12082 8.53641 6.07621 8.46932 6.04599 8.39547C6.01578 8.32163 6.00058 8.2425 6.00127 8.16272C6.00196 8.08294 6.01854 8.00409 6.05003 7.93078C6.08152 7.85747 6.1273 7.79117 6.18469 7.73574L8.55813 5.3623H0.600791C0.44143 5.3623 0.288595 5.299 0.17591 5.18631C0.0632248 5.07363 -8.01086e-05 4.92079 -8.01086e-05 4.76143C-8.01086e-05 4.60207 0.0632248 4.44924 0.17591 4.33655C0.288595 4.22387 0.44143 4.16056 0.600791 4.16056L8.55813 4.16056L6.18469 1.78712C6.07523 1.67379 6.01467 1.52201 6.01604 1.36446C6.01741 1.20692 6.0806 1.05621 6.19201 0.944805C6.30341 0.833399 6.45412 0.770205 6.61167 0.768836C6.76921 0.767467 6.92099 0.828032 7.03432 0.937485L10.4334 4.33661Z" fill="#198A28"/>
+          </svg>
+      </a>
+    </li>
+    {% endfor %}
+    </ul>
+
+  {%- for link in section.settings.menu.links -%}
+      <ul
+        class=" dawn_menu_list {% if link.levels == 1 %} dawn_menu_list--condensed{% endif %}"
+        role="list"
+        
+      >
+        {%- for childlink in link.links -%}
+          <li>
+            <a
+              id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+              href="{{ childlink.url }}"
+              class="dawn_menu_link dawn_menu_link--level-2 link{% if childlink.current %} dawn_menu_link--active{% endif %}"
+              {% if childlink.current %}
+                aria-current="page"
+              {% endif %}
+            >
+
+              {{ childlink.title | escape }} 
+              <svg width="11" height="9" viewBox="0 0 11 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.4334 4.33661C10.5461 4.44929 10.6094 4.6021 10.6094 4.76143C10.6094 4.92076 10.5461 5.07357 10.4334 5.18625L7.03432 8.58538C6.97889 8.64276 6.91259 8.68854 6.83928 8.72003C6.76597 8.75152 6.68712 8.7681 6.60734 8.76879C6.52756 8.76948 6.44844 8.75428 6.37459 8.72407C6.30075 8.69386 6.23366 8.64924 6.17724 8.59282C6.12082 8.53641 6.07621 8.46932 6.04599 8.39547C6.01578 8.32163 6.00058 8.2425 6.00127 8.16272C6.00196 8.08294 6.01854 8.00409 6.05003 7.93078C6.08152 7.85747 6.1273 7.79117 6.18469 7.73574L8.55813 5.3623H0.600791C0.44143 5.3623 0.288595 5.299 0.17591 5.18631C0.0632248 5.07363 -8.01086e-05 4.92079 -8.01086e-05 4.76143C-8.01086e-05 4.60207 0.0632248 4.44924 0.17591 4.33655C0.288595 4.22387 0.44143 4.16056 0.600791 4.16056L8.55813 4.16056L6.18469 1.78712C6.07523 1.67379 6.01467 1.52201 6.01604 1.36446C6.01741 1.20692 6.0806 1.05621 6.19201 0.944805C6.30341 0.833399 6.45412 0.770205 6.61167 0.768836C6.76921 0.767467 6.92099 0.828032 7.03432 0.937485L10.4334 4.33661Z" fill="#198A28"/>
+              </svg>
+
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {% endfor %}
+
+    <div class="contact-icons ">
+  {% if settings.phone_text %}
+    <div class="contact-item">
+        <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect y="0.268799" width="20" height="20" rx="3.2" fill="#198A28"/>
+          <path d="M12.2398 11.8382C10.7496 13.4062 6.94839 9.63922 8.44422 8.06499C9.35765 7.10364 8.326 6.00541 7.75479 5.19714C6.68269 3.68201 4.33005 5.77394 4.40098 7.10489C4.62685 11.3024 9.16725 16.2765 13.5639 15.8422C14.939 15.7066 16.5195 13.2226 14.9415 12.3148C14.1532 11.8606 13.0699 10.9646 12.2398 11.8376" stroke="#F8F8F8" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+      <a href="tel:{{ settings.phone_link }}" class="full-unstyled-link contact-link">
+        {{ settings.phone_text }}
+      </a>
+    </div>
+  {% endif %}
+
+  {% if settings.email_text %}
+    <div class="contact-item">
+        <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect y="0.268799" width="20" height="20" rx="3.2" fill="#198A28"/>
+        <path d="M14.9782 5.91324H5.02261C4.67897 5.91324 4.40039 6.19182 4.40039 6.53546V14.0021C4.40039 14.3458 4.67897 14.6243 5.02261 14.6243H14.9782C15.3218 14.6243 15.6004 14.3458 15.6004 14.0021V6.53546C15.6004 6.19182 15.3218 5.91324 14.9782 5.91324Z" stroke="#F8F8F8" stroke-width="0.8" stroke-linecap="round"/>
+        <path d="M4.40039 6.84656L10.0004 10.2688L15.6004 6.84656" stroke="#F8F8F8" stroke-width="0.8" stroke-linecap="round"/>
+        </svg>
+      <a href="{{ settings.email_link }}" class="full-unstyled-link contact-link">
+        {{ settings.email_text }}
+      </a>
+    </div>
+  {% endif %}
+
+  {% if settings.location_text %}
+    <div class="contact-item">
+          <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect y="0.268799" width="20" height="20" rx="3.2" fill="#198A28"/>
+          <path d="M10.3733 16.1489C10.2645 16.227 10.134 16.2691 10 16.2691C9.86604 16.2691 9.73546 16.227 9.62666 16.1489C6.40723 13.8542 2.99046 9.13403 6.44456 5.72326C7.39282 4.79047 8.66985 4.26797 10 4.26856C11.3334 4.26856 12.6127 4.7919 13.5554 5.7226C17.0095 9.13336 13.5928 13.8528 10.3733 16.1489Z" stroke="white" stroke-width="1.00003" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10.0004 10.2687C10.354 10.2687 10.6931 10.1283 10.9432 9.8782C11.1933 9.62814 11.3337 9.28899 11.3337 8.93536C11.3337 8.58173 11.1933 8.24258 10.9432 7.99253C10.6931 7.74247 10.354 7.60199 10.0004 7.60199C9.64673 7.60199 9.30758 7.74247 9.05753 7.99253C8.80747 8.24258 8.66699 8.58173 8.66699 8.93536C8.66699 9.28899 8.80747 9.62814 9.05753 9.8782C9.30758 10.1283 9.64673 10.2687 10.0004 10.2687Z" stroke="white" stroke-width="1.00003" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+      <span>
+        {{ settings.location_text }}
+      </span>
+    </div>
+  {% endif %}
+</div>
+
+    </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </details>
+</header-drawer>

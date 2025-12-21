@@ -1,0 +1,534 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "video_7Vh9cT": {
+      "type": "video",
+      "name": "hero (Image/video)",
+      "settings": {
+        "subheading": "OUR PRODUCTS",
+        "heading": "Fly Screens For Magnetic Windows",
+        "description": "Keep the breeze in and the bugs out with Ezy Screens’ magnetic fly screens for windows: the smart, stylish solution for every Australian home. Enjoy uninterrupted airflow and natural light without the hassle of buzzing insects. Designed for simple DIY installation, these screens drill securely into place in minutes—no trades required, just your toolkit and clear instructions. Order online with confidence and enjoy fast nationwide delivery for a home that feels fresher, brighter, and blissfully bug-free.",
+        "button_text": "",
+        "button_link": "",
+        "show_phone": true,
+        "show_email": false,
+        "enable_video_looping": false,
+        "cover_image": "shopify://shop_images/022.jpg",
+        "video_description": "",
+        "full_width": true,
+        "color_scheme": "scheme-2",
+        "add_overlay": true,
+        "overlay_opacity": 25,
+        "show_rating": false,
+        "center_content": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "scrolling_text_jAaRBj": {
+      "type": "scrolling-text",
+      "name": "Scrolling Benefits Bar",
+      "settings": {
+        "benefits_text": "Natural Ventilation, Insect And UV Protection, Uninterrupted Views, Temperature Control, Easy To Install, Darkness On Demand, Natural Ventilation, Insect And UV Protection, Uninterrupted Views, Temperature Control, Easy To Install, Darkness On Demand, Natural Ventilation, Insect And UV Protection, Uninterrupted Views, Temperature Control, Easy To Install, Darkness On Demand",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_Tk7UWm": {
+      "type": "rich-text",
+      "blocks": {
+        "text_KDiFHg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>PREMIUM RETRACTABLE SCREENS</p>"
+          }
+        },
+        "heading_TcGcCX": {
+          "type": "heading",
+          "settings": {
+            "heading": "Choose Your Screen",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "text_KDiFHg",
+        "heading_TcGcCX"
+      ],
+      "custom_css": [
+        ".rich-text__text {font-weight: 600; font-size: 16px; line-height: 1; text-transform: uppercase; margin-bottom: 15px !important; margin: 0; color: #198a28;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 56,
+        "padding_bottom": 0
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 3,
+        "columns_mobile": "1",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "enable_filtering": false,
+        "filter_type": "horizontal",
+        "enable_sorting": false,
+        "padding_top": 16,
+        "padding_bottom": 68,
+        "include_featured_card": true,
+        "tagline": "EZY SCREEN GUIDES",
+        "title": "How To Measure and Installation Guides",
+        "bullet_1": "Detailed Installation Videos and Manuals",
+        "bullet_2": "Specific Steps to Measure Your Future Screen",
+        "link_label_blue": "HOW TO MEASURE",
+        "link_label_green": "INSTALLATION VIDEOS",
+        "link_url_green": "shopify://pages/diy-manuals-page"
+      }
+    },
+    "image_with_text_collection": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption_YGgYcW": {
+          "type": "caption",
+          "settings": {
+            "caption": "",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium",
+            "color": "#198a28"
+          }
+        },
+        "heading_UMG4Md": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why Choose Our Fly Screens for Magnetic Windows",
+            "heading_size": "h2"
+          }
+        },
+        "text_XbtJJh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Forget clunky frames or messy drilling. Ezy Screens’ magnetic fly screens attach seamlessly to your existing window frames, creating a smooth, secure fit with a slim 35mm unobstructed depth requirement. Perfect for modern homes and apartments, their low-profile design blends effortlessly with any interior style.</p><p><br/>Built for Australian conditions, our cassettes are crafted from strong aluminium that won’t rust; a step above the plastic alternatives. The UV-protected fibreglass mesh stands up to years of sunlight without fading or tearing, giving you lasting value. Whether you own or rent, these magnetic window fly screens are the perfect, removable option for every space: affordable, effective, and easy to love.<br/></p><h2></h2>",
+            "text_style": "body"
+          }
+        },
+        "button_XDKhmC": {
+          "type": "button",
+          "settings": {
+            "button_label": "CHOOSE YOUR SCREEN",
+            "button_link": "shopify://collections/ezyscreens-products",
+            "button_style_secondary": false,
+            "button_label_22": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_YGgYcW",
+        "heading_UMG4Md",
+        "text_XbtJJh",
+        "button_XDKhmC"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Image-Slider-_1.jpg",
+        "mobile_image": "shopify://shop_images/Slider-_1.jpg",
+        "height": "small",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-3",
+        "color_scheme": "scheme-3",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "multirow_iXxEAB": {
+      "type": "multirow",
+      "blocks": {
+        "row_i4UEa3": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/op2.jpg",
+            "caption": "",
+            "heading": "Quick and Easy DIY Installation",
+            "text": "<p>Installing your magnetic fly screen is a straightforward DIY project that requires just a few basic tools. Each screen comes with detailed instructions to guide you through the simple process of drilling the frame into place for a secure, long-lasting fit.Once installed, the magnetic system allows the mesh panel to attach and detach easily for cleaning or seasonal changes—no hassle, no damage to your windows. It’s a practical, durable solution designed for everyday convenience.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_DMK9Xa": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/IMG_5464_f665d2dd-9b0c-4553-849f-148235980d1d.jpg",
+            "caption": "",
+            "heading": "Shop Online with Confidence",
+            "text": "<p>With Ezy Screens, upgrading your windows is just a few clicks away. Our online store makes it simple to measure, select, and order the right magnetic fly screens for your home. Choose your size, add to cart, and pay securely—all from the comfort of your couch.</p><p>We provide clear, step-by-step guides and helpful resources to ensure you get the perfect fit. Plus, with reliable Australia-wide delivery, your new screens will arrive quickly and safely, ready to install the moment they land on your doorstep.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_6WJaRF": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/IMG_1574.jpg",
+            "caption": "",
+            "heading": "Hassle-Free Maintenance and Long-Lasting Quality",
+            "text": "<p>Ezy Screens are designed to last. The tough aluminium cassettes resist corrosion, while the UV-stable fibreglass mesh keeps its strength and shape year after year. Cleaning is simple. Just remove the screen, wipe with a damp cloth or gently rinse, and reinstall in seconds.</p><p>These magnetic fly screens are built for busy homes that value fresh air and long-term durability. With minimal upkeep, they’ll keep your windows clear, your home airy, and the insects out for seasons to come.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_i4UEa3",
+        "row_DMK9Xa",
+        "row_6WJaRF"
+      ],
+      "name": "t:sections.multirow.presets.name",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "176525676421f94fe9": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_a1188a5_b9NhVH": {
+          "type": "ai_gen_block_a1188a5",
+          "settings": {
+            "space_desktop": 50,
+            "space_mobile": 30
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_a1188a5_b9NhVH"
+      ],
+      "settings": {}
+    },
+    "testimonial_slider_collection": {
+      "type": "testimonial-slider",
+      "blocks": {
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/happy_with_our_door.jpg",
+            "image_url": "",
+            "label": "",
+            "quote": "We are incredibly happy with our door and the service we received, it wasn’t a run of the mill installation but the technician handled it with ease and did a terrific job. We absolutely love our big front door and it’s awesome that we don’t have to cover it with an ugly screen to keep the critters out. We highly recommend EZY Screens. It’s all in the name!!",
+            "author": "Melanie McBeach"
+          }
+        },
+        "testimonial_4": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Very_impressed_w.jpg",
+            "image_url": "",
+            "label": "",
+            "quote": "Very impressed with the service and final product of EzyScreens!\nAlex was a professional at the install and took his time to make sure everything looked good and worked properly!\nWould highly recommend Alex and his service to friends and family.",
+            "author": "jason cooke"
+          }
+        },
+        "testimonial_5": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/We_had_a_screen_i.png",
+            "image_url": "",
+            "label": "",
+            "quote": "We had a screen installed to our kitchen bifold window and it's been amazing, we use it every day. It's really opened up the space and let's so much air in. It looks great, blending in with the frame and you don't even notice its there. We are still getting used to how to open and close it, can be a little fiddly but we love it. Affordable and great customer service/install experience. Thank you",
+            "author": "Sarah Clancy"
+          }
+        },
+        "testimonial_6": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/What_a_fantastic_product_and_an_awesome_team_to_deal_with..jpg",
+            "image_url": "",
+            "label": "",
+            "quote": "What a fantastic product and an awesome team to deal with.\nThank you to Claire ❤️ for your prompt responses to all the questions I asked and your excellent customer service, also the fast delivery of my order and easy to follow installation videos on their website.\nLooking forward to giving you more custom in the very near future. 10/10👍",
+            "author": "Kevin Craggs"
+          }
+        },
+        "testimonial_9": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Single_door_install_very_happy.jpg",
+            "image_url": "",
+            "label": "",
+            "quote": "Single door install, very happy with product, installation and result. Highly recommend.",
+            "author": "Woody Putaka"
+          }
+        },
+        "testimonial_10": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/I_recently_had_Ezy_Screens.jpg",
+            "image_url": "",
+            "label": "",
+            "quote": "I recently had Ezy Screens install screens at my home, and I couldn’t be more impressed. The quality of the screens is outstanding, and they look amazing. The team was professional, efficient, and paid attention to every detail, making sure everything was perfect. From start to finish, the service was exceptional, and I’m extremely happy with the result. Highly recommend Ezy Screens for anyone looking for top-quality work. Five stars all the way!",
+            "author": "Rena"
+          }
+        },
+        "testimonial_11": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/The_retractable_screen_was_modern.jpg",
+            "image_url": "",
+            "label": "",
+            "quote": "The retractable screen was modern looking and had no gaps for any spiders to get in compared to other sliding doors I've used. It is also very easy to open, compared to a sliding door. I wish I'd got it sooner.l!",
+            "author": "Invisible Things"
+          }
+        },
+        "testimonial_12": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/So_pleased_I_found_this_product..jpg",
+            "image_url": "",
+            "label": "",
+            "quote": "So pleased I found this product.  Much cheaper than other options we looked at, and the quality is superb.  Installation was easier than I expected and looks good.",
+            "author": "David Condie"
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Have_just_installed_our_retractable_Ezy_Screen_for_the_strut_window_in_our_bar_area._We_took.jpg",
+            "image_url": "",
+            "label": "",
+            "quote": "Have just installed our retractable Ezy Screen for the strut window in our bar area. We took advantage of the pre cut service that takes away all concerns of having to make the adjustments yourself. The handy installation videos helped make the self install a breeze. The finished product looks fantastic & the bar is now bug free.\nWonderful communication & support as well as exceptionally fast delivery. Highly recommended!!",
+            "author": "Bob Wood"
+          }
+        },
+        "testimonial_13": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Easy_ordering_and_even_was_able_to_select_to_have_it_cut_to_size..jpg",
+            "image_url": "",
+            "label": "",
+            "quote": "Easy ordering and even was able to select to have it cut to size.\nInstallation was so simple. Was done in 20 minutes and looks like perfection.\nCouldn't be happier",
+            "author": "Tamara Hearfield"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_3",
+        "testimonial_4",
+        "testimonial_5",
+        "testimonial_6",
+        "testimonial_9",
+        "testimonial_10",
+        "testimonial_11",
+        "testimonial_12",
+        "testimonial_2",
+        "testimonial_13"
+      ],
+      "settings": {
+        "heading": "What Our Customers Say",
+        "button_label": "SHOP NOW",
+        "button_url": "shopify://collections/ezyscreens-products"
+      }
+    },
+    "collapsible_content_collection": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_8UEczY": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What types of windows are magnetic fly screens suitable for?",
+            "icon": "none",
+            "row_content": "<p>Ezy Screens fit most common window styles, including awning, casement, sash, and sliding windows. Their slim 35mm depth requirement makes them ideal for both new and older homes.<br/></p><h3></h3>",
+            "page": "",
+            "show_in_products": ""
+          }
+        },
+        "collapsible_row_LXcbWd": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I install a magnetic fly screen on my window?",
+            "icon": "none",
+            "row_content": "<p>Simply measure your window, cut the frame to size, apply the magnetic strips, and click the screen into place. No drilling or tools needed; just an easy DIY fit in minutes.</p>",
+            "page": "",
+            "show_in_products": ""
+          }
+        },
+        "collapsible_row_YBDqQx": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are magnetic fly screens secure and durable?",
+            "icon": "none",
+            "row_content": "<p>Absolutely. The aluminium cassette won’t rust, the mesh is UV-protected fibreglass, and the strong magnets ensure a snug, secure hold that lasts for years.</p>",
+            "page": "",
+            "show_in_products": ""
+          }
+        },
+        "collapsible_row_imncQe": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I clean and maintain magnetic fly screens?",
+            "icon": "none",
+            "row_content": "<p>Remove the screen, wipe or hose it down with mild soapy water, let it dry, and reattach. Regular cleaning helps keep your screens looking new and performing perfectly.</p>",
+            "page": "",
+            "show_in_products": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_8UEczY",
+        "collapsible_row_LXcbWd",
+        "collapsible_row_YBDqQx",
+        "collapsible_row_imncQe"
+      ],
+      "settings": {
+        "caption": "FREQUENTLY ASKED QUESTIONS",
+        "heading": "FAQs",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "scheme-3",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 72,
+        "padding_bottom": 60
+      }
+    },
+    "instagram_gallery_collection": {
+      "type": "instagram-gallery",
+      "blocks": {
+        "image_EJDFmH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_3579.jpg"
+          }
+        },
+        "image_P874aQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_2425.jpg"
+          }
+        },
+        "image_ntzPFe": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_9691.jpg"
+          }
+        },
+        "image_i8KDmq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/BLKOUT_draft_3_small_edits.webp"
+          }
+        }
+      },
+      "block_order": [
+        "image_EJDFmH",
+        "image_P874aQ",
+        "image_ntzPFe",
+        "image_i8KDmq"
+      ],
+      "settings": {
+        "handle": "ezyscreens",
+        "heading": "Follow Us on Instagram",
+        "image_shape": "square"
+      }
+    },
+    "text_n_icons_collection": {
+      "type": "text-n-icons",
+      "blocks": {
+        "feature_DhCLQb": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/Vector_5.png",
+            "text": "Fast Turn Around"
+          }
+        },
+        "feature_X7ftw8": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_1.png",
+            "text": "Easy 30 Days Return"
+          }
+        },
+        "feature_ePxbVC": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/Icon.png",
+            "text": "Australia Wide Shipping"
+          }
+        }
+      },
+      "block_order": [
+        "feature_DhCLQb",
+        "feature_X7ftw8",
+        "feature_ePxbVC"
+      ],
+      "settings": {
+        "heading": "Upgrade Your Home Today",
+        "subheading": "Transform your home with our reliable and stylish solutions. Get in touch with us now to find the perfect fit for your needs!",
+        "color_scheme": "scheme-2",
+        "button_text": "OUR SCREENS",
+        "button_link": "shopify://collections/ezyscreens-products"
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "video_7Vh9cT",
+    "scrolling_text_jAaRBj",
+    "rich_text_Tk7UWm",
+    "product-grid",
+    "image_with_text_collection",
+    "multirow_iXxEAB",
+    "176525676421f94fe9",
+    "testimonial_slider_collection",
+    "collapsible_content_collection",
+    "instagram_gallery_collection",
+    "text_n_icons_collection"
+  ]
+}

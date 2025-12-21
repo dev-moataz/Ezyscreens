@@ -1,0 +1,341 @@
+<!-- custom-header.liquid -->
+<header class="custom-header transparent" data-section-id="{{ section.id }}">
+  <div class="header-inner">
+    <!-- Logo -->
+    <div class="logo-wrapper">
+      <a href="{{ routes.root_url }}">
+        {% if section.settings.logo %}
+          <img src="{{ section.settings.logo | img_url: '300x' }}" alt="Logo" class="logo">
+        {% else %}
+          <h1>{{ shop.name }}</h1>
+        {% endif %}
+      </a>
+    </div>
+
+    <!-- Desktop Mega Menu Trigger -->
+    <nav class="desktop-nav">
+      <button class="mega-toggle">☰</button>
+    </nav>
+
+    <!-- Header Icons -->
+    <div class="header-icons">
+      <a href="/account" class="icon">👤</a>
+      <a href="/cart" class="icon cart-icon">🛒<span class="cart-count">{{ cart.item_count }}</span></a>
+    </div>
+  </div>
+
+  <!-- Mega Menu -->
+  <div class="mega-menu hidden">
+    <div class="mega-left">
+      <ul class="menu-links">
+        {% for block in section.blocks %}
+          {% if block.type == 'link' %}
+            <li><a href="{{ block.settings.url }}">{{ block.settings.label }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+
+      <div class="contact-info">
+        {% if section.settings.phone %}
+          <p>📞 <a href="tel:{{ section.settings.phone }}">{{ section.settings.phone }}</a></p>
+        {% endif %}
+        {% if section.settings.email %}
+          <p>✉️ <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></p>
+        {% endif %}
+        {% if section.settings.location %}
+          <p>📍 {{ section.settings.location }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="mega-right">
+      <div class="products">
+        {% for block in section.blocks %}
+          {% if block.type == 'product' %}
+            <div class="product-tile">
+              {% if block.settings.image %}
+                <div class="image">
+                  <img src="{{ block.settings.image | img_url: '300x' }}" alt="{{ block.settings.title }}">
+                  {% if block.settings.price %}
+                    <span class="badge">Starting at ${{ block.settings.price }}</span>
+                  {% endif %}
+                </div>
+              {% endif %}
+              <div class="product-info">
+                <h4>{{ block.settings.title }}</h4>
+                <p>{{ block.settings.subtitle }}</p>
+                <a href="{{ block.settings.url }}" class="learn-more">Learn More →</a>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <button class="close-mega">✕</button>
+  </div>
+</header>
+
+<style>
+  .custom-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+  .custom-header.transparent {
+    background: transparent;
+  }
+  .custom-header.sticky,
+  .custom-header.menu-open {
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+
+  .logo img {
+    max-height: 50px;
+  }
+
+  .header-icons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .cart-count {
+    background: green;
+    color: white;
+    border-radius: 50%;
+    padding: 0 0.4em;
+    font-size: 0.75em;
+    margin-left: 0.2em;
+  }
+
+  .mega-menu {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0; right: 0;
+    padding: 2rem;
+    z-index: 999;
+  }
+  .mega-menu.hidden {
+    display: none;
+  }
+
+  .mega-left {
+    flex: 1;
+    max-width: 25%;
+  }
+  .menu-links {
+    list-style: none;
+    padding: 0;
+  }
+  .menu-links li a {
+    display: block;
+    padding: 0.5rem 0;
+    color: #000;
+    font-weight: 500;
+  }
+
+  .contact-info p {
+    margin: 1rem 0 0;
+    font-size: 0.9rem;
+  }
+
+  .mega-right {
+    flex: 3;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-left: 2rem;
+  }
+
+  .product-tile {
+    width: calc(50% - 1rem);
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    position: relative;
+  }
+
+  .product-tile img {
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  .badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: #000;
+    color: #fff;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 4px;
+  }
+
+  .learn-more {
+    color: green;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 0.5rem;
+    display: inline-block;
+  }
+
+  .close-mega {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .mega-menu {
+      flex-direction: column;
+      padding: 1.5rem;
+    }
+
+    .mega-left,
+    .mega-right {
+      max-width: 100%;
+      flex: 1 1 100%;
+    }
+
+    .product-tile {
+      width: 100%;
+    }
+
+    .desktop-nav {
+      display: block;
+    }
+
+    .mega-toggle {
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('.custom-header');
+    const megaMenu = document.querySelector('.mega-menu');
+    const toggle = document.querySelector('.mega-toggle');
+    const close = document.querySelector('.close-mega');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        header.classList.add('sticky');
+      } else {
+        header.classList.remove('sticky');
+      }
+    });
+
+    toggle.addEventListener('click', () => {
+      megaMenu.classList.remove('hidden');
+      header.classList.add('menu-open');
+    });
+
+    close.addEventListener('click', () => {
+      megaMenu.classList.add('hidden');
+      header.classList.remove('menu-open');
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Custom Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email"
+    },
+    {
+      "type": "text",
+      "id": "location",
+      "label": "Location"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Menu Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Link label"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link URL"
+        }
+      ]
+    },
+    {
+      "type": "product",
+      "name": "Product Tile",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Product Title"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Product Description"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Learn More URL"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Starting Price"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 16,
+  "presets": [
+    {
+      "name": "Mega Menu Header"
+    }
+  ]
+}
+{% endschema %}

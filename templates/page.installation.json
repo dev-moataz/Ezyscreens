@@ -1,0 +1,707 @@
+{
+  "sections": {
+    "video_LBX6Yt": {
+      "type": "video",
+      "custom_css": [],
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "subheading": "",
+        "heading": "️ Ezy Screens Installation Services",
+        "description": "DIY-friendly, but even easier installed for you.",
+        "button_text": "",
+        "button_link": "",
+        "show_phone": true,
+        "show_email": true,
+        "enable_video_looping": false,
+        "cover_image": "shopify:\/\/shop_images\/33_ad0f6bfd-ef32-4260-a948-6abf36475aa1.jpg",
+        "video_description": "",
+        "full_width": true,
+        "color_scheme": "scheme-2",
+        "add_overlay": true,
+        "show_rating": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_BPkkne": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_6mrhGJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Retractable Fly Screens & Blockout Screens — Professionally Installed",
+            "heading_size": "h3"
+          }
+        },
+        "text_jrPpFb": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Enjoy the comfort, luxury, and convenience of Ezy Screens — without lifting a finger. Whether you’re in South East Queensland or elsewhere in Australia, we’ve got you covered.<\/p><p><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_6mrhGJ",
+        "text_jrPpFb"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_JBNxBw": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_UVGhxW": {
+          "type": "heading",
+          "settings": {
+            "heading": "Professional Installation in SEQ",
+            "heading_size": "h3"
+          }
+        },
+        "text_gHHy9a": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our trusted in-house team services South East Queensland with expert installation of our premium retractable screens. Quick, clean, and guaranteed for quality.<\/p>"
+          }
+        },
+        "button_cy6VwG": {
+          "type": "button",
+          "settings": {
+            "button_label": "Ezy Screens Installation",
+            "button_link": "shopify:\/\/pages\/contact-us-page",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_UVGhxW",
+        "text_gHHy9a",
+        "button_cy6VwG"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 56
+      }
+    },
+    "image_with_text_basic_p8xbjp": {
+      "type": "image-with-text-basic",
+      "blocks": {
+        "heading_pBJgVN": {
+          "type": "heading",
+          "settings": {
+            "heading": "Retractable Fly Screens & Blockout Screens — Professionally Installed",
+            "heading_size": "h3"
+          }
+        },
+        "text_TDEmn6": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Enjoy the comfort, luxury, and convenience of Ezy Screens — without lifting a finger. Whether you’re in South East Queensland or elsewhere in Australia, we’ve got you covered.<\/p><p><\/p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_pBJgVN",
+        "text_TDEmn6"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/unnamed_1.jpg",
+        "height": "small",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 88,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_basic_Xja9L4": {
+      "type": "image-with-text-basic",
+      "blocks": {
+        "heading_reVaJ8": {
+          "type": "heading",
+          "settings": {
+            "heading": "Professional Installation in SEQ",
+            "heading_size": "h3"
+          }
+        },
+        "text_YAXDQi": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our trusted in-house team services South East Queensland with expert installation of our premium retractable screens. Quick, clean, and guaranteed for quality.<\/p>",
+            "text_style": "body"
+          }
+        },
+        "button_JNz8bG": {
+          "type": "button",
+          "settings": {
+            "button_label": "Ezy Screens Installation",
+            "button_link": "shopify:\/\/pages\/contact-us-page",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_reVaJ8",
+        "text_YAXDQi",
+        "button_JNz8bG"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/33.jpg",
+        "height": "small",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "rich_text_XLg4N6": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_PHfDLA": {
+          "type": "heading",
+          "settings": {
+            "heading": " Australia-Wide Installation",
+            "heading_size": "h3"
+          }
+        },
+        "text_9kpEdg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Not in SEQ? No worries. We’ve partnered with Airtasker to offer nationwide installation via their reliable local experts.<\/p><p>Just click the link, post your install job, and enjoy your new screens — stress-free.<\/p><p><\/p>"
+          }
+        },
+        "button_ph4kLU": {
+          "type": "button",
+          "settings": {
+            "button_label": " Airtasker Installation",
+            "button_link": "https:\/\/www.airtasker.com\/au\/lp\/partners\/ezy-screens\/?utm_source=ezy-screens&utm_medium=referral&utm_campaign=partnership-au",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_PHfDLA",
+        "text_9kpEdg",
+        "button_ph4kLU"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "image_with_text_basic_CJjAWV": {
+      "type": "image-with-text-basic",
+      "blocks": {
+        "heading_Lg4pVj": {
+          "type": "heading",
+          "settings": {
+            "heading": " Australia-Wide Installation",
+            "heading_size": "h3"
+          }
+        },
+        "text_n9qzR8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Not in SEQ? No worries. We’ve partnered with Airtasker to offer nationwide installation via their reliable local experts.<\/p><p>Just click the link, post your install job, and enjoy your new screens — stress-free.<\/p><p><\/p>",
+            "text_style": "body"
+          }
+        },
+        "button_iQTeMM": {
+          "type": "button",
+          "settings": {
+            "button_label": " Airtasker Installation",
+            "button_link": "https:\/\/www.airtasker.com\/au\/lp\/partners\/ezy-screens\/?utm_source=ezy-screens&utm_medium=referral&utm_campaign=partnership-au",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_Lg4pVj",
+        "text_n9qzR8",
+        "button_iQTeMM"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/D0B4141B-1DD6-4C02-824F-A8EB3841825F.jpg",
+        "height": "small",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 100
+      }
+    },
+    "multicolumn_2_GAHyzA": {
+      "type": "multicolumn-2",
+      "blocks": {
+        "column_TpywjX": {
+          "type": "column",
+          "settings": {
+            "title": "<a href=\"\/collections\/ezyscreens-products\" title=\"Ezyscreens Products\">Retractable Fly Screens<\/a>",
+            "text": "<p>Keep bugs out, enjoy the breeze<\/p>",
+            "link_label": "",
+            "link": "shopify:\/\/collections\/ezyscreens-products"
+          }
+        },
+        "column_9CxxqP": {
+          "type": "column",
+          "settings": {
+            "title": "<a href=\"\/products\/retractable-blockout-screen\" title=\"Blockout Window Screen\">Retractable Blockout Screens<\/a>",
+            "text": "<p>Sleep easy with total darkness on demand<\/p>",
+            "link_label": "",
+            "link": "shopify:\/\/products\/retractable-blockout-screen"
+          }
+        }
+      },
+      "block_order": [
+        "column_TpywjX",
+        "column_9CxxqP"
+      ],
+      "custom_css": [
+        ".multicolumn-list {justify-content: center;}",
+        ".title-wrapper-with-link {justify-content: center;}",
+        ".multicolumn-list__item {max-width: 400px; border-radius: 10px; overflow: hidden;}",
+        ".multicolumn-card {background: #ffffff;}",
+        ".multicolumn-card__info {padding: 2rem 1.5rem;}"
+      ],
+      "name": "multicolumn 2",
+      "settings": {
+        "caption": "",
+        "title": "Choose Your Screen Style",
+        "heading_size": "h2-med",
+        "image_width": "full",
+        "image_ratio": "square",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 2,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "color_scheme": "scheme-3",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "rich_text_pg7kEp": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Lty8W3": {
+          "type": "heading",
+          "settings": {
+            "heading": "DIY-friendly, but even easier installed for you.",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Lty8W3"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 56,
+        "padding_bottom": 4
+      }
+    },
+    "image_with_text_NgPJJT": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption_kJE9w4": {
+          "type": "caption",
+          "settings": {
+            "caption": "Screen features",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium",
+            "color": "#198a28"
+          }
+        },
+        "heading_xPzhBf": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why Choose Ezy Screens?",
+            "heading_size": "h1"
+          }
+        },
+        "text_FmMatr": {
+          "type": "text",
+          "settings": {
+            "text": "<p>• Sleek, modern design that blends in<br\/>• Custom-sized for your windows or doors<br\/>• Quality you can feel, and service you can trust<br\/><\/p><p>Let us handle the install so you can enjoy the results.<br\/><br\/><\/p>",
+            "text_style": "body"
+          }
+        },
+        "button_84UbxD": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "shopify:\/\/collections\/ezyscreens-products",
+            "button_style_secondary": false,
+            "button_label_22": "Learn More",
+            "button_link_2": "shopify:\/\/pages\/contact-us-page",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_kJE9w4",
+        "heading_xPzhBf",
+        "text_FmMatr",
+        "button_84UbxD"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".image-with-text {padding-top: 15px;}",
+        "@media screen and (max-width: 750px) {.image-with-text__grid {flex-direction: column-reverse; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Images_1.jpg",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-3",
+        "color_scheme": "scheme-3",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "text_n_blogs_TUMWR7": {
+      "type": "text-n-blogs",
+      "disabled": true,
+      "name": "Moulding Installation Info",
+      "settings": {
+        "tag": "INSTALLATION",
+        "heading": "Consider the Style of Mouldings",
+        "description": "<p>Live in an art deco home? Different types of architrave mouldings on your door or window frame can affect the installation process of your DIY retractable fly screens.  As architrave mouldings are usually ornate and have different depths, it's essential to choose which depth layer you would like to fit your mesh screen. Consider the following installation tips: <\/p><ul><li>The Jamb\/frame\/moulding depth of at least 35mmD on the top and sides of the frame.<\/li><li>The bottom of the architrave moulding or the floor on the plane of this layer must be flat, or show a depth of over 20mmD.<\/li><li>There are no obstructions such as window hardware or alarm system control boxes on the plane of this layer. <\/li><\/ul><p>Once you select the layer of the architrave on where you want your DIY fly screen to go, you can begin to measure the width and height of the opening. We suggest measuring the height of the opening at both ends and same with the width. <\/p><p>Interested in Ezy’s screens cost-effective solutions? Contact our team today for more information, or register online for the latest product information. <br\/><br\/><\/p>",
+        "blog": "news"
+      }
+    },
+    "testimonial_slider_KaM6Wc": {
+      "type": "testimonial-slider",
+      "blocks": {
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/happy_with_our_door.jpg",
+            "image_url": "",
+            "label": "",
+            "quote": "We are incredibly happy with our door and the service we received, it wasn’t a run of the mill installation but the technician handled it with ease and did a terrific job. We absolutely love our big front door and it’s awesome that we don’t have to cover it with an ugly screen to keep the critters out. We highly recommend EZY Screens. It’s all in the name!!",
+            "author": "Melanie McBeach"
+          }
+        },
+        "testimonial_4": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Very_impressed_w.jpg",
+            "image_url": "",
+            "label": "",
+            "quote": "Very impressed with the service and final product of EzyScreens!\nAlex was a professional at the install and took his time to make sure everything looked good and worked properly!\nWould highly recommend Alex and his service to friends and family.",
+            "author": "jason cooke"
+          }
+        },
+        "testimonial_5": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/We_had_a_screen_i.png",
+            "image_url": "",
+            "label": "",
+            "quote": "We had a screen installed to our kitchen bifold window and it's been amazing, we use it every day. It's really opened up the space and let's so much air in. It looks great, blending in with the frame and you don't even notice its there. We are still getting used to how to open and close it, can be a little fiddly but we love it. Affordable and great customer service\/install experience. Thank you",
+            "author": "Sarah Clancy"
+          }
+        },
+        "testimonial_6": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/What_a_fantastic_product_and_an_awesome_team_to_deal_with..jpg",
+            "image_url": "",
+            "label": "",
+            "quote": "What a fantastic product and an awesome team to deal with.\nThank you to Claire ❤️ for your prompt responses to all the questions I asked and your excellent customer service, also the fast delivery of my order and easy to follow installation videos on their website.\nLooking forward to giving you more custom in the very near future. 10\/10👍",
+            "author": "Kevin Craggs"
+          }
+        },
+        "testimonial_9": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Single_door_install_very_happy.jpg",
+            "image_url": "",
+            "label": "",
+            "quote": "Single door install, very happy with product, installation and result. Highly recommend.",
+            "author": "Woody Putaka"
+          }
+        },
+        "testimonial_10": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/I_recently_had_Ezy_Screens.jpg",
+            "image_url": "",
+            "label": "",
+            "quote": "I recently had Ezy Screens install screens at my home, and I couldn’t be more impressed. The quality of the screens is outstanding, and they look amazing. The team was professional, efficient, and paid attention to every detail, making sure everything was perfect. From start to finish, the service was exceptional, and I’m extremely happy with the result. Highly recommend Ezy Screens for anyone looking for top-quality work. Five stars all the way!",
+            "author": "Rena"
+          }
+        },
+        "testimonial_11": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/The_retractable_screen_was_modern.jpg",
+            "image_url": "",
+            "label": "",
+            "quote": "The retractable screen was modern looking and had no gaps for any spiders to get in compared to other sliding doors I've used. It is also very easy to open, compared to a sliding door. I wish I'd got it sooner.l!",
+            "author": "Invisible Things"
+          }
+        },
+        "testimonial_12": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/So_pleased_I_found_this_product..jpg",
+            "image_url": "",
+            "label": "",
+            "quote": "So pleased I found this product.  Much cheaper than other options we looked at, and the quality is superb.  Installation was easier than I expected and looks good.",
+            "author": "David Condie"
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Have_just_installed_our_retractable_Ezy_Screen_for_the_strut_window_in_our_bar_area._We_took.jpg",
+            "image_url": "",
+            "label": "",
+            "quote": "Have just installed our retractable Ezy Screen for the strut window in our bar area. We took advantage of the pre cut service that takes away all concerns of having to make the adjustments yourself. The handy installation videos helped make the self install a breeze. The finished product looks fantastic & the bar is now bug free.\nWonderful communication & support as well as exceptionally fast delivery. Highly recommended!!",
+            "author": "Bob Wood"
+          }
+        },
+        "testimonial_13": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Easy_ordering_and_even_was_able_to_select_to_have_it_cut_to_size..jpg",
+            "image_url": "",
+            "label": "",
+            "quote": "Easy ordering and even was able to select to have it cut to size.\nInstallation was so simple. Was done in 20 minutes and looks like perfection.\nCouldn't be happier",
+            "author": "Tamara Hearfield"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_3",
+        "testimonial_4",
+        "testimonial_5",
+        "testimonial_6",
+        "testimonial_9",
+        "testimonial_10",
+        "testimonial_11",
+        "testimonial_12",
+        "testimonial_2",
+        "testimonial_13"
+      ],
+      "settings": {
+        "heading": "What Our Customers Say",
+        "button_label": "SHOP NOW",
+        "button_url": "shopify:\/\/collections\/ezyscreens-products"
+      }
+    },
+    "rich_text_XEtCxK": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_UA3fDQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Get Your Free Quote Today",
+            "heading_size": "h2"
+          }
+        },
+        "text_Eeftk7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We make it simple to upgrade your space.<br\/>📧 Email: <a href=\"mailto:sales@ezyscreens.com.au\" title=\"mailto:sales@ezyscreens.com.au\">sales@ezyscreens.com.au<\/a><br\/>📞 Call: <a href=\"tel:1300 186 714\" title=\"tel:1300 186 714\">1300 186 714<\/a><a href=\"mailto:sales@ezyscreens.com.au\" title=\"mailto:sales@ezyscreens.com.au\"><br\/><\/a><\/p>"
+          }
+        },
+        "button_ziFkjF": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "shopify:\/\/collections\/ezyscreens-products",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_UA3fDQ",
+        "text_Eeftk7",
+        "button_ziFkjF"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5044c49d-b5f0-4e5a-8e1f-939a485c0762",
+        "full_width": true,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "instagram_gallery_diy": {
+      "type": "instagram-gallery",
+      "blocks": {
+        "image_EJDFmH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/IMG_3579.jpg"
+          }
+        },
+        "image_P874aQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/IMG_2425.jpg"
+          }
+        },
+        "image_ntzPFe": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/IMG_9691.jpg"
+          }
+        },
+        "image_i8KDmq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/BLKOUT_draft_3_small_edits.webp"
+          }
+        }
+      },
+      "block_order": [
+        "image_EJDFmH",
+        "image_P874aQ",
+        "image_ntzPFe",
+        "image_i8KDmq"
+      ],
+      "custom_css": [],
+      "name": "Instagram Gallery Default",
+      "settings": {
+        "handle": "ezyscreens",
+        "heading": "Follow Us on Instagram",
+        "image_shape": "square"
+      }
+    },
+    "text_n_icons_diy": {
+      "type": "text-n-icons",
+      "blocks": {
+        "feature_DhCLQb": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Vector_5.png",
+            "text": "Fast Turn Around"
+          }
+        },
+        "feature_X7ftw8": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon_1.png",
+            "text": "Easy 30 Days Return"
+          }
+        },
+        "feature_ePxbVC": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon.png",
+            "text": "Australia Wide Shipping"
+          }
+        }
+      },
+      "block_order": [
+        "feature_DhCLQb",
+        "feature_X7ftw8",
+        "feature_ePxbVC"
+      ],
+      "name": "Upgrade Home Default",
+      "settings": {
+        "heading": "Upgrade Your Home Today",
+        "subheading": "Transform your home with our reliable and stylish solutions. Get in touch with us now to find the perfect fit for your needs!",
+        "color_scheme": "scheme-2",
+        "button_text": "OUR SCREENS",
+        "button_link": "shopify:\/\/collections\/ezyscreens-products"
+      }
+    }
+  },
+  "order": [
+    "video_LBX6Yt",
+    "main",
+    "rich_text_BPkkne",
+    "rich_text_JBNxBw",
+    "image_with_text_basic_p8xbjp",
+    "image_with_text_basic_Xja9L4",
+    "rich_text_XLg4N6",
+    "image_with_text_basic_CJjAWV",
+    "multicolumn_2_GAHyzA",
+    "rich_text_pg7kEp",
+    "image_with_text_NgPJJT",
+    "text_n_blogs_TUMWR7",
+    "testimonial_slider_KaM6Wc",
+    "rich_text_XEtCxK",
+    "instagram_gallery_diy",
+    "text_n_icons_diy"
+  ]
+}

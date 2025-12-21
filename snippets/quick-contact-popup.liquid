@@ -1,0 +1,630 @@
+<style>
+/* Sticky Enquire Now Button */
+.quick-contact-sticky-btn {
+  position: fixed;
+  right: 0;
+  top: 60%;
+  transform: translateY(-50%);
+  z-index: 999;
+  background: #5082a7;
+  border: none;
+  padding: 20px 12px;
+  border-radius: 10px 0 0 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+}
+
+.quick-contact-sticky-btn:hover {
+  padding-right: 16px;
+}
+
+
+.quick-contact-sticky-btn span {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 1px;
+}
+
+/* Modal Overlay */
+.quick-contact-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.quick-contact-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Modal Container */
+.quick-contact-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  width: 90%;
+  max-width: 600px;
+  background-color: #EEEEEE;
+  border-radius: 10px;
+  z-index: 1001;
+  max-height: 90vh;
+  overflow-y: auto;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.quick-contact-overlay.active .quick-contact-modal {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.quick-contact-modal-content {
+  padding: 40px 30px 30px;
+  position: relative;
+}
+
+/* Logo Section */
+.quick-contact-logo {
+  text-align: center;
+    max-width: 200px;
+    margin-bottom: 0;
+    margin-inline: auto;
+}
+
+.quick-contact-logo .logo-image {
+  width: 100%;
+  height: auto;
+}
+.quick-contact-title {
+  font-size: 20px;
+  color: #198A28;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.quick-contact-subtitle {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Form Styles */
+.quick-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.quick-contact-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.quick-contact-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.quick-contact-field.full-width {
+  grid-column: 1 / -1;
+}
+
+.quick-contact-label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.quick-contact-input {
+  background: #F5F5F5;
+  border: 1px solid #DDD;
+  border-radius: 5px;
+  padding: 12px 15px;
+  font-size: 14px;
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.quick-contact-input::placeholder {
+  color: #999;
+}
+
+.quick-contact-input:focus {
+  outline: none;
+  background: #FFF;
+}
+
+/* Safari select padding and arrow spacing */
+select.quick-contact-input {
+  -webkit-appearance: none;
+  appearance: none;
+  padding-right: 40px; /* space for custom chevron */
+  background-image: linear-gradient(45deg, transparent 50%, #999 50%), linear-gradient(135deg, #999 50%, transparent 50%);
+  background-position: calc(100% - 24px) 50%, calc(100% - 16px) 50%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+/* iOS Safari tweak: slightly more vertical padding */
+@supports (-webkit-touch-callout: none) {
+  select.quick-contact-input {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  /* Prevent iOS Safari zoom on focus by using >=16px font-size */
+  .quick-contact-input,
+  .quick-contact-textarea,
+  select.quick-contact-input {
+    font-size: 16px;
+  }
+}
+
+.quick-contact-textarea {
+  background: #F5F5F5;
+  border: 1px solid #DDD;
+  border-radius: 5px;
+  padding: 12px 15px;
+  font-size: 14px;
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  min-height: 100px;
+  font-family: inherit;
+}
+
+.quick-contact-textarea::placeholder {
+  color: #999;
+}
+
+.quick-contact-textarea:focus {
+  outline: none;
+  background: #FFF;
+}
+
+/* Submit Button */
+.quick-contact-submit-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.quick-contact-submit-btn {
+  background: #198A28;
+  color: white;
+  border: none;
+  padding: 12px 40px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.quick-contact-submit-btn:hover {
+  background: #198A28;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(25, 138, 40, 0.3);
+}
+
+.quick-contact-submit-btn:active {
+  transform: translateY(0);
+}
+
+.quick-contact-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Close Button */
+.quick-contact-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #999;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.quick-contact-close:hover {
+  background: #DDD;
+  color: #000;
+}
+
+/* Success/Error Messages */
+.quick-contact-message {
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  display: none;
+}
+
+.quick-contact-message.success {
+  background: #D4EDDA;
+  color: #155724;
+  border: 1px solid #C3E6CB;
+}
+
+.quick-contact-message.error {
+  background: #F8D7DA;
+  color: #721C24;
+  border: 1px solid #F5C6CB;
+}
+
+/* Footer Links */
+.quick-contact-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #DDD;
+  font-size: 12px;
+}
+
+.quick-contact-footer a {
+  color: #999;
+  text-decoration: none;
+}
+
+.quick-contact-footer a:hover {
+  color: #666;
+  text-decoration: underline;
+}
+
+.quick-contact-footer-icon {
+  width: 20px;
+  height: 20px;
+  fill: #999;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.quick-contact-footer-icon:hover {
+  fill: #666;
+}
+
+/* Conditional fields visibility (mirrors google-contact-form logic) */
+.show-warranty,
+.show-installation {
+  display: none;
+}
+.quick-contact-form.form-warranty .show-warranty {
+  display: block;
+}
+.quick-contact-form.form-warranty .show-installation {
+  display: none;
+}
+.quick-contact-form.form-installation .show-installation {
+  display: block;
+}
+.quick-contact-form.form-installation .show-warranty {
+  display: none;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 749px) {
+  .quick-contact-sticky-btn {
+    padding: 15px 10px;
+  }
+  
+  .quick-contact-sticky-btn span {
+    font-size: 12px;
+  }
+  
+  .quick-contact-modal {
+    width: 95%;
+    max-height: 82vh;
+  }
+  
+  .quick-contact-modal-content {
+    padding: 30px 20px 20px;
+  }
+  
+  .quick-contact-form-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .quick-contact-logo .logo-main {
+    font-size: 24px;
+  }
+  
+  .quick-contact-title {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .quick-contact-submit-wrapper {
+    justify-content: flex-end;
+  }
+}
+</style>
+
+<!-- Sticky Button -->
+<button class="quick-contact-sticky-btn" onclick="openQuickContact()" aria-label="Open Quick Contact Form">
+  <span>ENQUIRE NOW</span>
+</button>
+
+<!-- Modal Overlay -->
+<div class="quick-contact-overlay" id="quickContactOverlay" onclick="closeQuickContact()">
+  <div class="quick-contact-modal" onclick="event.stopPropagation()">
+    <div class="quick-contact-modal-content">
+      <button class="quick-contact-close" onclick="closeQuickContact()" aria-label="Close">×</button>
+      
+      <!-- Logo -->
+      <div class="quick-contact-logo">
+        <img src="https://ezyscreens.com.au/cdn/shop/files/Group_4.png" alt="Ezyfit Doors" class="logo-image">
+      </div>
+      
+      <!-- Title -->
+      <h2 class="quick-contact-title">Quick Contact Form</h2>
+      <p class="quick-contact-subtitle">Fill out the form below and we will be in touch</p>
+      
+      <!-- Messages -->
+      <div class="quick-contact-message success" id="successMessage">
+        Your message was sent successfully! We'll be in touch soon.
+      </div>
+      <div class="quick-contact-message error" id="errorMessage">
+        Oops! Something went wrong. Please try again.
+      </div>
+      
+      <!-- Form -->
+      <form class="quick-contact-form" id="quickContactForm">
+        <!-- Full Name -->
+        <div class="quick-contact-field full-width">
+          <label class="quick-contact-label" for="fullName">Full Name*</label>
+          <input 
+            class="quick-contact-input" 
+            type="text" 
+            id="fullName" 
+            name="contact[name]" 
+            required 
+            placeholder="John Doe"
+          >
+        </div>
+        
+        <!-- Email & Phone -->
+        <div class="quick-contact-form-row">
+          <div class="quick-contact-field">
+            <label class="quick-contact-label" for="email">Email*</label>
+            <input 
+              class="quick-contact-input" 
+              type="email" 
+              id="email" 
+              required
+              name="contact[email]" 
+              placeholder="john.doe@gmail.com"
+            >
+          </div>
+          <div class="quick-contact-field">
+            <label class="quick-contact-label" for="phone">Phone*</label>
+            <input 
+              class="quick-contact-input" 
+              type="tel" 
+              id="contact[number]" 
+              name="contact[number]" 
+              required 
+              placeholder="0412345678"
+            >
+          </div>
+        </div>
+        
+        <!-- Reason For Your Inquiry -->
+        <div class="quick-contact-field full-width">
+          <label class="quick-contact-label" for="reasonPopup">Reason For Your Inquiry*</label>
+          <select 
+            class="quick-contact-input"
+            required 
+            name="contact[reason]" 
+            id="reasonPopup"
+          >
+            <option value="General Inquiry">General Inquiry</option>
+            <option value="Installation Quotes">Installation Quotes</option>
+            <option value="Technicians Advice">Technicians Advice</option>
+            <option value="Warranty Claims">Warranty Claims</option>
+          </select>
+        </div>
+
+        <!-- Warranty-only: Order Number -->
+        <div class="quick-contact-field full-width show-warranty">
+          <label class="quick-contact-label" for="orderPopup">Enter your order number</label>
+          <input 
+            class="quick-contact-input"
+            type="text"
+            id="orderPopup"
+            name="contact[order]"
+            placeholder="e.g. 1234"
+          >
+        </div>
+
+        <!-- Suburb -->
+        <div class="quick-contact-field full-width show-installation">
+          <label class="quick-contact-label" for="suburb">Suburb</label>
+          <input 
+            class="quick-contact-input" 
+            type="text" 
+            id="suburb" 
+            name="contact[suburb]" 
+            placeholder="Enter your suburb (South East Queensland Only)"
+          >
+        </div>
+        
+        <!-- How Can We Help -->
+        <div class="quick-contact-field full-width">
+          <label class="quick-contact-label" for="message">How Can We Help?*</label>
+          <textarea 
+            class="quick-contact-textarea" 
+            id="message" 
+            name="contact[body]" 
+            required 
+            placeholder="Type your message here..."
+          ></textarea>
+        </div>
+        
+        <!-- Submit Button -->
+        <div class="quick-contact-submit-wrapper">
+          <button type="submit" class="quick-contact-submit-btn">SUBMIT</button>
+        </div>
+        
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openQuickContact() {
+    const overlay = document.getElementById('quickContactOverlay');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeQuickContact() {
+    const overlay = document.getElementById('quickContactOverlay');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeQuickContact();
+    }
+  });
+
+  // Handle form submission
+  document.getElementById('quickContactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Disable submit button
+    var submitBtn = this.querySelector('.quick-contact-submit-btn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'SUBMITTING...';
+    
+    // Hide previous messages
+    document.getElementById('successMessage').style.display = 'none';
+    document.getElementById('errorMessage').style.display = 'none';
+    
+    // Ensure optional fields have default values like google-contact-form
+    (function(scope){
+      var orderEl = scope.querySelector('[name="contact[order]"]');
+      var suburbEl = scope.querySelector('[name="contact[suburb]"]');
+      if (orderEl && (orderEl.value === null || orderEl.value === '')) {
+        orderEl.value = '-';
+      }
+      if (suburbEl && (suburbEl.value === null || suburbEl.value === '')) {
+        suburbEl.value = '-';
+      }
+    })(this);
+
+    // Collect form data
+    var formData = new FormData(this);
+    // Ensure phone is sent under both keys the backend might read
+    (function(scope){
+      var phoneEl = scope.querySelector('[name="contact[number]"]') || scope.querySelector('[name="contact[phone]"]');
+      var phoneVal = phoneEl ? phoneEl.value : '';
+      if (phoneVal !== '') {
+        formData.set('contact[number]', phoneVal);
+        formData.set('contact[phone]', phoneVal);
+      }
+    })(this);
+    
+    // Send form data to Google Apps Script
+    fetch('https://script.google.com/macros/s/AKfycbwmuG8vxiCUpDbH_d4jT9iv4Cyc4pRY02wcrPl9KqvykuPJeoFJXKpnG27gdk9Fnc-P/exec', {
+      method: 'POST',
+      body: formData,
+      mode: 'no-cors'
+    })
+    .then(() => {
+      // With no-cors the response is opaque; assume success if no network error
+      document.getElementById('successMessage').style.display = 'block';
+      document.querySelector('.quick-contact-form').style.display = 'none';
+      this.reset();
+      setTimeout(closeQuickContact, 3000);
+      setTimeout(function() {
+        document.getElementById('successMessage').style.display = 'none';
+        document.querySelector('.quick-contact-form').style.display = 'flex';
+        // Re-enable submit button
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'SUBMIT';
+      }, 3000);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      document.getElementById('errorMessage').style.display = 'block';
+      // Re-enable submit button on error
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'SUBMIT';
+    });
+  });
+
+  // Mirror reason-change logic from google-contact-form
+  (function(){
+    var form = document.getElementById('quickContactForm');
+    var reasonSelect = form.querySelector('select[name="contact[reason]"]');
+    if (!reasonSelect) return;
+    reasonSelect.addEventListener('change', function(e){
+      if (e.target.value === 'Warranty Claims'){
+        form.classList.add('form-warranty');
+        form.classList.remove('form-installation');
+        var orderEl = form.querySelector('[name="contact[order]"]');
+        var suburbEl = form.querySelector('[name="contact[suburb]"]');
+        if (orderEl) orderEl.value = '';
+        if (suburbEl) suburbEl.value = '';
+      } else if (e.target.value === 'Installation Quotes') {
+        form.classList.remove('form-warranty');
+        form.classList.add('form-installation');
+        var orderEl2 = form.querySelector('[name="contact[order]"]');
+        var suburbEl2 = form.querySelector('[name="contact[suburb]"]');
+        if (orderEl2) orderEl2.value = '';
+        if (suburbEl2) suburbEl2.value = '';
+      } else {
+        form.classList.remove('form-warranty');
+        form.classList.remove('form-installation');
+        var orderEl3 = form.querySelector('[name="contact[order]"]');
+        var suburbEl3 = form.querySelector('[name="contact[suburb]"]');
+        if (orderEl3) orderEl3.value = '';
+        if (suburbEl3) suburbEl3.value = '';
+      }
+    });
+  })();
+</script>
+

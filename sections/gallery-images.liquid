@@ -1,0 +1,164 @@
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+/>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+      Fancybox.bind(".fancybox", {});
+      Fancybox.bind(".fancybox-effects-a", {
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+		});
+	</script>
+
+
+<div
+  class="module-image-text-custom module-container {{ section.settings.style }} rows-of-{{ section.settings.logos_in_rows }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="featured-press"
+>
+  <div class="page-width">
+    <div class="module-inner module-inline-items home-logo-list {{page.metafields.custom.more_images}}">
+      {% if section.settings.title != blank %}
+        <h2 class="section-title">{{ section.settings.title | escape }}</h2>
+      {% endif %}
+
+
+    {% for image in page.metafields.custom.more_images.value %}
+        {%- assign logo = image -%}
+        <div class="module-inline-item home-logo-list-item" {{ block.shopify_attributes }}>
+            {% include 'gallery', img: logo %}
+        </div>
+    {% endfor %}
+
+
+      {% for block in section.blocks %}
+        {%- assign logo = block.settings.logo -%}
+        {%- assign url = block.settings.url -%}
+
+        <div class="module-inline-item home-logo-list-item" {{ block.shopify_attributes }}>
+          {% if url != blank %}
+            <a href="{{ url }}" target="_blank">
+          {% endif %}
+          {% if block.settings.logo != blank %}
+            {% include 'gallery', img: logo %}
+          {% endif %}
+          {% if url != blank %}
+            </a>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+      imagesLoaded( '.module-inner', function() { 
+        // init Masonry after all images have loaded
+        var msnry = new Masonry( ' .module-inner', {
+          itemSelector: '.home-logo-list-item',
+          percentPosition: true
+        });
+    });
+    if (Shopify.designMode) {
+      document.addEventListener("shopify:section:load", function() {
+        var msnry = new Masonry( ' .module-inner', {
+            itemSelector: '.home-logo-list-item',
+            percentPosition: true
+        });
+      })
+    }
+</script>
+{% schema %}
+{
+  "name": "Image list",
+  "max_blocks": 99,
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "stack_layout",
+      "label": "Stack Layout",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Style",
+      "options": [
+        {
+          "value": "default-style",
+          "label": "Default"
+        }, {
+          "value": "accent-style",
+          "label": "Accent"
+        }, {
+          "value": "contrast-style",
+          "label": "Contrast"
+        }
+      ],
+      "default": "default-style"
+    }, {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Image list"
+    }, {
+      "type": "range",
+      "id": "logos_in_rows",
+      "label": "Image per row",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 4
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link URL"
+        }, {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Image image",
+          "info": "660 x 560px .png recommended"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Image",
+      "name": "Image list",
+      "blocks": [
+        {
+          "type": "logo"
+        }, {
+          "type": "logo"
+        }, {
+          "type": "logo"
+        }, {
+          "type": "logo"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+ 

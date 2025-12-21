@@ -1,0 +1,321 @@
+
+
+<style>
+.services-section {
+  padding-block: 80px;
+}
+
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #F5F7FA;
+  padding: 40px;
+  border-radius: 10px;
+    align-items: center;
+}
+.services-left {
+  
+    padding-right: 40px;
+}
+
+.services-left .tagline {
+  color: #0e8ac7;
+  font-weight: bold;
+}
+
+
+.service-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+
+    padding: 20px 0;}
+.service-top{
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+    align-items: center;
+  width: 100%;
+  
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    width: 100%;
+
+}
+
+.service-icon {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.service-content {
+  flex-grow: 1;
+}
+.service-content p {
+  font-size: 16px;
+}
+
+.service-content h3 {
+  margin: 0 0 6px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+
+.service-link {
+  font-size: 15px;
+  color: #1a7f37;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+    margin-left: auto;
+  display: inline-flex;align-items: center;
+    gap: 3px;
+    line-height: 1.4;
+    cursor: pointer;
+}
+.service-link:hover{
+  text-decoration: underline
+}
+
+.service-link.hide-desktop{
+  margin-top: 10px;
+}
+
+
+
+@media screen and (max-width: 749px) {
+    .services-left { 
+    padding-right: 0px;
+  }
+  .services-section {
+    padding-block: 40px;
+  }
+.services-container{
+  
+    padding: 24px;
+}
+}
+</style>
+
+<section class="services-section">
+  <div class="page-width">
+    <div class="services-container grid grid--1-col-tablet-down grid--2-col-desktop {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+    {% if settings.animations_reveal_on_scroll %}
+      data-cascade
+    {% endif %}
+    >
+      <div class="services-left grid__item">
+        <p class="tagline">{{ section.settings.subheading }}</p>
+        <h2>{{ section.settings.heading }}</h2>
+        <p>{{ section.settings.description }}</p>
+      </div>
+
+      <div class="services-right grid__item">
+        <div class="service-block {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" 
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+              style="--animation-order: 1;"
+            {% endif %}
+        >
+          <div class="service-top">
+            <div class="service-icon">
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="35" height="35" rx="17.5" fill="#5082A7"/>
+                <path d="M12 24.4465L12.25 26.6665L13.87 25.1265L16.64 17.5265C15.96 17.3565 15.36 17.0165 14.87 16.5465L12 24.4465ZM20.41 16.5465C19.92 17.0165 19.31 17.3565 18.64 17.5265L21.41 25.1265L23.03 26.6665L23.29 24.4465L20.41 16.5465ZM20.64 13.6665C20.64 12.3665 19.8 11.2665 18.64 10.8465V8.6665H16.64V10.8465C15.48 11.2665 14.64 12.3665 14.64 13.6665C14.64 15.3265 15.98 16.6665 17.64 16.6665C19.3 16.6665 20.64 15.3265 20.64 13.6665ZM17.64 14.6665C17.09 14.6665 16.64 14.2165 16.64 13.6665C16.64 13.1165 17.09 12.6665 17.64 12.6665C18.19 12.6665 18.64 13.1165 18.64 13.6665C18.64 14.2165 18.19 14.6665 17.64 14.6665Z" fill="white"/>
+              </svg>
+            </div>
+            <h3>{{ section.settings.service_1_title }}</h3>
+            <span class="show_measure_modal service-link hide-mobile">
+              Learn More 
+              <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.694 5.43814C13.692 5.24094 13.6118 5.05105 13.471 4.91022C13.3302 4.7694 13.1403 4.68916 12.9431 4.68717L6.99352 4.62785C6.89476 4.62515 6.79686 4.64214 6.70551 4.67782C6.61415 4.7135 6.53119 4.76717 6.46145 4.83568C6.39171 4.90419 6.33659 4.98619 6.29931 5.07687C6.26204 5.16756 6.24335 5.26512 6.24433 5.36387C6.24531 5.46262 6.26595 5.56057 6.30505 5.65202C6.34414 5.74347 6.4009 5.82658 6.47202 5.8965C6.54314 5.96641 6.6272 6.02174 6.71928 6.05925C6.81136 6.09677 6.90962 6.11571 7.00834 6.11498L11.1626 6.15639L4.26811 13.0509C4.13004 13.189 4.05357 13.3773 4.05554 13.5746C4.0575 13.7718 4.13774 13.9618 4.2786 14.1026C4.41945 14.2435 4.60939 14.3237 4.80663 14.3257C5.00386 14.3276 5.19224 14.2512 5.33031 14.1131L12.2248 7.21859L12.2662 11.3729C12.2716 11.5679 12.3532 11.7545 12.4937 11.8926C12.6341 12.0306 12.8221 12.1091 13.0171 12.111C13.2121 12.113 13.3985 12.0383 13.5362 11.903C13.6739 11.7677 13.7519 11.5826 13.7534 11.3877L13.694 5.43814Z" fill="#198A28"/>
+              </svg>
+            </span>
+          </div>
+          <div class="service-content">
+            <p class="no-margin">{{ section.settings.service_1_description }}</p>
+              <span class="show_measure_modal service-link hide-desktop">
+              Learn More 
+              <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.694 5.43814C13.692 5.24094 13.6118 5.05105 13.471 4.91022C13.3302 4.7694 13.1403 4.68916 12.9431 4.68717L6.99352 4.62785C6.89476 4.62515 6.79686 4.64214 6.70551 4.67782C6.61415 4.7135 6.53119 4.76717 6.46145 4.83568C6.39171 4.90419 6.33659 4.98619 6.29931 5.07687C6.26204 5.16756 6.24335 5.26512 6.24433 5.36387C6.24531 5.46262 6.26595 5.56057 6.30505 5.65202C6.34414 5.74347 6.4009 5.82658 6.47202 5.8965C6.54314 5.96641 6.6272 6.02174 6.71928 6.05925C6.81136 6.09677 6.90962 6.11571 7.00834 6.11498L11.1626 6.15639L4.26811 13.0509C4.13004 13.189 4.05357 13.3773 4.05554 13.5746C4.0575 13.7718 4.13774 13.9618 4.2786 14.1026C4.41945 14.2435 4.60939 14.3237 4.80663 14.3257C5.00386 14.3276 5.19224 14.2512 5.33031 14.1131L12.2248 7.21859L12.2662 11.3729C12.2716 11.5679 12.3532 11.7545 12.4937 11.8926C12.6341 12.0306 12.8221 12.1091 13.0171 12.111C13.2121 12.113 13.3985 12.0383 13.5362 11.903C13.6739 11.7677 13.7519 11.5826 13.7534 11.3877L13.694 5.43814Z" fill="#198A28"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="service-block {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+              style="--animation-order: 2;"
+            {% endif %}
+          >
+          <div class="service-top">
+            <div class="service-icon">
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="35" height="35" rx="17.5" fill="#5082A7"/>
+              <path d="M21.8182 27V23.5455H13.1818C12.7068 23.5455 12.3003 23.3765 11.9624 23.0385C11.6244 22.7005 11.4551 22.2938 11.4545 21.8182V13.1818H8V11.4545H11.4545V8H13.1818V21.8182H27V23.5455H23.5455V27H21.8182ZM21.8182 20.0909V13.1818H14.9091V11.4545H21.8182C22.2932 11.4545 22.7 11.6238 23.0385 11.9624C23.377 12.3009 23.546 12.7074 23.5455 13.1818V20.0909H21.8182Z" fill="white"/>
+              </svg>
+            </div>
+            <h3>{{ section.settings.service_2_title }}</h3>
+            {% if section.settings.service_2_link != blank %}
+              <a href="{{ section.settings.service_2_link }}" class="service-link hide-mobile"">
+                Learn More 
+                <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13.694 5.43814C13.692 5.24094 13.6118 5.05105 13.471 4.91022C13.3302 4.7694 13.1403 4.68916 12.9431 4.68717L6.99352 4.62785C6.89476 4.62515 6.79686 4.64214 6.70551 4.67782C6.61415 4.7135 6.53119 4.76717 6.46145 4.83568C6.39171 4.90419 6.33659 4.98619 6.29931 5.07687C6.26204 5.16756 6.24335 5.26512 6.24433 5.36387C6.24531 5.46262 6.26595 5.56057 6.30505 5.65202C6.34414 5.74347 6.4009 5.82658 6.47202 5.8965C6.54314 5.96641 6.6272 6.02174 6.71928 6.05925C6.81136 6.09677 6.90962 6.11571 7.00834 6.11498L11.1626 6.15639L4.26811 13.0509C4.13004 13.189 4.05357 13.3773 4.05554 13.5746C4.0575 13.7718 4.13774 13.9618 4.2786 14.1026C4.41945 14.2435 4.60939 14.3237 4.80663 14.3257C5.00386 14.3276 5.19224 14.2512 5.33031 14.1131L12.2248 7.21859L12.2662 11.3729C12.2716 11.5679 12.3532 11.7545 12.4937 11.8926C12.6341 12.0306 12.8221 12.1091 13.0171 12.111C13.2121 12.113 13.3985 12.0383 13.5362 11.903C13.6739 11.7677 13.7519 11.5826 13.7534 11.3877L13.694 5.43814Z" fill="#198A28"/>
+                </svg>
+              </a>
+            {% endif %}
+          </div>
+          <div class="service-content">
+            <p class="no-margin">{{ section.settings.service_2_description }}</p>
+            {% if section.settings.service_2_link != blank %}
+              <a href="{{ section.settings.service_2_link }}" class="service-link hide-desktop"">
+                Learn More 
+                <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13.694 5.43814C13.692 5.24094 13.6118 5.05105 13.471 4.91022C13.3302 4.7694 13.1403 4.68916 12.9431 4.68717L6.99352 4.62785C6.89476 4.62515 6.79686 4.64214 6.70551 4.67782C6.61415 4.7135 6.53119 4.76717 6.46145 4.83568C6.39171 4.90419 6.33659 4.98619 6.29931 5.07687C6.26204 5.16756 6.24335 5.26512 6.24433 5.36387C6.24531 5.46262 6.26595 5.56057 6.30505 5.65202C6.34414 5.74347 6.4009 5.82658 6.47202 5.8965C6.54314 5.96641 6.6272 6.02174 6.71928 6.05925C6.81136 6.09677 6.90962 6.11571 7.00834 6.11498L11.1626 6.15639L4.26811 13.0509C4.13004 13.189 4.05357 13.3773 4.05554 13.5746C4.0575 13.7718 4.13774 13.9618 4.2786 14.1026C4.41945 14.2435 4.60939 14.3237 4.80663 14.3257C5.00386 14.3276 5.19224 14.2512 5.33031 14.1131L12.2248 7.21859L12.2662 11.3729C12.2716 11.5679 12.3532 11.7545 12.4937 11.8926C12.6341 12.0306 12.8221 12.1091 13.0171 12.111C13.2121 12.113 13.3985 12.0383 13.5362 11.903C13.6739 11.7677 13.7519 11.5826 13.7534 11.3877L13.694 5.43814Z" fill="#198A28"/>
+                </svg>
+              </a>
+            {% endif %}
+          </div>
+
+        </div>
+
+        <div class="service-block {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+              style="--animation-order: 3;"
+            {% endif %}
+          >
+          <div class="service-top">
+            <div class="service-icon">
+              <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="35" height="35" rx="17.5" fill="#5082A7"/>
+                <path d="M20.9909 11.362C19.2376 9.62229 15.6645 9.42748 13.6159 11.4896C13.2799 11.8185 13.3407 12.1946 13.5691 12.423C13.7303 12.591 13.9852 12.6649 14.2272 12.591C15.6577 12.1409 16.981 12.1008 18.0355 12.8798L17.4714 14.3843C17.2562 14.9687 17.3706 15.3784 17.7534 15.768L19.3048 17.3261C19.614 17.6418 19.9564 17.7361 20.4065 17.6282L21.4945 17.3798L22.0186 17.9038L21.931 18.6695C21.8842 18.9851 21.9242 19.1799 22.1998 19.4555L22.7238 19.9591C23.0123 20.248 23.3819 20.2748 23.6572 19.9992L25.8133 17.8569C26.0886 17.5814 26.0482 17.2121 25.7661 16.9165L25.2489 16.3993C24.9869 16.1305 24.7789 16.0768 24.4765 16.124L23.7043 16.218L23.1735 15.7076L23.496 14.5523C23.5967 14.1762 23.4691 13.8267 23.066 13.4303L20.9909 11.362ZM9.51168 22.6658C8.86099 23.2434 8.82708 23.8479 9.43185 24.4592L10.4996 25.5204C11.0973 26.1181 11.7218 26.0845 12.2929 25.4397L18.7608 18.1791L16.7726 16.1977L9.51168 22.6658Z" fill="white"/>
+              </svg>
+            </div>
+            <h3>{{ section.settings.service_3_title }}</h3>
+            {% if section.settings.service_3_link != blank %}
+              <a href="{{ section.settings.service_3_link }}" class="service-link hide-mobile">
+                Learn More 
+                <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13.694 5.43814C13.692 5.24094 13.6118 5.05105 13.471 4.91022C13.3302 4.7694 13.1403 4.68916 12.9431 4.68717L6.99352 4.62785C6.89476 4.62515 6.79686 4.64214 6.70551 4.67782C6.61415 4.7135 6.53119 4.76717 6.46145 4.83568C6.39171 4.90419 6.33659 4.98619 6.29931 5.07687C6.26204 5.16756 6.24335 5.26512 6.24433 5.36387C6.24531 5.46262 6.26595 5.56057 6.30505 5.65202C6.34414 5.74347 6.4009 5.82658 6.47202 5.8965C6.54314 5.96641 6.6272 6.02174 6.71928 6.05925C6.81136 6.09677 6.90962 6.11571 7.00834 6.11498L11.1626 6.15639L4.26811 13.0509C4.13004 13.189 4.05357 13.3773 4.05554 13.5746C4.0575 13.7718 4.13774 13.9618 4.2786 14.1026C4.41945 14.2435 4.60939 14.3237 4.80663 14.3257C5.00386 14.3276 5.19224 14.2512 5.33031 14.1131L12.2248 7.21859L12.2662 11.3729C12.2716 11.5679 12.3532 11.7545 12.4937 11.8926C12.6341 12.0306 12.8221 12.1091 13.0171 12.111C13.2121 12.113 13.3985 12.0383 13.5362 11.903C13.6739 11.7677 13.7519 11.5826 13.7534 11.3877L13.694 5.43814Z" fill="#198A28"/>
+                </svg>
+              </a>
+            {% endif %}
+          </div>
+          <div class="service-content">
+            <p class="no-margin">{{ section.settings.service_3_description }}</p>
+            {% if section.settings.service_3_link != blank %}
+              <a href="{{ section.settings.service_3_link }}" class="service-link hide-desktop">
+                Learn More 
+                <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13.694 5.43814C13.692 5.24094 13.6118 5.05105 13.471 4.91022C13.3302 4.7694 13.1403 4.68916 12.9431 4.68717L6.99352 4.62785C6.89476 4.62515 6.79686 4.64214 6.70551 4.67782C6.61415 4.7135 6.53119 4.76717 6.46145 4.83568C6.39171 4.90419 6.33659 4.98619 6.29931 5.07687C6.26204 5.16756 6.24335 5.26512 6.24433 5.36387C6.24531 5.46262 6.26595 5.56057 6.30505 5.65202C6.34414 5.74347 6.4009 5.82658 6.47202 5.8965C6.54314 5.96641 6.6272 6.02174 6.71928 6.05925C6.81136 6.09677 6.90962 6.11571 7.00834 6.11498L11.1626 6.15639L4.26811 13.0509C4.13004 13.189 4.05357 13.3773 4.05554 13.5746C4.0575 13.7718 4.13774 13.9618 4.2786 14.1026C4.41945 14.2435 4.60939 14.3237 4.80663 14.3257C5.00386 14.3276 5.19224 14.2512 5.33031 14.1131L12.2248 7.21859L12.2662 11.3729C12.2716 11.5679 12.3532 11.7545 12.4937 11.8926C12.6341 12.0306 12.8221 12.1091 13.0171 12.111C13.2121 12.113 13.3985 12.0383 13.5362 11.903C13.6739 11.7677 13.7519 11.5826 13.7534 11.3877L13.694 5.43814Z" fill="#198A28"/>
+                </svg>
+              </a>
+            {% endif %}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+{% schema %}
+{
+  "name": "Services Info Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "OUR SERVICES"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading",
+      "default": "Attending to Your Screen Needs"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Enjoy convenience and flexibility with our expert installation services or easy DIY options. Whether you need professional assistance or prefer to set it up yourself, we ensure a smooth and hassle-free experience."
+    },
+
+    {
+      "type": "header",
+      "content": "Service Cards"
+    },
+    {
+      "type": "text",
+      "id": "service_1_title",
+      "label": "Service 1 Title",
+      "default": "Measuring"
+    },
+    {
+      "type": "textarea",
+      "id": "service_1_description",
+      "label": "Service 1 Description",
+      "default": "How to measure doors or windows in order to know what size to choose."
+    },
+    {
+      "type": "url",
+      "id": "service_1_link",
+      "label": "Service 1 Link"
+    },
+
+    {
+      "type": "text",
+      "id": "service_2_title",
+      "label": "Service 2 Title",
+      "default": "Cutting to Size"
+    },
+    {
+      "type": "textarea",
+      "id": "service_2_description",
+      "label": "Service 2 Description",
+      "default": "We can make life easier by cutting it to your required size."
+    },
+    {
+      "type": "url",
+      "id": "service_2_link",
+      "label": "Service 2 Link"
+    },
+
+    {
+      "type": "text",
+      "id": "service_3_title",
+      "label": "Service 3 Title",
+      "default": "Installation"
+    },
+    {
+      "type": "textarea",
+      "id": "service_3_description",
+      "label": "Service 3 Description",
+      "default": "Installation available in QLD. Learn more information."
+    },
+    {
+      "type": "url",
+      "id": "service_3_link",
+      "label": "Service 3 Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Services Info",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,323 @@
+{{ 'video-section.css' | asset_url | stylesheet_tag }}
+{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  {% if section.settings.add_overlay == true %}
+    .section-{{ section.id }}-padding.video-section:before {
+    content: "";
+    left: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+  {% endif %}
+{%- endstyle -%}
+
+{%- liquid
+  assign video_id = section.settings.video.id 
+  assign video_alt = section.settings.video.alt | default: section.settings.video_description
+  assign alt = 'sections.video.load_video' | t: description: video_alt | escape
+  assign poster = section.settings.video.preview_image | default: section.settings.cover_image
+
+  if section.settings.video != null
+    assign ratio_diff = section.settings.video.aspect_ratio | minus: poster.aspect_ratio | abs
+    if ratio_diff < 0.01 and ratio_diff > 0
+      assign fix_ratio = true
+    endif
+  endif
+-%}
+<style>
+.video-section{
+  position: relative;
+}
+.section-{{ section.id }}-padding .video-container-box{
+  position: absolute;
+  left: 0;    
+  top: 50%;
+  bottom: initial;
+  transform: translateY(-50%);
+  z-index: 5;
+  margin-block: 5rem;
+  width: 100%;
+}
+
+.section-{{ section.id }}-padding .video-container-box .title-wrapper{
+  max-width: 800px;
+}
+{% if section.settings.video != blank %}
+  .section-{{ section.id }}-padding .video-section__media{
+  --ratio-percent:45% !important;
+}
+/* small desktops */
+@media screen and (max-width: 1199px) {
+.section-{{ section.id }}-padding .video-section__media{
+  --ratio-percent:57% !important;
+}
+}
+/* tablet */
+@media screen and (max-width: 989px) {
+.section-{{ section.id }}-padding .video-section__media{
+  --ratio-percent:80% !important;
+}
+}
+/* mobile */
+@media screen and (max-width: 749px) {
+.section-{{ section.id }}-padding .video-section__media{
+  --ratio-percent:80vh !important;
+}
+}
+@media screen and (max-width: 400px) {
+.section-{{ section.id }}-padding .video-section__media{
+  --ratio-percent:92vh !important;
+}
+}
+{% else %}
+.section-{{ section.id }}-padding  .deferred-media__poster{
+  cursor: initial;
+}
+.section-{{ section.id }}-padding  .div__poster-button{
+  
+    display: none !important;
+}
+/* mobile */
+@media screen and (max-width: 749px) {
+.section-{{ section.id }}-padding .video-section__media{
+  --ratio-percent:70vh !important;
+}
+}
+
+{% endif %}
+
+/* mobile */
+@media screen and (max-width: 749px) {
+
+.section-{{ section.id }}-padding .video-container-box{
+        margin-block: 1rem;
+}
+
+}
+
+</style>
+{%- capture sizes -%}
+  {% if section.settings.full_width -%}
+    100vw
+  {%- else -%}
+    (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px)
+    calc(100vw - 10rem), 100vw
+  {%- endif %}
+{%- endcapture -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="hero-blog video-section isolate{% unless section.settings.full_width %} page-width{% endunless %} section-{{ section.id }}-padding">
+    <div class="video-container-box">
+        <div class=" page-width">
+          <div class="title-wrapper title-wrapper--no-top-margin{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            <p class="subheading">{{ section.settings.subheading }}</p>
+            <h1 class="title inline-richtext h1-mobile {{ section.settings.heading_size }}">{{ section.settings.heading }}</h1>
+            <p class="description">{{ section.settings.description }}</p>
+            <div class="hero-cta">
+              {% if  section.settings.button_link != blank  %}
+                <a
+                    href="{{ section.settings.button_link }}"
+                  class="button button--small {% if section.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
+                  {{ section.shopify_attributes }}
+                >
+                  {{ section.settings.button_text | escape }}
+                </a>              
+              {% endif %}
+
+              <form action="/search" method="get" role="search" class="custom-search-form">
+                <input type="hidden" name="type" value="article" />
+                <input type="search" name="q" placeholder="Type to search..." class="google_field__input search-custom-input" required>
+                <button type="submit" class="search-custom-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#345794" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-search" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                  </svg>
+
+                </button>
+              </form>
+
+              {% if section.settings.show_rating == true %}
+                <div class="rating">
+                  <a href="{{settings.google_link}}" class="full-unstyled-link rating-link">
+                    <svg class="svg-stars" width="70" height="14" viewBox="0 0 70 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_2047_3269)">
+                      <path d="M6.99965 11.3907L3.60648 13.3781C3.45658 13.4708 3.29986 13.5106 3.13634 13.4973C2.97281 13.4841 2.82972 13.4311 2.70708 13.3384C2.58443 13.2456 2.48904 13.1298 2.42091 12.991C2.35277 12.8521 2.33915 12.6963 2.38003 12.5235L3.27942 8.76742L0.274623 6.24347C0.138351 6.12423 0.0533171 5.9883 0.0195216 5.83567C-0.0142739 5.68304 -0.00418977 5.53412 0.049774 5.38891C0.103738 5.2437 0.185501 5.12446 0.295064 5.03118C0.404627 4.93791 0.554526 4.87829 0.744762 4.85232L4.71028 4.51447L6.24334 0.976967C6.31148 0.817978 6.41722 0.698736 6.56058 0.619242C6.70394 0.539747 6.8503 0.5 6.99965 0.5C7.14901 0.5 7.29536 0.539747 7.43872 0.619242C7.58208 0.698736 7.68783 0.817978 7.75596 0.976967L9.28902 4.51447L13.2545 4.85232C13.4453 4.87882 13.5952 4.93844 13.7042 5.03118C13.8133 5.12393 13.895 5.24317 13.9495 5.38891C14.004 5.53465 14.0144 5.68383 13.9806 5.83646C13.9468 5.98909 13.8615 6.12476 13.7247 6.24347L10.7199 8.76742L11.6193 12.5235C11.6602 12.6958 11.6465 12.8516 11.5784 12.991C11.5103 13.1303 11.4149 13.2461 11.2922 13.3384C11.1696 13.4306 11.0265 13.4836 10.863 13.4973C10.6994 13.5111 10.5427 13.4714 10.3928 13.3781L6.99965 11.3907Z" fill="#EDB200"/>
+                      <path d="M20.9997 11.3907L17.6065 13.3781C17.4566 13.4708 17.2999 13.5106 17.1363 13.4973C16.9728 13.4841 16.8297 13.4311 16.7071 13.3384C16.5844 13.2456 16.489 13.1298 16.4209 12.991C16.3528 12.8521 16.3391 12.6963 16.38 12.5235L17.2794 8.76742L14.2746 6.24347C14.1384 6.12423 14.0533 5.9883 14.0195 5.83567C13.9857 5.68304 13.9958 5.53412 14.0498 5.38891C14.1037 5.2437 14.1855 5.12446 14.2951 5.03118C14.4046 4.93791 14.5545 4.87829 14.7448 4.85232L18.7103 4.51447L20.2433 0.976967C20.3115 0.817978 20.4172 0.698736 20.5606 0.619242C20.7039 0.539747 20.8503 0.5 20.9997 0.5C21.149 0.5 21.2954 0.539747 21.4387 0.619242C21.5821 0.698736 21.6878 0.817978 21.756 0.976967L23.289 4.51447L27.2545 4.85232C27.4453 4.87882 27.5952 4.93844 27.7042 5.03118C27.8133 5.12393 27.895 5.24317 27.9495 5.38891C28.004 5.53465 28.0144 5.68383 27.9806 5.83646C27.9468 5.98909 27.8615 6.12476 27.7247 6.24347L24.7199 8.76742L25.6193 12.5235C25.6602 12.6958 25.6465 12.8516 25.5784 12.991C25.5103 13.1303 25.4149 13.2461 25.2922 13.3384C25.1696 13.4306 25.0265 13.4836 24.863 13.4973C24.6994 13.5111 24.5427 13.4714 24.3928 13.3781L20.9997 11.3907Z" fill="#EDB200"/>
+                      <path d="M34.9997 11.3907L31.6065 13.3781C31.4566 13.4708 31.2999 13.5106 31.1363 13.4973C30.9728 13.4841 30.8297 13.4311 30.7071 13.3384C30.5844 13.2456 30.489 13.1298 30.4209 12.991C30.3528 12.8521 30.3391 12.6963 30.38 12.5235L31.2794 8.76742L28.2746 6.24347C28.1384 6.12423 28.0533 5.9883 28.0195 5.83567C27.9857 5.68304 27.9958 5.53412 28.0498 5.38891C28.1037 5.2437 28.1855 5.12446 28.2951 5.03118C28.4046 4.93791 28.5545 4.87829 28.7448 4.85232L32.7103 4.51447L34.2433 0.976967C34.3115 0.817978 34.4172 0.698736 34.5606 0.619242C34.7039 0.539747 34.8503 0.5 34.9997 0.5C35.149 0.5 35.2954 0.539747 35.4387 0.619242C35.5821 0.698736 35.6878 0.817978 35.756 0.976967L37.289 4.51447L41.2545 4.85232C41.4453 4.87882 41.5952 4.93844 41.7042 5.03118C41.8133 5.12393 41.895 5.24317 41.9495 5.38891C42.004 5.53465 42.0144 5.68383 41.9806 5.83646C41.9468 5.98909 41.8615 6.12476 41.7247 6.24347L38.7199 8.76742L39.6193 12.5235C39.6602 12.6958 39.6465 12.8516 39.5784 12.991C39.5103 13.1303 39.4149 13.2461 39.2922 13.3384C39.1696 13.4306 39.0265 13.4836 38.863 13.4973C38.6994 13.5111 38.5427 13.4714 38.3928 13.3781L34.9997 11.3907Z" fill="#EDB200"/>
+                      <path d="M48.9997 11.3907L45.6065 13.3781C45.4566 13.4708 45.2999 13.5106 45.1363 13.4973C44.9728 13.4841 44.8297 13.4311 44.7071 13.3384C44.5844 13.2456 44.489 13.1298 44.4209 12.991C44.3528 12.8521 44.3391 12.6963 44.38 12.5235L45.2794 8.76742L42.2746 6.24347C42.1384 6.12423 42.0533 5.9883 42.0195 5.83567C41.9857 5.68304 41.9958 5.53412 42.0498 5.38891C42.1037 5.2437 42.1855 5.12446 42.2951 5.03118C42.4046 4.93791 42.5545 4.87829 42.7448 4.85232L46.7103 4.51447L48.2433 0.976967C48.3115 0.817978 48.4172 0.698736 48.5606 0.619242C48.7039 0.539747 48.8503 0.5 48.9997 0.5C49.149 0.5 49.2954 0.539747 49.4387 0.619242C49.5821 0.698736 49.6878 0.817978 49.756 0.976967L51.289 4.51447L55.2545 4.85232C55.4453 4.87882 55.5952 4.93844 55.7042 5.03118C55.8133 5.12393 55.895 5.24317 55.9495 5.38891C56.004 5.53465 56.0144 5.68383 55.9806 5.83646C55.9468 5.98909 55.8615 6.12476 55.7247 6.24347L52.7199 8.76742L53.6193 12.5235C53.6602 12.6958 53.6465 12.8516 53.5784 12.991C53.5103 13.1303 53.4149 13.2461 53.2922 13.3384C53.1696 13.4306 53.0265 13.4836 52.863 13.4973C52.6994 13.5111 52.5427 13.4714 52.3928 13.3781L48.9997 11.3907Z" fill="#EDB200"/>
+                      <path d="M62.9997 11.3907L59.6065 13.3781C59.4566 13.4708 59.2999 13.5106 59.1363 13.4973C58.9728 13.4841 58.8297 13.4311 58.7071 13.3384C58.5844 13.2456 58.489 13.1298 58.4209 12.991C58.3528 12.8521 58.3391 12.6963 58.38 12.5235L59.2794 8.76742L56.2746 6.24347C56.1384 6.12423 56.0533 5.9883 56.0195 5.83567C55.9857 5.68304 55.9958 5.53412 56.0498 5.38891C56.1037 5.2437 56.1855 5.12446 56.2951 5.03118C56.4046 4.93791 56.5545 4.87829 56.7448 4.85232L60.7103 4.51447L62.2433 0.976967C62.3115 0.817978 62.4172 0.698736 62.5606 0.619242C62.7039 0.539747 62.8503 0.5 62.9997 0.5C63.149 0.5 63.2954 0.539747 63.4387 0.619242C63.5821 0.698736 63.6878 0.817978 63.756 0.976967L65.289 4.51447L69.2545 4.85232C69.4453 4.87882 69.5952 4.93844 69.7042 5.03118C69.8133 5.12393 69.895 5.24317 69.9495 5.38891C70.004 5.53465 70.0144 5.68383 69.9806 5.83646C69.9468 5.98909 69.8615 6.12476 69.7247 6.24347L66.7199 8.76742L67.6193 12.5235C67.6602 12.6958 67.6465 12.8516 67.5784 12.991C67.5103 13.1303 67.4149 13.2461 67.2922 13.3384C67.1696 13.4306 67.0265 13.4836 66.863 13.4973C66.6994 13.5111 66.5427 13.4714 66.3928 13.3781L62.9997 11.3907Z" fill="#EDB200"/>
+                      </g>
+                      <defs>
+                      <clipPath id="clip0_2047_3269">
+                      <rect width="70" height="13" fill="white" transform="translate(0 0.5)"/>
+                      </clipPath>
+                      </defs>
+                    </svg>
+                    <span class="score">{{settings.google_rating_text}}</span>
+                    <img src="{{settings.google_logo | image_url: width: 16}}" alt="Google logo" class="google-icon" />
+                  </a>
+                </div>                
+              {% endif %}
+
+            </div>
+          </div>
+      </div>
+    </div>
+    <div
+      class="video-section__media deferred-media gradient global-media-settings{% if section.settings.full_width %} global-media-settings--full-width{% endif %}{% if fix_ratio %} media-fit-cover{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+      data-media-id="{{ video_id }}"
+      {% if poster != null %}
+        style="--ratio-percent: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;"
+      {% endif %}
+    >
+      <button
+        id="Deferred-Poster-Modal-{{ video_id }}"
+        class="video-section__poster media deferred-media__poster media--landscape"
+        type="button"
+        aria-label="{{ alt }}"
+      >
+        {%- if poster != null -%}
+          {{
+            poster
+            | image_url: width: 3840
+            | image_tag: sizes: sizes, widths: '375, 750, 1100, 1500, 1780, 2000, 3000, 3840', alt: alt
+          }}
+        {%- else -%}
+          {{ 'hero-apparel-3' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+        {%- endif -%}
+        <span class="div__poster-button motion-reduce">
+          <span class="svg-wrapper">
+            {{- 'icon-play.svg' | inline_asset_content -}}
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "hero blogs",
+  "tag": "section",
+  "class": "section transparent_header",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "content",
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "OVER 13 YEARS OF EXPERIENCE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading",
+      "default": "Premium Quality Retractable Screens"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description",
+      "default": "Perfect blend of functionality and style in retractable fly screens and blackout screens."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "OUR PRODUCTS"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+  
+    {
+      "type": "image_picker",
+      "id": "cover_image",
+      "label": "t:sections.video.settings.cover_image.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.video.settings.header__3.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.video.settings.full_width.label",
+      "default": false
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "add_overlay",
+      "label": "Add Overlay",
+      "default": false,
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "label": "Show Google reviews",
+      "default": false,
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "hero blogs"
+    }
+  ]
+}
+{% endschema %}

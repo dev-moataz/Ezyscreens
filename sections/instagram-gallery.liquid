@@ -1,0 +1,166 @@
+{% comment %}
+  Section: Instagram Gallery with Image Shape Option
+{% endcomment %}
+<section class="instagram-gallery-section">
+  <div class="insta-container">
+    {% if section.settings.handle %}
+      <p class="instagram-handle tagline">
+        <a class="full-unstyled-link" href="{{settings.social_instagram_link}}" target="_blank" rel="noopener">
+        @{{ section.settings.handle }}
+        </a>
+      </p>
+    {% endif %}
+
+    {% if section.settings.heading %}
+      <h2 class="instagram-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="image-grid image-shape-{{ section.settings.image_shape }}">
+      {% for block in section.blocks %}
+        <div class="image-wrapper{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+              style="--animation-order: {{forloop.index}};"
+            {% endif %}>
+          <a class="full-unstyled-link" href="{{settings.social_instagram_link}}" target="_blank" rel="noopener">
+            <img 
+              src="{{ block.settings.image | image_url: width: 600 }}" 
+              alt="Instagram image"
+              loading="lazy"
+            >
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .instagram-gallery-section {
+    text-align: center;
+    padding: 80px 24px 30px;
+    background-color: #fff;
+  }
+
+  .instagram-gallery-section .instagram-handle {
+    color: #198A28;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  .instagram-gallery-section .instagram-heading {
+    margin-bottom: 30px;
+  }
+
+  .instagram-gallery-section .image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .instagram-gallery-section .image-wrapper {
+    max-width: calc((100% - 30px) / 4);
+    overflow: hidden;
+    border-radius: 10px;
+  }
+.instagram-gallery-section .image-wrapper a{
+  height: 100%;
+  display: block;
+}
+  /* Style for 1:1 square shape */
+  .image-shape-square .image-wrapper {
+    aspect-ratio: 1 / 1;
+  }
+
+  .image-shape-square .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Style for original ratio */
+  .image-shape-original .image-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  
+/* mobile */
+@media screen and (max-width: 749px) {
+  .instagram-gallery-section .image-wrapper{
+    max-width: calc((100% - 10px) / 2);
+  }
+  
+  .instagram-gallery-section {  
+    padding: 50px 24px 20px;
+  }
+  .instagram-gallery-section .instagram-heading{
+    font-size: 29px;
+    margin-bottom: 20px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Instagram Gallery",
+  "settings": [
+    {
+      "type": "text",
+      "id": "handle",
+      "label": "Instagram Handle (without @)",
+      "default": "ezyscreens"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Follow Us on Instagram"
+    },
+    {
+      "type": "select",
+      "id": "image_shape",
+      "label": "Image Shape",
+      "default": "square",
+      "options": [
+        {
+          "label": "1:1 Square",
+          "value": "square"
+        },
+        {
+          "label": "Original Ratio",
+          "value": "original"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Instagram Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Instagram Gallery Default",
+      "category": "Social",
+      "blocks": [
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" }
+      ]
+    }
+  ]
+}
+{% endschema %}

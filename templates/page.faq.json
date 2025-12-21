@@ -1,0 +1,329 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "video_zj6h6f": {
+      "type": "video",
+      "custom_css": [
+        ".video-container-box {left: 50%; top: 50%; transform: translate(-50%, -50%); bottom: initial; text-align: center;}",
+        ".title-wrapper {max-width: initial;}",
+        ".video-section:before {background: rgba(0, 0, 0, 0.4);}",
+        "@media screen and (max-width: 749px) {.video-container-box {transform: translate(-50%, 0%); bottom: 0; }}",
+        "@media screen and (min-width: 749px) {.video-section__media {--ratio-percent: 40% !important; }}"
+      ],
+      "name": "hero (Image\/video)",
+      "settings": {
+        "subheading": "FREQUENTLY ASKED QUESTIONS",
+        "heading": "FAQs",
+        "description": "",
+        "button_text": "",
+        "button_link": "",
+        "show_phone": false,
+        "show_email": false,
+        "enable_video_looping": false,
+        "cover_image": "shopify:\/\/shop_images\/062A9541_443be48f-1ae5-4086-9b82-abe2b91e684e.jpg",
+        "video_description": "",
+        "full_width": true,
+        "color_scheme": "scheme-4",
+        "add_overlay": true,
+        "show_rating": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "collapsible_content_page": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_8UEczY": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is a Retractable Fly Screen?",
+            "icon": "none",
+            "row_content": "<p>Retractable fly screens for windows & doors is a mesh screen that can be pulled down or across to allow fresh air to flow through your home while keeping insects out.<\/p>",
+            "page": "",
+            "show_in_products": ""
+          }
+        },
+        "collapsible_row_LXcbWd": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can Retractable Fly Screens be installed on different openings?",
+            "icon": "none",
+            "row_content": "<p>Yes, Retractable fly screens are very versatile and can be installed on various types of openings such as <a href=\"https:\/\/ezyscreens.com.au\/products\/retractable-screen\" title=\"https:\/\/ezyscreens.com.au\/products\/retractable-screen\">Doors<\/a>, <a href=\"https:\/\/ezyscreens.com.au\/products\/retractable-window-screen\" title=\"https:\/\/ezyscreens.com.au\/products\/retractable-window-screen\">Windows<\/a>, <a href=\"https:\/\/ezyscreens.com.au\/products\/retractable-screen?variant=39014536282263\" title=\"https:\/\/ezyscreens.com.au\/products\/retractable-screen?variant=39014536282263\">French doors<\/a>, <a href=\"https:\/\/ezyscreens.com.au\/products\/retractable-screen?variant=40077456736407\" title=\"https:\/\/ezyscreens.com.au\/products\/retractable-screen?variant=40077456736407\">Bi-fold doors<\/a>, <a href=\"https:\/\/ezyscreens.com.au\/products\/retractable-window-screen\" title=\"https:\/\/ezyscreens.com.au\/products\/retractable-window-screen\">Casement windows <\/a>& more.<\/p>",
+            "page": "",
+            "show_in_products": ""
+          }
+        },
+        "collapsible_row_C8Ti7L": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are Retractable Fly Screens low maintenance?",
+            "icon": "none",
+            "row_content": "<p>Yes, Retractable fly screens are very low maintenance. Regular cleaning with a soft cloth and mild cleanser is sufficient. Our ezy screens have the added bonus of being able to replace the <a href=\"https:\/\/ezyscreens.com.au\/products\/universal-parts-for-retractable-fly-screen-for-doors-windows?variant=38955933728919\" title=\"mesh\">mesh<\/a> if ever required. <\/p>",
+            "page": "",
+            "show_in_products": ""
+          }
+        },
+        "collapsible_row_tKyCYR": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is Ezy Screens DIY?",
+            "icon": "none",
+            "row_content": "<p>Absolutely! Ezy Screens are completely customisable. You have the option at a complete <a href=\"https:\/\/ezyscreens.com.au\/blogs\/diy-installations\" title=\"https:\/\/ezyscreens.com.au\/blogs\/diy-installations\">DIY<\/a> kit, cutting service or the full installation package.<\/p>",
+            "page": "",
+            "show_in_products": ""
+          }
+        },
+        "collapsible_row_LFQbmj": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Where do we ship?",
+            "icon": "none",
+            "row_content": "<p>We ship Australia-wide. If you are worried you live to far away, don't hesitate to give us an email.<\/p>",
+            "page": "",
+            "show_in_products": ""
+          }
+        },
+        "collapsible_row_qrGrwF": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do Retractable Fly Screens offer additional benefits besides protection from insects?",
+            "icon": "none",
+            "row_content": "<p>Yes, besides keeping insects out & fresh air in, retractable fly screens can also offer additional benefits such as: reducing the entry of pollen, dust & debris. Retractable fly screens also offer the benefit of being retractable out of view when not in use.<\/p>",
+            "page": "",
+            "show_in_products": ""
+          }
+        },
+        "collapsible_row_ntbwQX": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What colours do ezy screens come in?",
+            "icon": "none",
+            "row_content": "<p>We currently offer: Mission brown, black & Low gloss white. Please see our <a href=\"https:\/\/ezyscreens.com.au\/pages\/gallery\" title=\"https:\/\/ezyscreens.com.au\/pages\/gallery\">gallery <\/a>for real life images.<\/p>",
+            "page": "",
+            "show_in_products": ""
+          }
+        },
+        "collapsible_row_NqHMf6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is the required depth for ezy screens?",
+            "icon": "none",
+            "row_content": "<p>The minimum depth required for an ezy screen to be installed is 35mm.<\/p>",
+            "page": "",
+            "show_in_products": ""
+          }
+        },
+        "collapsible_row_YFtqq6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is ezy screens warranty?",
+            "icon": "none",
+            "row_content": "<p>We offer a 3 year warranty on all parts. On screens that have been installed by one of our technicians we offer a 12 month warranty on labour.<\/p>",
+            "page": "",
+            "show_in_products": ""
+          }
+        },
+        "collapsible_row_ifPFXq": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are Ezy Screens Blockout Screens 100% Blackout?",
+            "icon": "none",
+            "row_content": "<p>Yes, our fabric is 100% <a href=\"https:\/\/ezyscreens.com.au\/products\/blackout-for-windows\" title=\"https:\/\/ezyscreens.com.au\/products\/blackout-for-windows\">blockout<\/a>. The only time light will enter is if your framing is not straight - dull light may be visible through the cracks. This can be resolved with no more gaps. <\/p>",
+            "page": "",
+            "show_in_products": ""
+          }
+        },
+        "collapsible_row_Ejmmh9": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are Blockout Screens customisable?",
+            "icon": "none",
+            "row_content": "<p>Yes, just like our popular retractable <a href=\"https:\/\/ezyscreens.com.au\/products\/retractable-window-screen\" title=\"https:\/\/ezyscreens.com.au\/products\/retractable-window-screen\">fly screens<\/a>; our retractable <a href=\"https:\/\/ezyscreens.com.au\/products\/blackout-for-windows\" title=\"https:\/\/ezyscreens.com.au\/products\/blackout-for-windows\">blockout screens<\/a> are completely customisable when it comes to size. Our <a href=\"https:\/\/ezyscreens.com.au\/products\/blackout-for-windows\" title=\"https:\/\/ezyscreens.com.au\/products\/blackout-for-windows\">blockout screens<\/a> for windows go up to 2.1 wide x 1.8 high.<\/p>",
+            "page": "",
+            "show_in_products": ""
+          }
+        },
+        "collapsible_row_eVGkWp": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do Blockout Screens reduce energy costs?",
+            "icon": "none",
+            "row_content": "<p>Yes, <a href=\"https:\/\/ezyscreens.com.au\/products\/blackout-for-windows\" title=\"https:\/\/ezyscreens.com.au\/products\/blackout-for-windows\">blockout screens<\/a> can help reduce energy costs by blocking out sunlight and reducing heat transfer through windows. By preventing solar heat gain during hot weather, blockout screens can reduce the need for air conditioning, thereby lowering energy consumption. Additionally, they can also help retain heat during colder months, further contributing to energy savings by reducing heating requirements.<\/p>",
+            "page": "",
+            "show_in_products": ""
+          }
+        },
+        "collapsible_row_Qn33KJ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I clean my Blockout Screen?",
+            "icon": "none",
+            "row_content": "<p>First using a dusting microfibre run over the entire blockout fabric to get rid of any dust particles. Use a damp microfibre with a gentle cleanser to carefully wipe down the entire surface of the screen. It's always best to do a small spot test.<\/p>",
+            "page": "",
+            "show_in_products": ""
+          }
+        },
+        "collapsible_row_UdUpHR": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are Retractable Blockout Screens easy to install?",
+            "icon": "none",
+            "row_content": "<p><a href=\"https:\/\/ezyscreens.com.au\/products\/blackout-for-windows\" title=\"https:\/\/ezyscreens.com.au\/products\/blackout-for-windows\">Ezy Screens blockout screens<\/a> are super easy to install, the process from start to finish should take no more then 25 minutes.<\/p>",
+            "page": "",
+            "show_in_products": ""
+          }
+        },
+        "collapsible_row_QGhYw8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you offer installation services for all Ezy Screens products?",
+            "icon": "none",
+            "row_content": "<p>Yes, we offer professional installation services for all of our retractable fly screens in South East Queensland (SEQ). Every installation is backed by a one-year labor warranty, ensuring peace of mind with your purchase.<\/p>",
+            "page": "",
+            "show_in_products": ""
+          }
+        },
+        "collapsible_row_YGVgeE": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can retractable screens be installed on tiny homes or caravans?",
+            "icon": "none",
+            "row_content": "<p>Absolutely! As long as there is a minimum depth of 35mm available for installation, our retractable screens can be fitted to tiny homes, caravans, and other compact spaces.<\/p>",
+            "page": "",
+            "show_in_products": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_8UEczY",
+        "collapsible_row_LXcbWd",
+        "collapsible_row_C8Ti7L",
+        "collapsible_row_tKyCYR",
+        "collapsible_row_LFQbmj",
+        "collapsible_row_qrGrwF",
+        "collapsible_row_ntbwQX",
+        "collapsible_row_NqHMf6",
+        "collapsible_row_YFtqq6",
+        "collapsible_row_ifPFXq",
+        "collapsible_row_Ejmmh9",
+        "collapsible_row_eVGkWp",
+        "collapsible_row_Qn33KJ",
+        "collapsible_row_UdUpHR",
+        "collapsible_row_QGhYw8",
+        "collapsible_row_YGVgeE"
+      ],
+      "custom_css": [
+        ".collapsible-content__header {display: none;}",
+        ".accordion {margin-top: 0rem;}",
+        ".collapsible-content__grid > div {padding-left: 5rem; max-width: 1000px;}",
+        "@media screen and (max-width: 750px) {.collapsible-section-layout {padding-inline: 0; } .collapsible-content__grid > div {padding-left: 24px; }}"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "section",
+        "container_color_scheme": "scheme-3",
+        "color_scheme": "scheme-3",
+        "open_first_collapsible_row": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 8,
+        "padding_bottom": 24
+      }
+    },
+    "instagram_gallery_faq": {
+      "type": "instagram-gallery",
+      "blocks": {
+        "image_EJDFmH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/IMG_3579.jpg"
+          }
+        },
+        "image_P874aQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/IMG_2425.jpg"
+          }
+        },
+        "image_ntzPFe": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/IMG_9691.jpg"
+          }
+        },
+        "image_i8KDmq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/BLKOUT_draft_3_small_edits.webp"
+          }
+        }
+      },
+      "block_order": [
+        "image_EJDFmH",
+        "image_P874aQ",
+        "image_ntzPFe",
+        "image_i8KDmq"
+      ],
+      "settings": {
+        "handle": "ezyscreens",
+        "heading": "Follow Us on Instagram",
+        "image_shape": "square"
+      }
+    },
+    "text_n_icons_faq": {
+      "type": "text-n-icons",
+      "blocks": {
+        "feature_DhCLQb": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Vector_5.png",
+            "text": "Fast Turn Around"
+          }
+        },
+        "feature_X7ftw8": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon_1.png",
+            "text": "Easy 30 Days Return"
+          }
+        },
+        "feature_ePxbVC": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon.png",
+            "text": "Australia Wide Shipping"
+          }
+        }
+      },
+      "block_order": [
+        "feature_DhCLQb",
+        "feature_X7ftw8",
+        "feature_ePxbVC"
+      ],
+      "settings": {
+        "heading": "Upgrade Your Home Today",
+        "subheading": "Transform your home with our reliable and stylish solutions. Get in touch with us now to find the perfect fit for your needs!",
+        "color_scheme": "scheme-2",
+        "button_text": "OUR SCREENS",
+        "button_link": "shopify:\/\/collections\/ezyscreens-products"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "video_zj6h6f",
+    "collapsible_content_page",
+    "instagram_gallery_faq",
+    "text_n_icons_faq"
+  ]
+}

@@ -1,0 +1,113 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    margin-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    margin-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      margin-top: {{ section.settings.padding_top }}px;
+      margin-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+
+<style>
+.scrolling-benefits-wrapper {
+  background-color: #12121a;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 25px 0;
+  position: relative;
+}
+
+.scrolling-benefits {
+  display: inline-block;
+  animation: scroll-left 140s linear infinite;
+}
+
+.benefit-item {
+  display: inline-block;
+  color: #fff;
+  font-weight: 600;
+  padding: 0 30px;
+  position: relative;
+}
+
+.benefit-item:not(:last-child)::after {
+  content: "/";
+  color: #404050;
+  margin-right: -10px;
+  position: absolute;
+  right: 0;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+</style>
+
+<div class="scrolling-benefits-wrapper section-{{ section.id }}-padding">
+  <div class="scrolling-benefits">
+    {% assign benefits = section.settings.benefits_text | split: "," %}
+    {% for benefit in benefits %}
+      <span class="benefit-item">{{ benefit | strip }}</span>
+    {% endfor %}
+    {% comment %}
+      Repeat once more for seamless infinite scroll
+    {% endcomment %}
+    {% for benefit in benefits %}
+      <span class="benefit-item">{{ benefit | strip }}</span>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Scrolling Benefits Bar",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "benefits_text",
+      "label": "Benefits List (separate with commas)",
+      "default": "Natural Ventilation, Insect And UV Protection, Uninterrupted Views, Temperature Ventilation, Easy To Install, Light Isolation, Natural Ventilation, Insect And UV Protection, Uninterrupted Views, Temperature Ventilation, Easy To Install, Light Isolation, Natural Ventilation, Insect And UV Protection, Uninterrupted Views, Temperature Ventilation, Easy To Install, Light Isolation"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Margin",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Margin",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scrolling Benefits Bar",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

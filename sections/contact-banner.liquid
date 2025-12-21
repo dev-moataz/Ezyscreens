@@ -1,0 +1,169 @@
+{% stylesheet %}
+.contact-info-section {
+  background-color: #191A24;
+  color: white;
+  padding: 30px 0px;
+  text-align: left;
+}
+
+.contact-info-block {
+  padding: 0px 20px;
+}
+
+.contact-info-block h4 { 
+    margin-bottom: 0;
+  font-size: 14px;
+  color: #ffffff;
+  text-transform: uppercase;
+
+}
+
+.contact-info-block a {
+  font-weight: bold;
+    color: #ffffff;
+}
+
+.contact-info-block a:hover {
+  color: #198A28;
+}
+
+.contact-info-block p {
+  margin: 0;
+  line-height: 1.6;
+}
+.block-head {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-bottom: 1px solid rgba(56,60,84,40);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+
+/* mobile */
+@media screen and (max-width: 749px) {
+  .contact-info-block{
+    
+    padding: 0px;
+  }
+  .contact-conatiner.grid {
+    row-gap: 30px;
+  }
+}
+{% endstylesheet %}
+
+<div class="contact-info-section">
+  <div class="page-width">
+    <div class="contact-conatiner  grid grid--1-col-tablet-down grid--4-col-desktop ">
+      <div class="contact-info-block grid__item">
+        <div class="block-head">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="5" fill="#198A28"/>
+            <path d="M23.2217 19.2682L20.6817 18.9782C20.3831 18.9431 20.0803 18.9762 19.7963 19.0749C19.5122 19.1736 19.2543 19.3354 19.0417 19.5482L17.2017 21.3882C14.3631 19.9441 12.0558 17.6368 10.6117 14.7982L12.4617 12.9482C12.8917 12.5182 13.1017 11.9182 13.0317 11.3082L12.7417 8.78819C12.6853 8.30028 12.4512 7.85021 12.0842 7.52378C11.7172 7.19735 11.2429 7.01739 10.7517 7.01819H9.02174C7.89174 7.01819 6.95174 7.95819 7.02174 9.08819C7.55174 17.6282 14.3817 24.4482 22.9117 24.9782C24.0417 25.0482 24.9817 24.1082 24.9817 22.9782V21.2482C24.9917 20.2382 24.2317 19.3882 23.2217 19.2682Z" fill="white"/>
+          </svg>
+          <h4>{{ section.settings.call_us_label }}</h4>
+        </div>
+        <a href="tel:{{ section.settings.call_us_phone | remove: ' ' }}">{{ section.settings.call_us_phone }}</a>
+      </div>
+      <div class="contact-info-block grid__item">
+        <div class="block-head">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="5" fill="#198A28"/>
+          <path d="M8.8 23.2C8.305 23.2 7.8814 23.0239 7.5292 22.6717C7.177 22.3195 7.0006 21.8956 7 21.4V10.6C7 10.105 7.1764 9.68139 7.5292 9.32919C7.882 8.97699 8.3056 8.80059 8.8 8.79999H23.2C23.695 8.79999 24.1189 8.97639 24.4717 9.32919C24.8245 9.68199 25.0006 10.1056 25 10.6V21.4C25 21.895 24.8239 22.3189 24.4717 22.6717C24.1195 23.0245 23.6956 23.2006 23.2 23.2H8.8ZM16 16.7425C16.075 16.7425 16.1539 16.7311 16.2367 16.7083C16.3195 16.6855 16.3981 16.6519 16.4725 16.6075L22.84 12.625C22.96 12.55 23.05 12.4564 23.11 12.3442C23.17 12.232 23.2 12.1081 23.2 11.9725C23.2 11.6725 23.0725 11.4475 22.8175 11.2975C22.5625 11.1475 22.3 11.155 22.03 11.32L16 15.1L9.97 11.32C9.7 11.155 9.4375 11.1514 9.1825 11.3092C8.9275 11.467 8.8 11.6881 8.8 11.9725C8.8 12.1225 8.83 12.2539 8.89 12.3667C8.95 12.4795 9.04 12.5656 9.16 12.625L15.5275 16.6075C15.6025 16.6525 15.6814 16.6864 15.7642 16.7092C15.847 16.732 15.9256 16.7431 16 16.7425Z" fill="white"/>
+          </svg>
+          <h4>{{ section.settings.email_us_label }}</h4>
+        </div>
+        <a href="mailto:{{ section.settings.email_us }}">{{ section.settings.email_us }}</a>
+      </div>
+      <div class="contact-info-block grid__item">
+        <div class="block-head">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="5" fill="#198A28"/>
+          <path d="M14.4728 23.8631C14.9638 24.2683 15.476 24.6386 16.0002 25C16.5256 24.6434 17.0352 24.2641 17.5276 23.8631C18.3485 23.1892 19.121 22.4584 19.8394 21.6761C21.4957 19.8651 23.2929 17.2398 23.2929 14.2927C23.2929 13.335 23.1043 12.3867 22.7378 11.5019C22.3713 10.6171 21.8341 9.81317 21.1569 9.13598C20.4797 8.45879 19.6758 7.92162 18.791 7.55512C17.9062 7.18863 16.9579 7 16.0002 7C15.0425 7 14.0942 7.18863 13.2094 7.55512C12.3246 7.92162 11.5207 8.45879 10.8435 9.13598C10.1663 9.81317 9.62914 10.6171 9.26264 11.5019C8.89615 12.3867 8.70752 13.335 8.70752 14.2927C8.70752 17.2398 10.5048 19.8643 12.161 21.6761C12.8794 22.4586 13.6519 23.1889 14.4728 23.8631ZM16.0002 16.9262C15.3018 16.9262 14.6319 16.6487 14.1381 16.1548C13.6442 15.661 13.3667 14.9911 13.3667 14.2927C13.3667 13.5943 13.6442 12.9244 14.1381 12.4306C14.6319 11.9367 15.3018 11.6592 16.0002 11.6592C16.6987 11.6592 17.3685 11.9367 17.8624 12.4306C18.3562 12.9244 18.6337 13.5943 18.6337 14.2927C18.6337 14.9911 18.3562 15.661 17.8624 16.1548C17.3685 16.6487 16.6987 16.9262 16.0002 16.9262Z" fill="white"/>
+          </svg>
+
+          <h4>{{ section.settings.find_us_label }}</h4>
+        </div>
+        <a href="{{ section.settings.find_us_link }}">{{ section.settings.find_us_text }}</a>
+      </div>
+      <div class="contact-info-block grid__item">
+        <div class="block-head">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="5" fill="#198A28"/>
+          <path d="M16.9 15.64V12.4C16.9 12.145 16.8136 11.9314 16.6408 11.7592C16.468 11.587 16.2544 11.5006 16 11.5C15.7456 11.4994 15.532 11.5858 15.3592 11.7592C15.1864 11.9326 15.1 12.1462 15.1 12.4V15.9775C15.1 16.0975 15.1225 16.2139 15.1675 16.3267C15.2125 16.4395 15.28 16.5406 15.37 16.63L18.34 19.6C18.505 19.765 18.715 19.8475 18.97 19.8475C19.225 19.8475 19.435 19.765 19.6 19.6C19.765 19.435 19.8475 19.225 19.8475 18.97C19.8475 18.715 19.765 18.505 19.6 18.34L16.9 15.64ZM16 25C14.755 25 13.585 24.7636 12.49 24.2908C11.395 23.818 10.4425 23.1769 9.6325 22.3675C8.8225 21.5581 8.1814 20.6056 7.7092 19.51C7.237 18.4144 7.0006 17.2444 7 16C6.9994 14.7556 7.2358 13.5856 7.7092 12.49C8.1826 11.3944 8.8237 10.4419 9.6325 9.6325C10.4413 8.8231 11.3938 8.182 12.49 7.7092C13.5862 7.2364 14.7562 7 16 7C17.2438 7 18.4138 7.2364 19.51 7.7092C20.6062 8.182 21.5587 8.8231 22.3675 9.6325C23.1763 10.4419 23.8177 11.3944 24.2917 12.49C24.7657 13.5856 25.0018 14.7556 25 16C24.9982 17.2444 24.7618 18.4144 24.2908 19.51C23.8198 20.6056 23.1787 21.5581 22.3675 22.3675C21.5563 23.1769 20.6038 23.8183 19.51 24.2917C18.4162 24.7651 17.2462 25.0012 16 25Z" fill="white"/>
+          </svg>
+          <h4>{{ section.settings.hours_label }}</h4>
+        </div>
+
+        <p>{{ section.settings.hours_line1 }}</p>
+      </div>    
+    </div>
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Contact Info",
+  "settings": [
+    {
+      "type": "text",
+      "id": "call_us_label",
+      "label": "Call Us Label",
+      "default": "CALL US"
+    },
+    {
+      "type": "text",
+      "id": "call_us_phone",
+      "label": "Phone Number",
+      "default": "1300 186 714"
+    },
+    {
+      "type": "text",
+      "id": "email_us_label",
+      "label": "Email Us Label",
+      "default": "EMAIL US"
+    },
+    {
+      "type": "text",
+      "id": "email_us",
+      "label": "Email Address",
+      "default": "sales@ezyscreens.com.au"
+    },
+    {
+      "type": "text",
+      "id": "find_us_label",
+      "label": "Find Us Label",
+      "default": "FIND US"
+    },
+    {
+      "type": "text",
+      "id": "find_us_text",
+      "label": "Location Text",
+      "default": "Brisbane"
+    },
+    {
+      "type": "url",
+      "id": "find_us_link",
+      "label": "Location Link",
+    },
+    {
+      "type": "text",
+      "id": "hours_label",
+      "label": "Opening Hours Label",
+      "default": "OPENING HOURS"
+    },
+    {
+      "type": "richtext",
+      "id": "hours_line1",
+      "label": "Hours Line 1",
+    },
+  ],
+  "presets": [
+    {
+      "name": "Contact Info"
+    }
+  ]
+}
+{% endschema %}

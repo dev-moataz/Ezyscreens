@@ -1,0 +1,336 @@
+{{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+
+<article class="article-template">
+  <div class="page-width page-width--wide">
+    <div class="article-container grid grid--1-col-tablet-down grid--4-col-desktop grid--4-col-desktop-blog ">
+      <div class="toc grid__item grid__item-narrow">
+      </div>
+      <div class="main-article-body grid__item grid__item-wide">
+
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when '@app' -%}
+              <div class="">
+                {% render block %}
+              </div>
+            {%- when 'featured_image' -%}
+              {%- if article.image -%}
+                <div
+                  class="article-template__hero-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+                  {{ block.shopify_attributes }}
+                >
+                  <div
+                    class="article-template__hero-{{ block.settings.image_height }} media"
+                    {% if block.settings.image_height == 'adapt' and article.image %}
+                      style="padding-bottom: {{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;"
+                    {% endif %}
+                  >
+                    <img
+                      srcset="
+                        {% if article.image.width >= 350 %}{{ article.image | image_url: width: 350 }} 350w,{% endif %}
+                        {% if article.image.width >= 750 %}{{ article.image | image_url: width: 750 }} 750w,{% endif %}
+                        {% if article.image.width >= 1100 %}{{ article.image | image_url: width: 1100 }} 1100w,{% endif %}
+                        {% if article.image.width >= 1500 %}{{ article.image | image_url: width: 1500 }} 1500w,{% endif %}
+                        {% if article.image.width >= 2200 %}{{ article.image | image_url: width: 2200 }} 2200w,{% endif %}
+                        {% if article.image.width >= 3000 %}{{ article.image | image_url: width: 3000 }} 3000w,{% endif %}
+                        {{ article.image | image_url }} {{ article.image.width }}w
+                      "
+                      sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
+                      src="{{ article.image | image_url: width: 1100 }}"
+                      loading="eager"
+                      fetchpriority="high"
+                      width="{{ article.image.width }}"
+                      height="{{ article.image.height }}"
+                      alt="{{ article.image.alt | escape }}"
+                    >
+                  </div>
+                </div>
+              {%- endif -%}
+
+            {%- when 'title' -%}
+              <header
+                class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+                {{ block.shopify_attributes }}
+              >
+                <h1
+                  class="article-template__title"
+                >
+                  {{ article.title | escape }}
+                </h1>
+                {%- if block.settings.blog_show_date -%}
+                  <span class="circle-divider caption-with-letter-spacing">
+                    {{- article.published_at | time_tag: format: 'date' -}}
+                  </span>
+                {%- endif -%}
+                {%- if block.settings.blog_show_author -%}
+                  <span class="caption-with-letter-spacing">
+                    <span>{{ article.author }}</span>
+                  </span>
+                {%- endif -%}
+              </header>
+
+            {%- when 'content' -%}
+              <div
+                class="article-template__content  rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                {{ block.shopify_attributes }}
+              >
+                {{ article.content }}
+              </div>
+
+            {%- when 'share' -%}
+              <div class="share-container">
+                <h3 class="share-title">Share This Post</h3>
+                {%- render 'social-icons', class: 'footer__list-social article-social' -%}
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+
+
+      </div>
+      <div class="right-bar grid__item grid__item-narrow">
+          <!-- Newsletter Box -->
+          <div class="newsletter-box">
+            <h3>Subscribe to our Newsletter</h3>
+                        {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
+                          <input type="hidden" name="contact[tags]" value="newsletter">
+                          <div class="newsletter-form__field-wrapper">
+                            <div class="field">
+                              <input
+                                id="NewsletterForm--{{ section.id }}"
+                                type="email"
+                                name="contact[email]"
+                                class="field__input"
+                                value="{{ form.email }}"
+                                aria-required="true"
+                                autocorrect="off"
+                                autocapitalize="off"
+                                autocomplete="email"
+                                {% if form.errors %}
+                                  autofocus
+                                  aria-invalid="true"
+                                  aria-describedby="ContactFooter-error"
+                                {% elsif form.posted_successfully? %}
+                                  aria-describedby="ContactFooter-success"
+                                {% endif %}
+                                placeholder="{{ 'newsletter.label' | t }}"
+                                required
+                              >
+                              <label class="field__label" for="NewsletterForm--{{ section.id }}">
+                                {{ 'newsletter.label' | t }}
+                              </label>
+                              <button
+                                type="submit"
+                                class="newsletter-form__button field__button"
+                                name="commit"
+                                id="Subscribe"
+                                aria-label="{{ 'newsletter.button_label' | t }}"
+                              >
+                                <span class="svg-wrapper">
+                                  {{- 'icon-arrow.svg' | inline_asset_content -}}
+                                </span>
+                              </button>
+                            </div>
+                            {%- if form.errors -%}
+                              <small class="newsletter-form__message form__message" id="ContactFooter-error">
+                                <span class="svg-wrapper">
+                                  {{- 'icon-error.svg' | inline_asset_content -}}
+                                </span>
+                                {{- form.errors.translated_fields.email | capitalize }}
+                                {{ form.errors.messages.email -}}
+                              </small>
+                            {%- endif -%}
+                          </div>
+                          {%- if form.posted_successfully? -%}
+                            <h3
+                              class="newsletter-form__message newsletter-form__message--success form__message"
+                              id="ContactFooter-success"
+                              tabindex="-1"
+                              autofocus
+                            >
+                              <span class="svg-wrapper">
+                                {{- 'icon-success.svg' | inline_asset_content -}}
+                              </span>
+                              {{- 'newsletter.success' | t }}
+                            </h3>
+                          {%- endif -%}
+                        {%- endform -%}
+
+
+            {% comment %} <input type="email" placeholder="john.doe@gmail.com">
+            <button type="submit" class="button button--primary button--small button--full-width">SUBMIT</button> {% endcomment %}
+          </div>
+
+          <!-- Promo Box -->
+          <div class="promo-box">
+            <h3>Premium Quality Retractable Screens</h3>
+            <a href="{{section.settings.button_link}}" class="button button--primary button--small button--full-width">SHOP NOW</a>
+            <div class="rating">
+              <a href="{{settings.google_link}}" class="full-unstyled-link rating-link">
+                <span>{{settings.google_rating_number}}</span>
+                <svg class="svg-stars" width="70" height="14" viewBox="0 0 70 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_2047_3269)">
+                  <path d="M6.99965 11.3907L3.60648 13.3781C3.45658 13.4708 3.29986 13.5106 3.13634 13.4973C2.97281 13.4841 2.82972 13.4311 2.70708 13.3384C2.58443 13.2456 2.48904 13.1298 2.42091 12.991C2.35277 12.8521 2.33915 12.6963 2.38003 12.5235L3.27942 8.76742L0.274623 6.24347C0.138351 6.12423 0.0533171 5.9883 0.0195216 5.83567C-0.0142739 5.68304 -0.00418977 5.53412 0.049774 5.38891C0.103738 5.2437 0.185501 5.12446 0.295064 5.03118C0.404627 4.93791 0.554526 4.87829 0.744762 4.85232L4.71028 4.51447L6.24334 0.976967C6.31148 0.817978 6.41722 0.698736 6.56058 0.619242C6.70394 0.539747 6.8503 0.5 6.99965 0.5C7.14901 0.5 7.29536 0.539747 7.43872 0.619242C7.58208 0.698736 7.68783 0.817978 7.75596 0.976967L9.28902 4.51447L13.2545 4.85232C13.4453 4.87882 13.5952 4.93844 13.7042 5.03118C13.8133 5.12393 13.895 5.24317 13.9495 5.38891C14.004 5.53465 14.0144 5.68383 13.9806 5.83646C13.9468 5.98909 13.8615 6.12476 13.7247 6.24347L10.7199 8.76742L11.6193 12.5235C11.6602 12.6958 11.6465 12.8516 11.5784 12.991C11.5103 13.1303 11.4149 13.2461 11.2922 13.3384C11.1696 13.4306 11.0265 13.4836 10.863 13.4973C10.6994 13.5111 10.5427 13.4714 10.3928 13.3781L6.99965 11.3907Z" fill="#EDB200"/>
+                  <path d="M20.9997 11.3907L17.6065 13.3781C17.4566 13.4708 17.2999 13.5106 17.1363 13.4973C16.9728 13.4841 16.8297 13.4311 16.7071 13.3384C16.5844 13.2456 16.489 13.1298 16.4209 12.991C16.3528 12.8521 16.3391 12.6963 16.38 12.5235L17.2794 8.76742L14.2746 6.24347C14.1384 6.12423 14.0533 5.9883 14.0195 5.83567C13.9857 5.68304 13.9958 5.53412 14.0498 5.38891C14.1037 5.2437 14.1855 5.12446 14.2951 5.03118C14.4046 4.93791 14.5545 4.87829 14.7448 4.85232L18.7103 4.51447L20.2433 0.976967C20.3115 0.817978 20.4172 0.698736 20.5606 0.619242C20.7039 0.539747 20.8503 0.5 20.9997 0.5C21.149 0.5 21.2954 0.539747 21.4387 0.619242C21.5821 0.698736 21.6878 0.817978 21.756 0.976967L23.289 4.51447L27.2545 4.85232C27.4453 4.87882 27.5952 4.93844 27.7042 5.03118C27.8133 5.12393 27.895 5.24317 27.9495 5.38891C28.004 5.53465 28.0144 5.68383 27.9806 5.83646C27.9468 5.98909 27.8615 6.12476 27.7247 6.24347L24.7199 8.76742L25.6193 12.5235C25.6602 12.6958 25.6465 12.8516 25.5784 12.991C25.5103 13.1303 25.4149 13.2461 25.2922 13.3384C25.1696 13.4306 25.0265 13.4836 24.863 13.4973C24.6994 13.5111 24.5427 13.4714 24.3928 13.3781L20.9997 11.3907Z" fill="#EDB200"/>
+                  <path d="M34.9997 11.3907L31.6065 13.3781C31.4566 13.4708 31.2999 13.5106 31.1363 13.4973C30.9728 13.4841 30.8297 13.4311 30.7071 13.3384C30.5844 13.2456 30.489 13.1298 30.4209 12.991C30.3528 12.8521 30.3391 12.6963 30.38 12.5235L31.2794 8.76742L28.2746 6.24347C28.1384 6.12423 28.0533 5.9883 28.0195 5.83567C27.9857 5.68304 27.9958 5.53412 28.0498 5.38891C28.1037 5.2437 28.1855 5.12446 28.2951 5.03118C28.4046 4.93791 28.5545 4.87829 28.7448 4.85232L32.7103 4.51447L34.2433 0.976967C34.3115 0.817978 34.4172 0.698736 34.5606 0.619242C34.7039 0.539747 34.8503 0.5 34.9997 0.5C35.149 0.5 35.2954 0.539747 35.4387 0.619242C35.5821 0.698736 35.6878 0.817978 35.756 0.976967L37.289 4.51447L41.2545 4.85232C41.4453 4.87882 41.5952 4.93844 41.7042 5.03118C41.8133 5.12393 41.895 5.24317 41.9495 5.38891C42.004 5.53465 42.0144 5.68383 41.9806 5.83646C41.9468 5.98909 41.8615 6.12476 41.7247 6.24347L38.7199 8.76742L39.6193 12.5235C39.6602 12.6958 39.6465 12.8516 39.5784 12.991C39.5103 13.1303 39.4149 13.2461 39.2922 13.3384C39.1696 13.4306 39.0265 13.4836 38.863 13.4973C38.6994 13.5111 38.5427 13.4714 38.3928 13.3781L34.9997 11.3907Z" fill="#EDB200"/>
+                  <path d="M48.9997 11.3907L45.6065 13.3781C45.4566 13.4708 45.2999 13.5106 45.1363 13.4973C44.9728 13.4841 44.8297 13.4311 44.7071 13.3384C44.5844 13.2456 44.489 13.1298 44.4209 12.991C44.3528 12.8521 44.3391 12.6963 44.38 12.5235L45.2794 8.76742L42.2746 6.24347C42.1384 6.12423 42.0533 5.9883 42.0195 5.83567C41.9857 5.68304 41.9958 5.53412 42.0498 5.38891C42.1037 5.2437 42.1855 5.12446 42.2951 5.03118C42.4046 4.93791 42.5545 4.87829 42.7448 4.85232L46.7103 4.51447L48.2433 0.976967C48.3115 0.817978 48.4172 0.698736 48.5606 0.619242C48.7039 0.539747 48.8503 0.5 48.9997 0.5C49.149 0.5 49.2954 0.539747 49.4387 0.619242C49.5821 0.698736 49.6878 0.817978 49.756 0.976967L51.289 4.51447L55.2545 4.85232C55.4453 4.87882 55.5952 4.93844 55.7042 5.03118C55.8133 5.12393 55.895 5.24317 55.9495 5.38891C56.004 5.53465 56.0144 5.68383 55.9806 5.83646C55.9468 5.98909 55.8615 6.12476 55.7247 6.24347L52.7199 8.76742L53.6193 12.5235C53.6602 12.6958 53.6465 12.8516 53.5784 12.991C53.5103 13.1303 53.4149 13.2461 53.2922 13.3384C53.1696 13.4306 53.0265 13.4836 52.863 13.4973C52.6994 13.5111 52.5427 13.4714 52.3928 13.3781L48.9997 11.3907Z" fill="#EDB200"/>
+                  <path d="M62.9997 11.3907L59.6065 13.3781C59.4566 13.4708 59.2999 13.5106 59.1363 13.4973C58.9728 13.4841 58.8297 13.4311 58.7071 13.3384C58.5844 13.2456 58.489 13.1298 58.4209 12.991C58.3528 12.8521 58.3391 12.6963 58.38 12.5235L59.2794 8.76742L56.2746 6.24347C56.1384 6.12423 56.0533 5.9883 56.0195 5.83567C55.9857 5.68304 55.9958 5.53412 56.0498 5.38891C56.1037 5.2437 56.1855 5.12446 56.2951 5.03118C56.4046 4.93791 56.5545 4.87829 56.7448 4.85232L60.7103 4.51447L62.2433 0.976967C62.3115 0.817978 62.4172 0.698736 62.5606 0.619242C62.7039 0.539747 62.8503 0.5 62.9997 0.5C63.149 0.5 63.2954 0.539747 63.4387 0.619242C63.5821 0.698736 63.6878 0.817978 63.756 0.976967L65.289 4.51447L69.2545 4.85232C69.4453 4.87882 69.5952 4.93844 69.7042 5.03118C69.8133 5.12393 69.895 5.24317 69.9495 5.38891C70.004 5.53465 70.0144 5.68383 69.9806 5.83646C69.9468 5.98909 69.8615 6.12476 69.7247 6.24347L66.7199 8.76742L67.6193 12.5235C67.6602 12.6958 67.6465 12.8516 67.5784 12.991C67.5103 13.1303 67.4149 13.2461 67.2922 13.3384C67.1696 13.4306 67.0265 13.4836 66.863 13.4973C66.6994 13.5111 66.5427 13.4714 66.3928 13.3781L62.9997 11.3907Z" fill="#EDB200"/>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0_2047_3269">
+                  <rect width="70" height="13" fill="white" transform="translate(0 0.5)"/>
+                  </clipPath>
+                  </defs>
+                </svg>
+                <img src="{{settings.google_logo | image_url: width: 16}}" alt="Google logo" class="google-icon" />
+              </a>
+            </div>
+          </div>
+      </div>
+    </div>
+  
+  </div>
+
+</article>
+
+<script type="application/ld+json">
+  {{ article | structured_data }}
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+ // Get all 'h2' tags inside '.article-template'
+    const h2Tags = document.querySelectorAll('.article-template h2');
+
+    // Create a contents container
+    const contentsContainer = document.createElement('div');
+    contentsContainer.id = 'contents-container';
+
+    // Create a heading for the contents table
+    const contentsHeading = document.createElement('h3');
+    contentsHeading.textContent = 'Table of Contents';
+
+    // Create an unordered list for the contents
+    const contentsList = document.createElement('ul');
+    contentsList.id = 'contents';
+
+    // Append heading and list to the contents container
+    contentsContainer.appendChild(contentsHeading);
+    contentsContainer.appendChild(contentsList);
+
+    // Insert the contents container before the first 'h2' tag
+    const firstH2 = h2Tags[0];
+    document.querySelector('.toc').appendChild(contentsContainer);
+
+
+    // Loop through each 'h2' tag
+    h2Tags.forEach((h2, index) => {
+        // Assign ids to 'h2' tags
+        h2.id = (index + 1).toString();
+
+        // Create a list item for the contents table
+        const listItem = document.createElement('li');
+
+        // Create an anchor tag with a link to the corresponding 'h2' tag
+        const anchor = document.createElement('a');
+        anchor.href = `#${h2.id}`;
+        anchor.classList.add("full-unstyled-link")
+        anchor.textContent = h2.textContent;
+
+        // Append the anchor tag to the list item
+        listItem.appendChild(anchor);
+
+        // Append the list item to the contents table
+        contentsList.appendChild(listItem);
+    });
+  
+});
+</script>
+
+
+{% schema %}
+{
+  "name": "t:sections.main-article.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "sidebar shop now link"
+    },
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "featured_image",
+      "name": "t:sections.main-article.blocks.featured_image.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "image_height",
+          "options": [
+            {
+              "value": "adapt",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__1.label"
+            },
+            {
+              "value": "small",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__2.label"
+            },
+            {
+              "value": "medium",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__3.label"
+            },
+            {
+              "value": "large",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__4.label"
+            }
+          ],
+          "default": "adapt",
+          "label": "t:sections.main-article.blocks.featured_image.settings.image_height.label"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "t:sections.main-article.blocks.title.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "blog_show_date",
+          "default": true,
+          "label": "t:sections.main-article.blocks.title.settings.blog_show_date.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "blog_show_author",
+          "default": false,
+          "label": "t:sections.main-article.blocks.title.settings.blog_show_author.label"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "name": "t:sections.main-article.blocks.content.name",
+      "limit": 1
+    },
+    {
+      "type": "share",
+      "name": "t:sections.main-article.blocks.share.name",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "share_label",
+          "label": "t:sections.main-article.blocks.share.settings.text.label",
+          "default": "t:sections.main-article.blocks.share.settings.text.default"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

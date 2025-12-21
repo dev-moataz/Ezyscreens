@@ -1,0 +1,359 @@
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding  {
+    padding-top: {{ section.settings.padding_top | times: 0.6 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.6 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding  {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<!-- custom styles to this section-->
+{%- style -%}
+  .team__content{
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+  }
+
+  .team__box{
+    max-width: 700px;
+  }
+  .team__members{
+    column-gap: var(--grid-desktop-horizontal-spacing);
+    row-gap: var(--grid-desktop-vertical-spacing);
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+  }
+  .team__member{
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+  }
+  .team__member_img{
+    width: 100%;
+    display: block;
+    height: auto;
+  }
+  .team__member_text{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.37);
+    text-align: center;
+    width: 100%;
+    backdrop-filter: blur(10px);         /* Apply the blur */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    padding: 20px 0;
+    
+  }
+
+  .team__member_img_job{
+    color: #ffffff;
+    margin-bottom: 15px;
+  
+    font-size: 15px;
+  }
+  .team__member_img_name{
+    color: #ffffff;
+  }
+  {% comment %} tablet custom css edits {% endcomment %}
+  @media screen and (max-width: 989px) {
+    .team__content{
+      flex-direction: column;
+      align-items: flex-start;
+      row-gap: 20px;
+    }
+    .team__member{
+      width: calc((100% - var(--grid-desktop-horizontal-spacing)) / 2) !important;
+    }
+
+  }
+
+  {% comment %} mobile custom css edits {% endcomment %}
+  @media screen and (max-width: 749px) {
+    .team__member{
+      width: 100% !important;
+    }  
+  } 
+{%- endstyle -%}
+
+
+
+<div
+  id="team-{{ section.id }}"
+  class="team  color-{{ section.settings.color_scheme }}  {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+>
+  {% comment %} page width and section container {% endcomment %}
+  <div
+    class="page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+    {% if settings.animations_reveal_on_scroll %}
+      data-cascade
+    {% endif %}
+  >
+
+    <div class="team__content {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div class="team__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'heading' -%}
+              <h2
+                class="team__heading inline-richtext {{ block.settings.heading_size }}"
+                {{ block.shopify_attributes }}
+              >
+                {{ block.settings.heading }}
+              </h2>
+            {%- when 'text' -%}
+              <div class="team__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+                <p style="color: {{block.settings.color}}">{{ block.settings.text }}</p>
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+
+      
+      <div
+        class="team__buttons">
+              {%- if section.settings.button_label_1 != blank -%}
+                <a
+                  {% if section.settings.button_link_1 == blank %}
+                    role="link" aria-disabled="true"
+                  {% else %}
+                    href="{{ section.settings.button_link_1 }}"
+                  {% endif %}
+                  class="button{% if section.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"
+                >
+                  {{- section.settings.button_label_1 | escape -}}
+                </a>
+              {%- endif -%} 
+      </div>
+    </div>
+
+    <div class="team__members {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade style="--animation-order: 2;"
+            {% endif %} ">
+      {%- for block in section.blocks -%}
+        {% if block.type == "member" %}
+          <div class="team__member "
+          
+          style="{% if section.settings.desktop_columns == 2 %} width: calc((100% - var(--grid-desktop-horizontal-spacing)) / 2);
+          {% elsif  section.settings.desktop_columns == 3 %}   width: calc((100% - 2 * var(--grid-desktop-horizontal-spacing)) / 3);  
+          {% elsif  section.settings.desktop_columns == 4 %}   width: calc((100% - 3 * var(--grid-desktop-horizontal-spacing)) / 4);  
+          {% elsif  section.settings.desktop_columns == 5 %}   width: calc(2(100% - 4 * var(--grid-desktop-horizontal-spacing)) / 5); 
+          
+          {% else %} width: calc((100% - 3 * var(--grid-desktop-horizontal-spacing)) / 4);  {% endif %}">
+            <img class="team__member_img" src="{{ block.settings.logo | img_url: 'master'}}" >
+            <div class="team__member_text">
+              <p class="team__member_img_job tagline bold {% if block.settings.split_mob == true %} team__member_img_job--small{% endif %}">{{block.settings.job}}</p>
+              <h3 class="team__member_img_name ">{{block.settings.name}}</h3>
+            </div>
+          </div>  
+        {% endif %}
+      {% endfor %}
+    </div>
+    
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "meet the team",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.image-banner.settings.content.content"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+    "type": "header",
+    "content": "t:sections.image-banner.blocks.buttons.settings.header_1.content"
+    },
+    {
+      "type": "text",
+      "id": "button_label_1",
+      "default": "t:sections.image-banner.blocks.buttons.settings.button_label_1.default",
+      "label": "t:sections.image-banner.blocks.buttons.settings.button_label_1.label",
+      "info": "t:sections.image-banner.blocks.buttons.settings.button_label_1.info"
+    },
+    {
+      "type": "url",
+      "id": "button_link_1",
+      "label": "t:sections.image-banner.blocks.buttons.settings.button_link_1.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_style_secondary_1",
+      "default": false,
+      "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_1.label"
+    },
+    {
+      "type": "range",
+      "id": "desktop_columns",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "label": "Number of columns in desktop",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.image-banner.blocks.heading.name",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "heading",
+          "default": "t:sections.image-banner.blocks.heading.settings.heading.default",
+          "label": "t:sections.image-banner.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            },
+            {
+              "value": "hxxl",
+              "label": "t:sections.all.heading_size.options__5.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.all.heading_size.label"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.image-banner.blocks.text.name",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "default": "t:sections.image-banner.blocks.text.settings.text.default",
+          "label": "t:sections.image-banner.blocks.text.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "body",
+              "label": "t:sections.image-banner.blocks.text.settings.text_style.options__1.label"
+            },
+            {
+              "value": "subtitle",
+              "label": "t:sections.image-banner.blocks.text.settings.text_style.options__2.label"
+            },
+            {
+              "value": "caption-with-letter-spacing",
+              "label": "t:sections.image-banner.blocks.text.settings.text_style.options__3.label"
+            }
+          ],
+          "default": "body",
+          "label": "t:sections.image-banner.blocks.text.settings.text_style.label"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "text color",
+        }
+      ]
+    },
+    {
+      "type": "member",
+      "name": "member",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Member image",
+          "info": "4:5 image recommended"
+        },
+        {
+          "type": "text",
+          "id": "job",
+          "label": "job"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "name"
+        },
+      ]
+    }
+    
+    
+  ],
+  "presets": [
+    {
+      "name": "meet the team",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

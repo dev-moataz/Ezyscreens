@@ -1,0 +1,198 @@
+{
+  "sections": {
+    "video_HYNBgE": {
+      "type": "video",
+      "custom_css": [
+        "@media screen and (min-width: 749px) {.video-section__media {--ratio-percent: 40% !important; }}",
+        ".video-container-box .subheading {order: -1;}",
+        ".video-container-box .title-wrapper {display: flex; flex-direction: column;}",
+        ".video-container-box {left: 50%; top: 45%; transform: translate(-50%, -50%); bottom: initial; text-align: center; max-width: 800px;}",
+        ".video-container-box .title-wrapper {max-width: 700px;}",
+        ".video-section:before {background: rgba(0, 0, 0, 0.5);}",
+        "@media screen and (max-width: 749px) {.video-container-box {top: 50%; }}"
+      ],
+      "name": "hero (Image\/video)",
+      "settings": {
+        "subheading": "CONTACT US",
+        "heading": "Have Doubts? Get In Touch",
+        "description": "Are you looking for a solution to keep the bugs out of your home while the fresh air circulates? Look no further then Ezy Screens. ",
+        "button_text": "",
+        "button_link": "",
+        "show_phone": false,
+        "show_email": false,
+        "enable_video_looping": false,
+        "cover_image": "shopify:\/\/shop_images\/IMG_2316-2_229a25b4-69d6-49f5-a283-6e16b849f0bc.jpg",
+        "video_description": "",
+        "full_width": true,
+        "color_scheme": "scheme-2",
+        "add_overlay": true,
+        "show_rating": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "contact_banner_jWgWb8": {
+      "type": "contact-banner",
+      "name": "Contact Info",
+      "settings": {
+        "call_us_label": "CALL US",
+        "call_us_phone": "1300 186 714",
+        "email_us_label": "EMAIL US",
+        "email_us": "sales@ezyscreens.com.au",
+        "find_us_label": "FIND US",
+        "find_us_text": "Brisbane",
+        "find_us_link": "https:\/\/www.google.com\/maps?cid=1139975435828459847",
+        "hours_label": "OPENING HOURS",
+        "hours_line1": "<p>Monday - Friday: 9am to 4pm<br\/>Saturday & Sunday: Closed<\/p>"
+      }
+    },
+    "google_contact_form_qFD9nB": {
+      "type": "google-contact-form",
+      "name": "Google contact form",
+      "settings": {
+        "tagline": "SUBMIT YOUR INQUIRY",
+        "heading": "Looking For Premium Screens Solutions?",
+        "subtext": "<p>Keep bugs out and fresh air in with Ezy Screens — Australia’s go-to for Retractable Fly Screens. Custom or DIY kits available, shipped Australia-wide within two weeks.<\/p><p>Fill in the form and we will get back to you within three business days.<\/p>",
+        "bg_image": "shopify:\/\/shop_images\/Group_3.png"
+      }
+    },
+    "featured_collection_contact": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "ezyscreens-products",
+        "products_to_show": 25,
+        "title": "Affordable Retractable Screens Without Compromising on Quality",
+        "heading_size": "h1",
+        "description": "<p>Ezy Screens brings premium comfort within reach of every home. Designed for DIY or professional installation, our family-run Australian business offers stylish, durable retractable screens at a price that makes luxury living accessible to all.<\/p>",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 3,
+        "enable_desktop_slider": true,
+        "full_width": true,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "instagram_gallery_contact": {
+      "type": "instagram-gallery",
+      "blocks": {
+        "image_EJDFmH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/IMG_3579.jpg"
+          }
+        },
+        "image_P874aQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/IMG_2425.jpg"
+          }
+        },
+        "image_ntzPFe": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/IMG_9691.jpg"
+          }
+        },
+        "image_i8KDmq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/BLKOUT_draft_3_small_edits.webp"
+          }
+        }
+      },
+      "block_order": [
+        "image_EJDFmH",
+        "image_P874aQ",
+        "image_ntzPFe",
+        "image_i8KDmq"
+      ],
+      "name": "Instagram Gallery Default",
+      "settings": {
+        "handle": "ezyscreens",
+        "heading": "Follow Us on Instagram",
+        "image_shape": "square"
+      }
+    },
+    "text_n_icons_contact": {
+      "type": "text-n-icons",
+      "blocks": {
+        "feature_DhCLQb": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Vector_5.png",
+            "text": "Fast Turn Around"
+          }
+        },
+        "feature_X7ftw8": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon_1.png",
+            "text": "Easy 30 Days Return"
+          }
+        },
+        "feature_ePxbVC": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Icon.png",
+            "text": "Australia Wide Shipping"
+          }
+        }
+      },
+      "block_order": [
+        "feature_DhCLQb",
+        "feature_X7ftw8",
+        "feature_ePxbVC"
+      ],
+      "name": "Upgrade Home Default",
+      "settings": {
+        "heading": "Upgrade Your Home Today",
+        "subheading": "Transform your home with our reliable and stylish solutions. Get in touch with us now to find the perfect fit for your needs!",
+        "color_scheme": "scheme-2",
+        "button_text": "OUR SCREENS",
+        "button_link": "shopify:\/\/collections\/ezyscreens-products"
+      }
+    }
+  },
+  "order": [
+    "video_HYNBgE",
+    "main",
+    "form",
+    "contact_banner_jWgWb8",
+    "google_contact_form_qFD9nB",
+    "featured_collection_contact",
+    "instagram_gallery_contact",
+    "text_n_icons_contact"
+  ]
+}

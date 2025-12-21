@@ -1,0 +1,204 @@
+{% comment %}
+  Renders a megamenu for the header.
+
+  Usage:
+  {% render 'header-mega-menu' %}
+{% endcomment %}
+
+<nav class="header__inline-menu">
+  <ul class="list-menu list-menu--inline" role="list">
+    {%- for link in section.settings.menu.links -%}
+      <li>
+        {%- if link.links != blank -%}
+          <header-menu>
+            <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
+              <summary
+                id="HeaderMenu-{{ link.handle }}"
+                class="header__menu-item list-menu__item link focus-inset desktop_opener"
+              >
+              {{- 'icon-hamburger.svg' | inline_asset_content -}}
+              {{- 'icon-close.svg' | inline_asset_content -}}
+              </summary>
+              <div
+                id="MegaMenu-Content-{{ forloop.index }}"
+                class="mega-menu__content    color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                tabindex="-1"
+              >
+                <div class="page-width page-width--wide grid">
+                  <div class="grid__item" style="max-width: 20%; margin-inline: 0;">
+                    <ul
+                      class=" mega-menu__list page-width-small-margin{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
+                      role="list"
+                      
+                    >
+                      {%- for childlink in link.links -%}
+                        <li>
+                          <a
+                            id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                            href="{{ childlink.url }}"
+                            class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
+                            {% if childlink.current %}
+                              aria-current="page"
+                            {% endif %}
+                          >
+                            {{ childlink.title | escape }} 
+                            <svg width="11" height="9" viewBox="0 0 11 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M10.4334 4.33661C10.5461 4.44929 10.6094 4.6021 10.6094 4.76143C10.6094 4.92076 10.5461 5.07357 10.4334 5.18625L7.03432 8.58538C6.97889 8.64276 6.91259 8.68854 6.83928 8.72003C6.76597 8.75152 6.68712 8.7681 6.60734 8.76879C6.52756 8.76948 6.44844 8.75428 6.37459 8.72407C6.30075 8.69386 6.23366 8.64924 6.17724 8.59282C6.12082 8.53641 6.07621 8.46932 6.04599 8.39547C6.01578 8.32163 6.00058 8.2425 6.00127 8.16272C6.00196 8.08294 6.01854 8.00409 6.05003 7.93078C6.08152 7.85747 6.1273 7.79117 6.18469 7.73574L8.55813 5.3623H0.600791C0.44143 5.3623 0.288595 5.299 0.17591 5.18631C0.0632248 5.07363 -8.01086e-05 4.92079 -8.01086e-05 4.76143C-8.01086e-05 4.60207 0.0632248 4.44924 0.17591 4.33655C0.288595 4.22387 0.44143 4.16056 0.600791 4.16056L8.55813 4.16056L6.18469 1.78712C6.07523 1.67379 6.01467 1.52201 6.01604 1.36446C6.01741 1.20692 6.0806 1.05621 6.19201 0.944805C6.30341 0.833399 6.45412 0.770205 6.61167 0.768836C6.76921 0.767467 6.92099 0.828032 7.03432 0.937485L10.4334 4.33661Z" fill="#198A28"/>
+                            </svg>
+
+                          </a>
+                          {%- if childlink.links != blank -%}
+                            <ul class="list-unstyled" role="list">
+                              {%- for grandchildlink in childlink.links -%}
+                                <li>
+                                  <a
+                                    id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                    href="{{ grandchildlink.url }}"
+                                    class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
+                                    {% if grandchildlink.current %}
+                                      aria-current="page"
+                                    {% endif %}
+                                  >
+                                    {{ grandchildlink.title | escape }}
+                                  </a>
+                                </li>
+                              {%- endfor -%}
+                            </ul>
+                          {%- endif -%}
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+
+
+<div class="contact-icons page-width-small-margin">
+  {% if settings.phone_text %}
+    <div class="contact-item">
+        <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect y="0.268799" width="20" height="20" rx="3.2" fill="#198A28"/>
+          <path d="M12.2398 11.8382C10.7496 13.4062 6.94839 9.63922 8.44422 8.06499C9.35765 7.10364 8.326 6.00541 7.75479 5.19714C6.68269 3.68201 4.33005 5.77394 4.40098 7.10489C4.62685 11.3024 9.16725 16.2765 13.5639 15.8422C14.939 15.7066 16.5195 13.2226 14.9415 12.3148C14.1532 11.8606 13.0699 10.9646 12.2398 11.8376" stroke="#F8F8F8" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+      <a href="tel:{{ settings.phone_link }}" class="full-unstyled-link contact-link">
+        {{ settings.phone_text }}
+      </a>
+    </div>
+  {% endif %}
+
+  {% if settings.email_text %}
+    <div class="contact-item">
+        <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect y="0.268799" width="20" height="20" rx="3.2" fill="#198A28"/>
+        <path d="M14.9782 5.91324H5.02261C4.67897 5.91324 4.40039 6.19182 4.40039 6.53546V14.0021C4.40039 14.3458 4.67897 14.6243 5.02261 14.6243H14.9782C15.3218 14.6243 15.6004 14.3458 15.6004 14.0021V6.53546C15.6004 6.19182 15.3218 5.91324 14.9782 5.91324Z" stroke="#F8F8F8" stroke-width="0.8" stroke-linecap="round"/>
+        <path d="M4.40039 6.84656L10.0004 10.2688L15.6004 6.84656" stroke="#F8F8F8" stroke-width="0.8" stroke-linecap="round"/>
+        </svg>
+      <a href="{{ settings.email_link }}" class="full-unstyled-link contact-link">
+        {{ settings.email_text }}
+      </a>
+    </div>
+  {% endif %}
+
+  {% if settings.location_text %}
+    <div class="contact-item">
+          <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect y="0.268799" width="20" height="20" rx="3.2" fill="#198A28"/>
+          <path d="M10.3733 16.1489C10.2645 16.227 10.134 16.2691 10 16.2691C9.86604 16.2691 9.73546 16.227 9.62666 16.1489C6.40723 13.8542 2.99046 9.13403 6.44456 5.72326C7.39282 4.79047 8.66985 4.26797 10 4.26856C11.3334 4.26856 12.6127 4.7919 13.5554 5.7226C17.0095 9.13336 13.5928 13.8528 10.3733 16.1489Z" stroke="white" stroke-width="1.00003" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10.0004 10.2687C10.354 10.2687 10.6931 10.1283 10.9432 9.8782C11.1933 9.62814 11.3337 9.28899 11.3337 8.93536C11.3337 8.58173 11.1933 8.24258 10.9432 7.99253C10.6931 7.74247 10.354 7.60199 10.0004 7.60199C9.64673 7.60199 9.30758 7.74247 9.05753 7.99253C8.80747 8.24258 8.66699 8.58173 8.66699 8.93536C8.66699 9.28899 8.80747 9.62814 9.05753 9.8782C9.30758 10.1283 9.64673 10.2687 10.0004 10.2687Z" stroke="white" stroke-width="1.00003" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+      <span>
+        {{ settings.location_text }}
+      </span>
+    </div>
+  {% endif %}
+</div>
+
+                  </div>
+
+                  
+                  <div class="  featured__products "
+                  style="width: calc( 80% - 20px); 
+    padding-right: 20px;">
+                    <div class="grid grid--5-col-desktop">
+                      {% for block in section.blocks %}
+                        <div
+                          class="grid__item product-card-wrapper {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                          {% if settings.animations_reveal_on_scroll %}
+                            data-cascade
+                            style="--animation-order: {{ forloop.index }};"
+                          {% endif %}
+                        >
+                          <div class="
+                          card card--{{ settings.card_style }}  card--media  color-{{ settings.card_color_scheme }} gradient">
+                              <div class="card__inner  ratio" style="--ratio-percent: 100%;">
+                              <a href="{{block.settings.product.url}}" class="full-unstyled-link">
+                                <div class="card__media">
+                                  <div class="media media--transparent media--hover-effect">          
+                                    <img
+                                      srcset="
+                                        {%- if block.settings.product.featured_media.width >= 165 -%}{{ block.settings.product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+                                        {%- if block.settings.product.featured_media.width >= 360 -%}{{ block.settings.product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+                                        {%- if block.settings.product.featured_media.width >= 533 -%}{{ block.settings.product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+                                        {%- if block.settings.product.featured_media.width >= 720 -%}{{ block.settings.product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+                                        {%- if block.settings.product.featured_media.width >= 940 -%}{{ block.settings.product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+                                        {%- if block.settings.product.featured_media.width >= 1066 -%}{{ block.settings.product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                                        {{ block.settings.product.featured_media | image_url }} {{ block.settings.product.featured_media.width }}w
+                                      "
+                                      src="{{ block.settings.product.featured_media | image_url: width: 533 }}"
+                                      sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                                      alt="{{ block.settings.product.featured_media.alt | escape }}"
+                                      class="motion-reduce"
+                                      {% unless lazy_load == false %}
+                                        loading="lazy"
+                                      {% endunless %}
+                                      width="{{ block.settings.product.featured_media.width }}"
+                                      height="{{ block.settings.product.featured_media.height }}"
+                                    >                                
+                                  </div>
+                                </div>
+                                
+                                </a>   
+                              </div>
+                            <a href="{{block.settings.product.url}}" class="full-unstyled-link">
+                              <div class="card__information">
+                                <div class="h5">{{block.settings.product.title}}</div>      
+                                <div class="tagline">{{block.settings.product.metafields.custom.product_badge}}</div>
+                                <a href="{{block.settings.product.url}}" class=" full-unstyled-link read-more">Learn More
+                                  <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M10.3607 4.01941C10.3591 3.86165 10.2949 3.70974 10.1823 3.59708C10.0696 3.48441 9.9177 3.42023 9.75995 3.41863L5.00031 3.37118C4.9213 3.36902 4.84298 3.38261 4.7699 3.41115C4.69682 3.4397 4.63044 3.48263 4.57465 3.53744C4.51886 3.59225 4.47477 3.65785 4.44494 3.73039C4.41512 3.80294 4.40017 3.88099 4.40096 3.95999C4.40174 4.03899 4.41826 4.11736 4.44953 4.19051C4.48081 4.26367 4.52622 4.33016 4.58311 4.38609C4.64001 4.44203 4.70725 4.48629 4.78091 4.5163C4.85458 4.54631 4.93319 4.56146 5.01217 4.56088L8.33559 4.59401L2.81998 10.1096C2.70952 10.2201 2.64835 10.3708 2.64992 10.5286C2.65149 10.6864 2.71568 10.8383 2.82837 10.951C2.94106 11.0637 3.09301 11.1279 3.25079 11.1294C3.40858 11.131 3.55928 11.0698 3.66974 10.9594L9.18535 5.44377L9.21848 8.76719C9.22275 8.92319 9.28809 9.0725 9.40044 9.18295C9.51279 9.2934 9.66316 9.35617 9.81916 9.35772C9.97515 9.35928 10.1243 9.2995 10.2345 9.19127C10.3446 9.08303 10.407 8.935 10.4082 8.77905L10.3607 4.01941Z" style="fill: #198A28 !important"/>
+                                  </svg>
+                                </a>
+                                {% render 'price', product: block.settings.product, price_class: '', show_compare_at_price: false %}              
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      {% endfor %}  
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+            </details>
+          </header-menu>
+        {%- else -%}
+          <a
+            id="HeaderMenu-{{ link.handle }}"
+            href="{{ link.url }}"
+            class="header__menu-item list-menu__item link link--text focus-inset"
+            {% if link.current %}
+              aria-current="page"
+            {% endif %}
+          >
+            <span
+              {%- if link.current %}
+                class="header__active-menu-item"
+              {% endif %}
+            >
+              {{- link.title | escape -}}
+            </span>
+          </a>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+</nav>

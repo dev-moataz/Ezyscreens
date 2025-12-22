@@ -89,7 +89,18 @@
         {%- else -%}
           <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
           <span class="price-item price-item--regular">
-            {{ money_price }}
+            {% if settings.display_discount_price and settings.discount_price_percentage > 0 %}
+              {% assign discount_multiplier = 100 | minus: settings.discount_price_percentage | divided_by: 100.0 %}
+              {% assign discounted_price = price | times: discount_multiplier | round %}
+              {% if  target == product and product.price_varies %}
+                  SALE {{settings.discount_price_percentage}}% OFF
+                {% else %}
+                <span class="strike-through-price">{{ money_price }}</span>
+                <span class="discounted-price">{{ discounted_price | money_without_trailing_zeros | split: '.' | first  }}</span>
+              {% endif %}
+            {% else %}
+              {{ money_price }}
+            {% endif %}
           </span>
         {%- endif -%}
       </div>
@@ -112,7 +123,18 @@
         {%- endunless -%}
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
         <span class="price-item price-item--sale price-item--last">
-          {{ money_price }}
+          {% if settings.display_discount_price and settings.discount_price_percentage > 0 %}
+            {% assign discount_multiplier = 100 | minus: settings.discount_price_percentage | divided_by: 100.0 %}
+            {% assign discounted_price = price | times: discount_multiplier | round %}
+            {% if  target == product and product.price_varies %}
+                SALE {{settings.discount_price_percentage}}% OFF
+              {% else %}
+              <span class="strike-through-price">{{ money_price }}</span>
+              <span class="discounted-price">{{ discounted_price | money_without_trailing_zeros | split: '.' | first  }}</span>
+            {% endif %}
+          {% else %}
+            {{ money_price }}
+          {% endif %}
         </span>
       </div>
       <small class="unit-price caption{% if product.selected_or_first_available_variant.unit_price_measurement == nil %} hidden{% endif %}">

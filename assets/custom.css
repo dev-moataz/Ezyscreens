@@ -1388,6 +1388,15 @@ row-gap:   var(--grid-mobile-vertical-spacing)
   padding-bottom: 1rem;
   padding-top: 0;
 }
+
+span.strike-through-price {
+  text-decoration: line-through;
+  font-weight: 400;
+  color: gray;
+  margin-right: 7px;
+}
+
+
 /* mobile */
 @media screen and (max-width: 749px) {
   .video-container-box .rating{

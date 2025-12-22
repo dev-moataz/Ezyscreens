@@ -642,8 +642,6 @@ span.small-grayed {
     border-radius: 8px;
     overflow: hidden;    
     max-height: 54px;
-    bottom: 0;
-    top: inherit;
 
 }
 .product__info-wrapper[data-variant*=Yes].all-entered .product-form__submit {

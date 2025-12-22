@@ -3678,5 +3678,8 @@ details-disclosure > details {
 
 .prdly-button_description{
   text-align: center;
-  margin-bottom: 2px;
+    font-size: 14px;
+}
+.product-form__submit:has(+.prdly-button_description) {
+    margin-bottom: 4px;
 }

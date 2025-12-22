@@ -640,7 +640,11 @@ span.small-grayed {
     justify-content: center;
     font-weight: bold;
     border-radius: 8px;
-    overflow: hidden;
+    overflow: hidden;    
+    max-height: 54px;
+    bottom: 0;
+    top: inherit;
+
 }
 .product__info-wrapper[data-variant*=Yes].all-entered .product-form__submit {
     pointer-events: initial;

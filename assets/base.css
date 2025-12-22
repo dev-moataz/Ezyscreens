@@ -3675,3 +3675,8 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+.prdly-button_description{
+  text-align: center;
+  margin-bottom: 2px;
+}

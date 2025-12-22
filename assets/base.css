@@ -3683,3 +3683,6 @@ details-disclosure > details {
 .product-form__submit:has(+.prdly-button_description) {
     margin-bottom: 4px;
 }
+.product-form__submit.prdrly_btn {
+    letter-spacing: 1px;
+}

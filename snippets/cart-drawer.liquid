@@ -180,8 +180,7 @@
                                           {{ property.last | split: '/' | last }}
                                         </a>
                                       {%- else -%}
-                                        {{ property.last }}
-                                      {%- unless forloop.last %} | {% endunless %}
+                                        {{ property.last }} 
                                       {%- endif -%}
                                     </dd>
                                 {%- endif -%}

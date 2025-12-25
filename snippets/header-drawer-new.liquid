@@ -64,20 +64,26 @@
     {% endfor %}
 
     <div class="contact-icons ">
-  {% if settings.phone_text %}
-    <div class="contact-item">
+      <div class="contact-item">
         <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect y="0.268799" width="20" height="20" rx="3.2" fill="#198A28"/>
           <path d="M12.2398 11.8382C10.7496 13.4062 6.94839 9.63922 8.44422 8.06499C9.35765 7.10364 8.326 6.00541 7.75479 5.19714C6.68269 3.68201 4.33005 5.77394 4.40098 7.10489C4.62685 11.3024 9.16725 16.2765 13.5639 15.8422C14.939 15.7066 16.5195 13.2226 14.9415 12.3148C14.1532 11.8606 13.0699 10.9646 12.2398 11.8376" stroke="#F8F8F8" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
 
-      <a href="tel:{{ settings.phone_link }}" class="full-unstyled-link contact-link">
-        {{ settings.phone_text }}
+      <a href="/pages/contact-us-page" class="full-unstyled-link contact-link">
+        Contact Us
       </a>
     </div>
-  {% endif %}
 
-  {% if settings.email_text %}
+    <div class="contact-item"> 
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-accordion icon-box" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.695.679a1 1 0 0 1 .674.003l7.846 2.859a1 1 0 0 1 .658.94v9.948a1 1 0 0 1-.553.894l-7.847 3.924a1 1 0 0 1-.882.006l-8.137-3.929a1 1 0 0 1-.565-.9v-9.94a1 1 0 0 1 .668-.943zM6.08 3.01 2.535 4.257l7.614 3.378 3.42-1.517zm.706-.248L14.2 5.838l3.337-1.48-7.51-2.736zM1.89 14.424v-9.36l7.76 3.444v9.662zm15.984.005-7.224 3.612V8.508l7.224-3.205z"/></svg>
+
+      <span href="/pages/melbourne-ezy-screens-installers" class="full-unstyled-link contact-link">
+        Australia Wide Shipping
+      </span>
+    </div>
+
+  {% comment %} {% if settings.email_text %}
     <div class="contact-item">
         <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect y="0.268799" width="20" height="20" rx="3.2" fill="#198A28"/>
@@ -101,7 +107,7 @@
         {{ settings.location_text }}
       </span>
     </div>
-  {% endif %}
+  {% endif %} {% endcomment %}
 </div>
 
     </div>

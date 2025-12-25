@@ -205,6 +205,27 @@
     ]
   },
   {
+    "name": "Discounts",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "display_discount_price",
+        "label": "Display discount price",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "discount_price_percentage",
+        "label": "Discount price percentage",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 15,
+        "unit": "%"
+      },
+    ]
+  },
+  {
     "name": "t:settings_schema.animations.name",
     "settings": [
       {

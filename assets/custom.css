@@ -1750,10 +1750,11 @@ body .slider-buttons{
     min-height: 42px;
 }
 }
-@media screen and (max-width: 380px) {
-  .product-form-Replacement.product-form__input--pill input[type=radio]+label{
-    font-size: 12.5px;
-  }
+@media screen and (max-width: 355px) {
+.product-link{
+  
+    font-size: 15px !important;
+}
 }
 
 .collapsible-content__wrapper .accordion summary{

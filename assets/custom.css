@@ -1209,6 +1209,7 @@ sticky-header .price__text{
     text-align: center;
     color: #4a789b;
     background-color: #edf4fa;
+    font-size: 15px;
   }
   .shipping-note--preorder{
     display: none;
@@ -1419,9 +1420,8 @@ span.strike-through-price {
 }
 .shipping-note{
   
-    font-size: 12px;
-    line-height: 15px;
-    padding: 7px 5px;
+        font-size: 12.8px;
+        line-height: 17px;  padding: 7px 5px;
 }
 .template-index  .video-container-box {
   

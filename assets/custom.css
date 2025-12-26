@@ -1417,6 +1417,12 @@ span.strike-through-price {
   .video-container-box .rating{
     margin-bottom: 0px;
 }
+.shipping-note{
+  
+    font-size: 12px;
+    line-height: 15px;
+    padding: 7px 5px;
+}
 .template-index  .video-container-box {
   
     bottom: 3rem !important;

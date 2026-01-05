@@ -1,1 +1,142 @@
-{"name":"t:sections.header.name","type":"header","sections":{"176525555555be89ae":{"type":"_blocks","settings":{}},"announcement_bar_yXzGyB":{"type":"announcement-bar","blocks":{"announcement_xFbxym":{"type":"announcement","settings":{"text":" Christmas Closure 19th - 5th of January - Merry Christmas!","link":"shopify:\/\/collections\/ezyscreens-products"}}},"block_order":["announcement_xFbxym"],"name":"t:sections.announcement-bar.presets.name","settings":{"auto_rotate":true,"change_slides_speed":3,"color_scheme":"scheme-80e113de-be00-4a99-b827-dde5df146f11","show_line_separator":true,"show_social":false,"enable_country_selector":false,"enable_language_selector":false}},"header":{"type":"header","blocks":{"link_RrWEb9":{"type":"link","settings":{"product":"retractable-fly-screen-for-doors"}},"link_83DpU7":{"type":"link","settings":{"product":"single-retractable-fly-screen-for-doors"}},"link_JVmian":{"type":"link","settings":{"product":"retractable-fly-screens-windows"}},"link_zDQXLE":{"type":"link","settings":{"product":"retractable-blockout-screen"}},"link_yU4wxT":{"type":"link","settings":{"product":"fly-screen-parts"}}},"block_order":["link_RrWEb9","link_83DpU7","link_JVmian","link_zDQXLE","link_yU4wxT"],"settings":{"logo_position":"middle-left","mobile_logo_position":"left","menu":"dawn-menu","menu_type_desktop":"mega","sticky_header_type":"always","show_line_separator":true,"color_scheme":"scheme-4","menu_color_scheme":"scheme-1","enable_country_selector":false,"enable_language_selector":false,"enable_customer_avatar":true,"margin_bottom":0,"padding_top":12,"padding_bottom":12}},"new_header_pVqPcE":{"type":"new-header","blocks":{"link_JhdyDj":{"type":"link","settings":{"label":"","url":""}},"product_V4pANt":{"type":"product","settings":{"image":"shopify:\/\/shop_images\/Images_1.jpg","title":"test1","subtitle":"test1","url":"shopify:\/\/collections","price":"50"}}},"block_order":["link_JhdyDj","product_V4pANt"],"disabled":true,"settings":{"logo":"shopify:\/\/shop_images\/Ezy_Logo_Green_1.png","phone":"","email":"","location":""}}},"order":["176525555555be89ae","announcement_bar_yXzGyB","header","new_header_pVqPcE"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "176525555555be89ae": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "announcement_bar_yXzGyB": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_xFbxym": {
+          "type": "announcement",
+          "settings": {
+            "text": " Christmas Closure 19th - 5th of January - Merry Christmas!",
+            "link": "shopify://collections/ezyscreens-products"
+          }
+        }
+      },
+      "block_order": [
+        "announcement_xFbxym"
+      ],
+      "disabled": true,
+      "name": "t:sections.announcement-bar.presets.name",
+      "settings": {
+        "auto_rotate": true,
+        "change_slides_speed": 3,
+        "color_scheme": "scheme-80e113de-be00-4a99-b827-dde5df146f11",
+        "show_line_separator": true,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "link_RrWEb9": {
+          "type": "link",
+          "settings": {
+            "product": "retractable-fly-screen-for-doors"
+          }
+        },
+        "link_83DpU7": {
+          "type": "link",
+          "settings": {
+            "product": "single-retractable-fly-screen-for-doors"
+          }
+        },
+        "link_JVmian": {
+          "type": "link",
+          "settings": {
+            "product": "retractable-fly-screens-windows"
+          }
+        },
+        "link_zDQXLE": {
+          "type": "link",
+          "settings": {
+            "product": "retractable-blockout-screen"
+          }
+        },
+        "link_yU4wxT": {
+          "type": "link",
+          "settings": {
+            "product": "fly-screen-parts"
+          }
+        }
+      },
+      "block_order": [
+        "link_RrWEb9",
+        "link_83DpU7",
+        "link_JVmian",
+        "link_zDQXLE",
+        "link_yU4wxT"
+      ],
+      "settings": {
+        "logo_position": "middle-left",
+        "mobile_logo_position": "left",
+        "menu": "dawn-menu",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "always",
+        "show_line_separator": true,
+        "color_scheme": "scheme-4",
+        "menu_color_scheme": "scheme-1",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "enable_customer_avatar": true,
+        "margin_bottom": 0,
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "new_header_pVqPcE": {
+      "type": "new-header",
+      "blocks": {
+        "link_JhdyDj": {
+          "type": "link",
+          "settings": {
+            "label": "",
+            "url": ""
+          }
+        },
+        "product_V4pANt": {
+          "type": "product",
+          "settings": {
+            "image": "shopify://shop_images/Images_1.jpg",
+            "title": "test1",
+            "subtitle": "test1",
+            "url": "shopify://collections",
+            "price": "50"
+          }
+        }
+      },
+      "block_order": [
+        "link_JhdyDj",
+        "product_V4pANt"
+      ],
+      "disabled": true,
+      "settings": {
+        "logo": "shopify://shop_images/Ezy_Logo_Green_1.png",
+        "phone": "",
+        "email": "",
+        "location": ""
+      }
+    }
+  },
+  "order": [
+    "176525555555be89ae",
+    "announcement_bar_yXzGyB",
+    "header",
+    "new_header_pVqPcE"
+  ]
+}

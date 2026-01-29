@@ -213,6 +213,9 @@
         "text_GR8Qfm",
         "button_kT6ggY"
       ],
+      "custom_css": [
+        "@media only screen and (max-width: 749px) {.image-with-text__content .image-with-text__text + .button {margin-top: 2rem; } .image-with-text__content > * + * {margin-top: 1rem; } .image-with-text__content {margin-top: 1rem; }}"
+      ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/door_image_WEB_06fa1636-12e7-4f8e-a82c-ee65ebabb03c.jpg",
@@ -260,6 +263,9 @@
         "heading_wYp3zm",
         "text_bWBwfP",
         "button_jRA8re"
+      ],
+      "custom_css": [
+        "@media only screen and (max-width: 749px) {.image-with-text__content .image-with-text__text + .button {margin-top: 2rem; } .image-with-text__content > * + * {margin-top: 1rem; } .image-with-text__content {margin-top: 1rem; }}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {

@@ -201,7 +201,7 @@
         "button_EgUBwC"
       ],
       "custom_css": [
-        "@media screen and (max-width: 750px) {.image-with-text__media img {border-radius: 0 !important; }}"
+        "@media screen and (max-width: 750px) {.image-with-text__media img {border-radius: 0 !important; } .image-with-text .banner__buttons{justify-content: flex-start; }}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {

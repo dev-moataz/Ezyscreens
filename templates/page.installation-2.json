@@ -26,7 +26,7 @@
         "full_width": true,
         "color_scheme": "scheme-4",
         "add_overlay": true,
-        "overlay_opacity": 65,
+        "overlay_opacity": 50,
         "show_rating": false,
         "center_content": true,
         "padding_top": 0,

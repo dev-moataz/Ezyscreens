@@ -230,6 +230,54 @@
         "padding_bottom": 36
       }
     },
+    "image_with_text_basic_ijHee4": {
+      "type": "image-with-text-basic",
+      "blocks": {
+        "heading_wYp3zm": {
+          "type": "heading",
+          "settings": {
+            "heading": "Measuring your Windows",
+            "heading_size": "h2"
+          }
+        },
+        "text_bWBwfP": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Your frame must have at least 35mm of unobstructed depth to reach the mounting holes on the cassette.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_jRA8re": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://collections/ezyscreens-products",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_wYp3zm",
+        "text_bWBwfP",
+        "button_jRA8re"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/door_image_WEB_06fa1636-12e7-4f8e-a82c-ee65ebabb03c.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "image_with_text_bdFciU": {
       "type": "image-with-text",
       "blocks": {
@@ -316,6 +364,7 @@
         "text_BdhQKE",
         "button_tP8wny"
       ],
+      "disabled": true,
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/WINDOW_image_WEB_bb0007e4-ba4b-492b-addf-ffd807e76920.jpg",
@@ -612,50 +661,6 @@
         "color_scheme": "",
         "padding_top": 48,
         "padding_bottom": 48
-      }
-    },
-    "rich_text_XLg4N6": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_PHfDLA": {
-          "type": "heading",
-          "settings": {
-            "heading": " Australia-Wide Installation",
-            "heading_size": "h3"
-          }
-        },
-        "text_9kpEdg": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Not in SEQ? No worries. We’ve partnered with Airtasker to offer nationwide installation via their reliable local experts.</p><p>Just click the link, post your install job, and enjoy your new screens — stress-free.</p><p></p>"
-          }
-        },
-        "button_ph4kLU": {
-          "type": "button",
-          "settings": {
-            "button_label": " Airtasker Installation",
-            "button_link": "https://www.airtasker.com/au/lp/partners/ezy-screens/?utm_source=ezy-screens&utm_medium=referral&utm_campaign=partnership-au",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_PHfDLA",
-        "text_9kpEdg",
-        "button_ph4kLU"
-      ],
-      "disabled": true,
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 0,
-        "padding_bottom": 60
       }
     },
     "image_with_text_basic_CJjAWV": {
@@ -1068,6 +1073,7 @@
     "multicolumn_2_eHyMty",
     "rich_text_diBfmL",
     "image_with_text_basic_QqbmEk",
+    "image_with_text_basic_ijHee4",
     "image_with_text_bdFciU",
     "image_with_text_bHYfCj",
     "text_n_blogs_N7t9WE",
@@ -1079,7 +1085,6 @@
     "rich_text_JBNxBw",
     "image_with_text_basic_p8xbjp",
     "image_with_text_basic_Xja9L4",
-    "rich_text_XLg4N6",
     "image_with_text_basic_CJjAWV",
     "image_with_text_NgPJJT",
     "text_n_blogs_TUMWR7",

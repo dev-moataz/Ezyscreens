@@ -11,7 +11,10 @@
   "sections": {
     "video_LBX6Yt": {
       "type": "video",
-      "custom_css": [],
+      "custom_css": [
+        "@media screen and (max-width: 749px) {.h1-mobile {font-size: 30px; }}",
+        "@media only screen and (max-width: 385px) {.h1-mobile {font-size: 28px; }}"
+      ],
       "name": "t:sections.video.presets.name",
       "settings": {
         "subheading": "",

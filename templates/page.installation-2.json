@@ -182,6 +182,54 @@
         "padding_bottom": 52
       }
     },
+    "image_with_text_basic_QqbmEk": {
+      "type": "image-with-text-basic",
+      "blocks": {
+        "heading_eAJAin": {
+          "type": "heading",
+          "settings": {
+            "heading": "Measuring your doors",
+            "heading_size": "h2"
+          }
+        },
+        "text_GR8Qfm": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Your frame must have at least 35mm of unobstructed depth to reach the mounting holes on the cassette.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_kT6ggY": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://collections/ezyscreens-products",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_eAJAin",
+        "text_GR8Qfm",
+        "button_kT6ggY"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/door_image_WEB_06fa1636-12e7-4f8e-a82c-ee65ebabb03c.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "image_with_text_bdFciU": {
       "type": "image-with-text",
       "blocks": {
@@ -216,6 +264,7 @@
         "text_J9iKPa",
         "button_jTEmEf"
       ],
+      "disabled": true,
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/door_image_WEB_06fa1636-12e7-4f8e-a82c-ee65ebabb03c.jpg",
@@ -658,62 +707,6 @@
         "padding_bottom": 100
       }
     },
-    "multicolumn_2_GAHyzA": {
-      "type": "multicolumn-2",
-      "blocks": {
-        "column_TpywjX": {
-          "type": "column",
-          "settings": {
-            "title": "<a href=\"/collections/ezyscreens-products\" title=\"Ezyscreens Products\">Retractable Fly Screens</a>",
-            "text": "<p>Keep bugs out, enjoy the breeze</p>",
-            "link_label": "",
-            "link": "shopify://collections/ezyscreens-products",
-            "button_style": "link"
-          }
-        },
-        "column_9CxxqP": {
-          "type": "column",
-          "settings": {
-            "title": "<a href=\"/products/retractable-blockout-screen\" title=\"Blockout Window Screen\">Retractable Blockout Screens</a>",
-            "text": "<p>Sleep easy with total darkness on demand</p>",
-            "link_label": "",
-            "link": "shopify://products/retractable-blockout-screen",
-            "button_style": "link"
-          }
-        }
-      },
-      "block_order": [
-        "column_TpywjX",
-        "column_9CxxqP"
-      ],
-      "disabled": true,
-      "custom_css": [
-        ".multicolumn-list {justify-content: center;}",
-        ".title-wrapper-with-link {justify-content: center;}",
-        ".multicolumn-list__item {max-width: 400px; border-radius: 10px; overflow: hidden;}",
-        ".multicolumn-card {background: #ffffff;}",
-        ".multicolumn-card__info {padding: 2rem 1.5rem;}"
-      ],
-      "name": "multicolumn 2",
-      "settings": {
-        "caption": "",
-        "title": "Choose Your Screen Style",
-        "heading_size": "h2-med",
-        "header_alignment": "center",
-        "image_width": "full",
-        "image_ratio": "square",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 2,
-        "column_alignment": "center",
-        "background_style": "primary",
-        "color_scheme": "scheme-3",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
     "image_with_text_NgPJJT": {
       "type": "image-with-text",
       "blocks": {
@@ -1074,6 +1067,7 @@
     "image_banner_QPbkjN",
     "multicolumn_2_eHyMty",
     "rich_text_diBfmL",
+    "image_with_text_basic_QqbmEk",
     "image_with_text_bdFciU",
     "image_with_text_bHYfCj",
     "text_n_blogs_N7t9WE",
@@ -1087,7 +1081,6 @@
     "image_with_text_basic_Xja9L4",
     "rich_text_XLg4N6",
     "image_with_text_basic_CJjAWV",
-    "multicolumn_2_GAHyzA",
     "image_with_text_NgPJJT",
     "text_n_blogs_TUMWR7",
     "text_n_icons_diy",

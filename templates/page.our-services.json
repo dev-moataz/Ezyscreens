@@ -14,7 +14,7 @@
       "name": "hero (Image/video)",
       "settings": {
         "subheading": "",
-        "heading": "Professional Installation <br>in South East Queensland",
+        "heading": "Professional Installation in South East Queensland",
         "description": "Looking for a seamless install? Our trusted in-house team services Brisbane, the Gold Coast, and the Sunshine Coast, offering expert installation of our premium retractable fly screens. Every job is completed with precision, care, and a clean finish - guaranteed.",
         "button_text": "",
         "button_link": "",
@@ -26,7 +26,7 @@
         "full_width": true,
         "color_scheme": "scheme-4",
         "add_overlay": true,
-        "overlay_opacity": 42,
+        "overlay_opacity": 45,
         "show_rating": false,
         "center_content": true,
         "padding_top": 0,
@@ -201,7 +201,7 @@
         "button_EgUBwC"
       ],
       "custom_css": [
-        "@media screen and (max-width: 750px) {.image-with-text__media img {border-radius: 0 !important; } .image-with-text .banner__buttons{justify-content: flex-start; }}"
+        "@media screen and (max-width: 750px) {.image-with-text__media img {border-radius: 0 !important; } .image-with-text .banner__buttons {justify-content: flex-start; }}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {

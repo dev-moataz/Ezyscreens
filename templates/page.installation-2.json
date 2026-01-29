@@ -391,7 +391,7 @@
     "text_n_blogs_N7t9WE": {
       "type": "text-n-blogs",
       "custom_css": [
-        "@media only screen and (max-width: 749px) {.dawn-article-card{padding: 0}}"
+        "@media only screen and (max-width: 749px) {.dawn-article-card {padding: 0; }}"
       ],
       "name": "Moulding Installation Info",
       "settings": {
@@ -496,7 +496,8 @@
       "settings": {
         "tagline": "",
         "heading": "Need help?",
-        "subtext": "<p>Let us help you decide. Whether you’re after a custom-fit solution or a DIY kit, our team’s here to make it Ezy.<br/><br/>We’re <strong>Australia’s go-to for Retractable Fly Screens</strong> - proudly made to order and shipped nationwide within two weeks.</p><p>Got a question, quote request or project idea? Drop us a message below and we’ll get back to you fast.</p>"
+        "subtext": "<p>Let us help you decide. Whether you’re after a custom-fit solution or a DIY kit, our team’s here to make it Ezy.<br/><br/>We’re <strong>Australia’s go-to for Retractable Fly Screens</strong> - proudly made to order and shipped nationwide within two weeks.</p><p>Got a question, quote request or project idea? Drop us a message below and we’ll get back to you fast.</p>",
+        "bg_image": "shopify://shop_images/Group_2.png"
       }
     },
     "main": {

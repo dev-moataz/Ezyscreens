@@ -14,7 +14,7 @@
       "name": "hero (Image/video)",
       "settings": {
         "subheading": "",
-        "heading": "Professional Installation <br>in South East Queensland",
+        "heading": "Professional Installation in South East Queensland",
         "description": "Looking for a seamless install? Our trusted in-house team services Brisbane, the Gold Coast, and the Sunshine Coast, offering expert installation of our premium retractable fly screens. Every job is completed with precision, care, and a clean finish - guaranteed.",
         "button_text": "",
         "button_link": "",
@@ -26,7 +26,7 @@
         "full_width": true,
         "color_scheme": "scheme-4",
         "add_overlay": true,
-        "overlay_opacity": 42,
+        "overlay_opacity": 45,
         "show_rating": false,
         "center_content": true,
         "padding_top": 0,
@@ -137,7 +137,7 @@
         "text_eEBfKH": {
           "type": "text",
           "settings": {
-            "text": "<p>Experience<strong> </strong>premium retractable screen installation with our certified, professional<strong> Ezy Screens team</strong>, servicing <strong>Brisbane, the Gold Coast and the Sunshine Coast.</strong></p><p><br/>Our in-house installers are fully trained and accredited to work exclusively with Ezy Screens products, ensuring every door, window and large opening is fitted with precision and care.<br/></p><p><br/>They handle everything from start to finish, giving you a smooth, stress-free experience and long-lasting results designed for Queensland conditions.<br/><br/></p><p></p><p></p>",
+            "text": "<p>Experience<strong> </strong>premium retractable screen installation with our certified, professional<strong> Ezy Screens team</strong>, servicing <strong>Brisbane, the Gold Coast and the Sunshine Coast.</strong></p><p><br/>Our in-house installers are fully trained and accredited to work exclusively with Ezy Screens products, ensuring every door, window and large opening is fitted with precision and care.<br/></p><p><br/>They handle everything from start to finish, giving you a smooth, stress-free experience and long-lasting results designed for Queensland conditions.<br/></p>",
             "text_style": "body"
           }
         }
@@ -172,7 +172,7 @@
         "heading_ptzPmc": {
           "type": "heading",
           "settings": {
-            "heading": "Outside SEQ? No worries!",
+            "heading": "<strong>Australia Wide Installations</strong>",
             "heading_size": "h2"
           }
         },
@@ -187,10 +187,10 @@
           "type": "button",
           "settings": {
             "button_label": "DIY Installation",
-            "button_link": "shopify://pages/diy-manuals-page",
+            "button_link": "shopify://pages/diy-installation-1",
             "button_style_secondary": true,
-            "button_label_22": "",
-            "button_link_2": "",
+            "button_label_22": "Airtasker Installation",
+            "button_link_2": "shopify://pages/airtasker-installation",
             "button_style_secondary_2": false
           }
         }
@@ -201,7 +201,7 @@
         "button_EgUBwC"
       ],
       "custom_css": [
-        "@media screen and (max-width: 750px) {.image-with-text__media img {border-radius: 0 !important; }}"
+        "@media screen and (max-width: 750px) {.image-with-text__media img {border-radius: 0 !important; } .image-with-text .banner__buttons {justify-content: flex-start; }}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {

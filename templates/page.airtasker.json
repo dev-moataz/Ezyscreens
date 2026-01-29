@@ -11,7 +11,10 @@
   "sections": {
     "video_LBX6Yt": {
       "type": "video",
-      "custom_css": [],
+      "custom_css": [
+        "@media screen and (max-width: 749px) {.h1-mobile {font-size: 30px; }}",
+        "@media only screen and (max-width: 385px) {.h1-mobile {font-size: 28px; }}"
+      ],
       "name": "t:sections.video.presets.name",
       "settings": {
         "subheading": "",
@@ -27,7 +30,7 @@
         "full_width": true,
         "color_scheme": "scheme-2",
         "add_overlay": true,
-        "overlay_opacity": 25,
+        "overlay_opacity": 40,
         "show_rating": false,
         "center_content": true,
         "padding_top": 0,
@@ -114,6 +117,9 @@
       "block_order": [
         "heading_6mrhGJ",
         "text_jrPpFb"
+      ],
+      "custom_css": [
+        "@media screen and (max-width: 749px) {.center {text-align: left;}}"
       ],
       "name": "how it works",
       "settings": {

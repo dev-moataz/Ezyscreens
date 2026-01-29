@@ -492,6 +492,9 @@
     },
     "google_contact_form_ezGdjd": {
       "type": "google-contact-form",
+      "custom_css": [
+        ".premium-inquiry-section{overflow: hidden;}"
+      ],
       "name": "Google contact form",
       "settings": {
         "tagline": "",

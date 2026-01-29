@@ -118,6 +118,9 @@
         "heading_6mrhGJ",
         "text_jrPpFb"
       ],
+      "custom_css": [
+        "@media screen and (max-width: 749px) {.center {text-align: left;}}"
+      ],
       "name": "how it works",
       "settings": {
         "desktop_content_position": "center",

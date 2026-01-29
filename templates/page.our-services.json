@@ -189,8 +189,8 @@
             "button_label": "DIY Installation",
             "button_link": "shopify://pages/diy-manuals-page",
             "button_style_secondary": true,
-            "button_label_22": "",
-            "button_link_2": "",
+            "button_label_22": "Airtasker Installation",
+            "button_link_2": "shopify://pages/airtasker-installation",
             "button_style_secondary_2": false
           }
         }

@@ -169,6 +169,9 @@
         "text_bjc6W6",
         "button_NYtMCC"
       ],
+      "custom_css": [
+        "@media screen and (max-width: 749px) {.center {text-align: left;}}"
+      ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",

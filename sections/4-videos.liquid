@@ -102,7 +102,7 @@
         {% endfor %}
       </div>
       {%- if section.settings.link_label != blank -%}
-      <a href="{{ section.settings.link }}" class="button">
+      <a href="{{ section.settings.link }}"  target="_blank" class="button">
         {{section.settings.link_label | escape}}
       </a>
       {%- endif -%}

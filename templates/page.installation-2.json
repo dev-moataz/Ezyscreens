@@ -414,7 +414,7 @@
         "manual_url2": "",
         "manual_url3": "",
         "measurement_heading": "MEASUREMENT",
-        "measurement_title": "How to Measure DIY Fly Screens",
+        "measurement_title": "How To Measure Your DIY Retractable Screens",
         "button_text": "GET YOUR SCREEN",
         "button_link": "",
         "card1_title": "Where to install?",
@@ -493,7 +493,7 @@
     "google_contact_form_ezGdjd": {
       "type": "google-contact-form",
       "custom_css": [
-        ".premium-inquiry-section{overflow: hidden;}"
+        ".premium-inquiry-section {overflow: hidden;}"
       ],
       "name": "Google contact form",
       "settings": {

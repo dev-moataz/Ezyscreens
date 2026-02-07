@@ -119,7 +119,7 @@
         "text_jrPpFb"
       ],
       "custom_css": [
-        "@media screen and (max-width: 749px) {.center {text-align: left;}}"
+        "@media screen and (max-width: 749px) {.center {text-align: left; }}"
       ],
       "name": "how it works",
       "settings": {
@@ -567,7 +567,7 @@
         "manual_url2": "https://cdn.shopify.com/s/files/1/0081/5628/2932/files/double_doors.pdf?v=1711216318",
         "manual_url3": "https://cdn.shopify.com/s/files/1/0081/5628/2932/files/windows-compressed.pdf?v=1711216570",
         "measurement_heading": "MEASUREMENT",
-        "measurement_title": "How to Measure DIY Fly Screens",
+        "measurement_title": "How To Measure Your DIY Retractable Screens",
         "button_text": "GET YOUR SCREEN",
         "button_link": "",
         "card1_title": "Where to install?",

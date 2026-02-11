@@ -176,7 +176,7 @@
     "featured_collection_zEmpDH": {
       "type": "featured-collection",
       "custom_css": [
-        "/* TABLET AND UP */@media screen and (min-width: 749px) {.collection {display: none; }}",
+        "@media screen and (min-width: 749px) {.collection {display: none; }}",
         ".featured_top {margin-bottom: 0;}"
       ],
       "name": "t:sections.featured-collection.presets.name",

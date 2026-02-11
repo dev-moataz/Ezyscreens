@@ -283,10 +283,94 @@
         "text_box_QjU3Wq",
         "button_XDKhmC"
       ],
+      "disabled": true,
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/Image-Slider-_1.jpg",
         "mobile_image": "shopify://shop_images/Slider-_1.jpg",
+        "height": "small",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-3",
+        "color_scheme": "scheme-3",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "slider_with_text_7qANwF": {
+      "type": "slider-with-text",
+      "disabled": true,
+      "blocks": {
+        "heading_9UCBnP": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why Choose Ezy Screens?",
+            "heading_size": "h2"
+          }
+        },
+        "text_box_gzdCmg": {
+          "type": "text-box",
+          "settings": {
+            "heading": "<p>Versatile Installation Options</p>",
+            "text": "From homes to on-the-go living, our screens adapt to almost anywhere - sliding doors, French doors, bifolds, louvre windows, boats, and vans. Whether mounted inside or outside, they integrate seamlessly into any space. Enjoy versatile solutions built for everyday life."
+          }
+        },
+        "text_box_dnrwdt": {
+          "type": "text-box",
+          "settings": {
+            "heading": "<p>Customisable Solutions</p>",
+            "text": "No two spaces are alike, so our screens are made-to-measure for the perfect fit. Choose your size, style, and configuration to suit everything from compact vans to wide bifold doors. Every detail is tailored to complement your lifestyle."
+          }
+        },
+        "text_box_YDW3fG": {
+          "type": "text-box",
+          "settings": {
+            "heading": "<p>DIY Or Professional Installation</p>",
+            "text": "We make it easy with options to suit every customer. Confident DIYers can follow our step-by-step guides, while our professional team is ready to install for a seamless finish. However you choose, you’ll enjoy a simple, stress-free process."
+          }
+        },
+        "text_box_NzkjWW": {
+          "type": "text-box",
+          "settings": {
+            "heading": "<p>High-Quality Materials</p>",
+            "text": "Crafted with premium aluminium and fibreglass mesh, our screens are designed for strength and durability. Built to handle daily use, they maintain a sleek finish while standing up to the Australian elements. Yep, thats right - no rusting happening here!"
+          }
+        },
+        "text_box_trRycd": {
+          "type": "text-box",
+          "settings": {
+            "heading": "<p>Warranty and Support</p>",
+            "text": "Every installation is backed by our trusted 1 year warranty for peace of mind, while our DIY products come with a 3 year warranty. Our team provides reliable support long after purchasing. We are here to help!"
+          }
+        },
+        "button_nzBhdH": {
+          "type": "button",
+          "settings": {
+            "button_label": "CHOOSE YOUR SCREEN",
+            "button_link": "shopify://collections/ezyscreens-products",
+            "button_style_secondary": false,
+            "button_label_22": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_9UCBnP",
+        "text_box_gzdCmg",
+        "text_box_dnrwdt",
+        "text_box_YDW3fG",
+        "text_box_NzkjWW",
+        "text_box_trRycd",
+        "button_nzBhdH"
+      ],
+      "name": "Slider with text",
+      "settings": {
         "height": "small",
         "desktop_image_width": "small",
         "layout": "text_first",
@@ -669,6 +753,7 @@
     "featured_collection_a3TTF8",
     "featured_collection_zEmpDH",
     "image_with_text_pK7TgD",
+    "slider_with_text_7qANwF",
     "services_section_jxQDt4",
     "image_banner_tFkzNz",
     "testimonial_slider_KaM6Wc",

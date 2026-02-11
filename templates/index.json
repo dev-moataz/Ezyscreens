@@ -170,6 +170,39 @@
         "columns_mobile": "1",
         "swipe_on_mobile": true,
         "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_zEmpDH": {
+      "type": "featured-collection",
+      "custom_css": [
+        "/* TABLET AND UP */@media screen and (min-width: 749px) {.collection {display: none; }}",
+        ".featured_top {margin-bottom: 0;}"
+      ],
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "homepage-blockout",
+        "products_to_show": 4,
+        "title": "<strong>Premium Blockout Screens, Designed for Australian Homes</strong>",
+        "heading_size": "h2",
+        "description": "<p>Transform any room into a private sanctuary with instant darkness. Whether it’s movie night, afternoon rest, or a deeper sleep, our block out screens give you control whenever you need it.</p>",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
         "padding_bottom": 36
       }
     },
@@ -634,6 +667,7 @@
     "video_3Gz3Hf",
     "multicolumn_qmwbEW",
     "featured_collection_a3TTF8",
+    "featured_collection_zEmpDH",
     "image_with_text_pK7TgD",
     "services_section_jxQDt4",
     "image_banner_tFkzNz",

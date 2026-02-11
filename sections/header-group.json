@@ -21,7 +21,7 @@
         "announcement_xFbxym": {
           "type": "announcement",
           "settings": {
-            "text": "Back To School Sale On Now!",
+            "text": "Back to School Sale! 15% OFF Sitewide + 10% OFF Installations",
             "link": "shopify://collections/ezyscreens-products"
           }
         }
@@ -29,7 +29,6 @@
       "block_order": [
         "announcement_xFbxym"
       ],
-      "disabled": true,
       "name": "t:sections.announcement-bar.presets.name",
       "settings": {
         "auto_rotate": true,

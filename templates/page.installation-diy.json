@@ -14,19 +14,19 @@
       "name": "hero (Image/video)",
       "settings": {
         "subheading": "",
-        "heading": "Learn How to Install Your EZY Screen",
-        "description": "Explore our collection of how-to videos and see just how simple it is to install your own retractable fly screens. Save time, save money, and get it done the EZY way.",
+        "heading": "Learn How to Install Your Ezy Screen",
+        "description": "Explore our collection of how-to videos and see just how simple it is to install your own retractable fly screens.",
         "button_text": "",
         "button_link": "",
         "show_phone": true,
         "show_email": false,
         "enable_video_looping": false,
-        "cover_image": "shopify://shop_images/33_ad0f6bfd-ef32-4260-a948-6abf36475aa1.jpg",
+        "cover_image": "shopify://shop_images/IMG_9691_1_9cbc3c72-23ab-42b0-bdfb-5e543c2e028e.jpg",
         "video_description": "",
         "full_width": true,
         "color_scheme": "scheme-4",
         "add_overlay": true,
-        "overlay_opacity": 42,
+        "overlay_opacity": 48,
         "show_rating": false,
         "center_content": true,
         "padding_top": 0,
@@ -39,14 +39,14 @@
         "heading_UWdmMf": {
           "type": "heading",
           "settings": {
-            "heading": "Learn How to Install Your EZY Screen",
+            "heading": "Learn How to Install Your Ezy Screen",
             "heading_size": "h1"
           }
         },
         "text_CjWMiw": {
           "type": "text",
           "settings": {
-            "text": "Explore our collection of how-to videos and see just how simple it is to install your own retractable fly screens. Save time, save money, and get it done the EZY way.",
+            "text": "Explore our collection of how-to videos and see just how simple it is to install your own retractable fly screens. Save time, save money, and get it done the Ezy way.",
             "text_style": "body",
             "color": ""
           }
@@ -147,14 +147,14 @@
         "heading_iRBqPJ": {
           "type": "heading",
           "settings": {
-            "heading": "EZY Screens Aftercare Tips",
+            "heading": "Ezy Screens Aftercare Tips",
             "heading_size": "h2"
           }
         },
         "text_bjc6W6": {
           "type": "text",
           "settings": {
-            "text": "<h3><strong>Quick & Easy Way to Clean Fly Screens</strong></h3><p>Keeping your fly screens spotless doesn’t have to be a chore. Skip the hassle of removing them - just grab a soft brush or vacuum to lift dust, cobwebs and debris, then wipe over with a damp microfibre cloth and mild soapy water. Gentle, circular motions do the trick without damaging the mesh or frame.</p><h3><strong>Fresh Screens in Minutes - The EZY Way</strong></h3><p>Once wiped down, rinse with a clean cloth or light hose spray (low pressure only) and let the screens air dry completely before closing windows. Regular dusting and gentle cleaning keep your retractable fly screens looking fresh and working smoothly year-round - no removal, no stress.</p>"
+            "text": "<h3><strong>Quick & Easy Way to Clean Fly Screens</strong></h3><p>Keeping your fly screens spotless doesn’t have to be a chore. Skip the hassle of removing them - just grab a soft brush or vacuum to lift dust, cobwebs and debris, then wipe over with a damp microfibre cloth and mild soapy water. Gentle, circular motions do the trick without damaging the mesh or frame.</p><h3><strong>Fresh Screens in Minutes - The Ezy Way</strong></h3><p>Once wiped down, rinse with a clean cloth or light hose spray (low pressure only) and let the screens completely air dry before retracting back into the cassette. Regular dusting and gentle cleaning keep your retractable fly screens looking fresh and working smoothly year-round - no removal, no stress.</p>"
           }
         },
         "button_NYtMCC": {
@@ -174,6 +174,9 @@
         "heading_iRBqPJ",
         "text_bjc6W6",
         "button_NYtMCC"
+      ],
+      "custom_css": [
+        "@media screen and (max-width: 749px) {.center {text-align: left; }}"
       ],
       "name": "why choose ezyscreens",
       "settings": {
@@ -201,7 +204,7 @@
         "manual_url2": "https://cdn.shopify.com/s/files/1/0081/5628/2932/files/double_doors.pdf?v=1711216318",
         "manual_url3": "https://cdn.shopify.com/s/files/1/0081/5628/2932/files/windows-compressed.pdf?v=1711216570",
         "measurement_heading": "MEASUREMENT",
-        "measurement_title": "How to Measure DIY Fly Screens",
+        "measurement_title": "How To Measure Your DIY Retractable Screens",
         "button_text": "GET YOUR SCREEN",
         "button_link": "",
         "card1_title": "Where to install?",
@@ -223,7 +226,7 @@
         "text_FEAXtQ": {
           "type": "text",
           "settings": {
-            "text": "<p>At Ezy Screens, we are an Australian, family-run business committed to bringing comfort, style, and practicality into homes across the country. Our premium retractable screens are designed to blend seamlessly into your space, giving you uninterrupted views, <br/>natural airflow, and the freedom to open your home without inviting in <br/>the bugs.<br/><br/></p><p>Whether you’re a hands-on DIYer or prefer professional installation, our screens are made with you in mind - easy <br/>to measure, simple to install, and crafted to last. We’ve made it possible to enjoy luxury living and reliable protection at an affordable price.</p><p><br/></p><p><strong>✓ DIY Made Easy: </strong>Follow our step-by-step measuring and installation guides.</p><p><strong>✓ Luxury Without Limits: </strong>Sleek designs that suit every style of home.</p><p><strong>✓ Affordable Comfort: </strong>Premium quality from a trusted Australian family-run brand.</p><p><br/></p><p>Upgrade your home today and explore our tutorials to see just how effortless <strong>your DIY project </strong>can be with Ezy Screens.</p>",
+            "text": "<p>At Ezy Screens, we are an Australian, family-run business committed to bringing comfort, style, and practicality into homes across the country. Our premium retractable screens are designed to blend seamlessly into your space, giving you uninterrupted views, natural airflow, and the freedom to open your home without inviting in <br/>the bugs.<br/><br/></p><p>Whether you’re a hands-on DIYer or prefer professional installation, our screens are made with you in mind - easy to measure, simple to install, and crafted to last. We’ve made it possible to enjoy luxury living and reliable protection at an affordable price.</p><p><br/></p><p><strong>✓ DIY Made Easy: </strong>Follow our step-by-step measuring and installation guides.</p><p><strong>✓ Luxury Without Limits: </strong>Sleek designs that suit every style of home.</p><p><strong>✓ Affordable Comfort: </strong>Premium quality from a trusted Australian family-run business.</p><p><br/></p><p>Upgrade your home today and explore our tutorials to see just how effortless <strong>your DIY project </strong>can be with Ezy Screens.</p>",
             "text_style": "body"
           }
         },
@@ -329,7 +332,7 @@
             "image": "shopify://shop_images/happy_with_our_door.jpg",
             "image_url": "",
             "label": "",
-            "quote": "We are incredibly happy with our door and the service we received, it wasn’t a run of the mill installation but the technician handled it with ease and did a terrific job. We absolutely love our big front door and it’s awesome that we don’t have to cover it with an ugly screen to keep the critters out. We highly recommend EZY Screens. It’s all in the name!!",
+            "quote": "We are incredibly happy with our door and the service we received, it wasn’t a run of the mill installation but the technician handled it with ease and did a terrific job. We absolutely love our big front door and it’s awesome that we don’t have to cover it with an ugly screen to keep the critters out. We highly recommend Ezy Screens. It’s all in the name!!",
             "author": "Melanie McBeach"
           }
         },

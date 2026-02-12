@@ -305,6 +305,36 @@
     "slider_with_text_7qANwF": {
       "type": "slider-with-text",
       "blocks": {
+        "slider_1_image_4BpFkJ": {
+          "type": "slider_1_image",
+          "settings": {
+            "image": "shopify://shop_images/What_a_fantastic_product_and_an_awesome_team_to_deal_with..jpg"
+          }
+        },
+        "slider_2_image_xbb9PX": {
+          "type": "slider_2_image",
+          "settings": {
+            "image": "shopify://shop_images/w4.jpg"
+          }
+        },
+        "slider_1_image_xwF4jY": {
+          "type": "slider_1_image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_9005.jpg"
+          }
+        },
+        "slider_2_image_VYW9XD": {
+          "type": "slider_2_image",
+          "settings": {
+            "image": "shopify://shop_images/b3.jpg"
+          }
+        },
+        "slider_1_image_nm9EV4": {
+          "type": "slider_1_image",
+          "settings": {
+            "image": "shopify://shop_images/op2.jpg"
+          }
+        },
         "slider_2_image_ncy8xz": {
           "type": "slider_2_image",
           "settings": {
@@ -408,6 +438,11 @@
         }
       },
       "block_order": [
+        "slider_1_image_4BpFkJ",
+        "slider_2_image_xbb9PX",
+        "slider_1_image_xwF4jY",
+        "slider_2_image_VYW9XD",
+        "slider_1_image_nm9EV4",
         "slider_2_image_ncy8xz",
         "slider_2_image_3eVCgk",
         "slider_1_image_KriFH6",

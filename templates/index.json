@@ -283,7 +283,6 @@
         "text_box_QjU3Wq",
         "button_XDKhmC"
       ],
-      "disabled": true,
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/Image-Slider-_1.jpg",
@@ -459,6 +458,7 @@
         "text_box_trRycd",
         "button_nzBhdH"
       ],
+      "disabled": true,
       "name": "Slider with text",
       "settings": {
         "desktop_image_width": "medium",

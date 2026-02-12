@@ -1,32 +1,134 @@
 {{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
-{% comment %} 
 
-const swiper = new Swiper('.swiper', {
-  direction: 'vertical',
-  autoHeight: false,   // important
-});
-// Select elements
-const mediaItem = document.querySelector('.image-with-text--slider  .image-with-text__media-item .swiper');
-const textItem = document.querySelector('.image-with-text--slider  .image-with-text__text-item ');
+<script>
+(function() {
+  function initSliders() {
+    if (typeof Swiper === 'undefined') {
+      // Retry if Swiper isn't loaded yet
+      setTimeout(initSliders, 100);
+      return;
+    }
 
-if (mediaItem && textItem) {
-  const syncHeight = () => {
-    const textHeight = textItem.getBoundingClientRect().height;
-    mediaItem.style.height = `${textHeight}px`;
-  };
+    const section = document.querySelector('.image-with-text--slider');
+    if (!section) return;
 
-  // Initial sync
-  syncHeight();
+    const desktopSliderDownEl = section.querySelector('.swiper-desktop-vertical-down');
+    const desktopSliderUpEl = section.querySelector('.swiper-desktop-vertical-up');
+    const mobileSliderRightEl = section.querySelector('.swiper-mobile-horizontal-right');
+    const mobileSliderLeftEl = section.querySelector('.swiper-mobile-horizontal-left');
+    const textItem = section.querySelector('.image-with-text__text-item');
+    const mediaItem = section.querySelector('.image-with-text__media-item');
 
-  // Update on window resize
-  window.addEventListener('resize', syncHeight);
+    // Initialize Desktop Vertical Slider 1 - Navigates Down
+    let desktopSwiperDown = null;
+    if (desktopSliderDownEl) {
+      desktopSwiperDown = new Swiper('.swiper-desktop-vertical-down', {
+        direction: 'vertical',
+        slidesPerView: 2,
+        spaceBetween: 0,
+        initialSlide: 1, // Start at slide 2 to show slide 2 and slide 3
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        loop: true,
+      });
+    }
 
-  // Watch text for dynamic changes
-  const resizeObserver = new ResizeObserver(syncHeight);
-  resizeObserver.observe(textItem);
-}
+    // Initialize Desktop Vertical Slider 2 - Navigates Up (reverse direction)
+    let desktopSwiperUp = null;
+    if (desktopSliderUpEl) {
+      desktopSwiperUp = new Swiper('.swiper-desktop-vertical-up', {
+        direction: 'vertical',
+        slidesPerView: 2,
+        spaceBetween: 0,
+        initialSlide: 1, // Start at slide 5 (index 1 in reversed order) to show slide 5 and slide 4
+        reverseDirection: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+          reverseDirection: true,
+        },
+        loop: true,
+      });
+    }
 
-{% endcomment %}
+    // Sync height with text item - text item controls the height
+    if (textItem && mediaItem && (desktopSliderDownEl || desktopSliderUpEl)) {
+      const syncHeight = () => {
+        const textHeight = textItem.getBoundingClientRect().height;
+        
+        // Set max-height and height on sliders to match text item
+        if (desktopSliderDownEl) {
+          desktopSliderDownEl.style.height = `${textHeight}px`;
+          desktopSliderDownEl.style.maxHeight = `${textHeight}px`;
+        }
+        if (desktopSliderUpEl) {
+          desktopSliderUpEl.style.height = `${textHeight}px`;
+          desktopSliderUpEl.style.maxHeight = `${textHeight}px`;
+        }
+        
+        // Also constrain the media item container
+        mediaItem.style.maxHeight = `${textHeight}px`;
+        mediaItem.style.height = `${textHeight}px`;
+        
+        // Update swipers to recalculate dimensions
+        if (desktopSwiperDown) desktopSwiperDown.update();
+        if (desktopSwiperUp) desktopSwiperUp.update();
+      };
+
+      // Initial sync
+      syncHeight();
+
+      // Update on window resize
+      window.addEventListener('resize', syncHeight);
+
+      // Watch text for dynamic changes
+      if (typeof ResizeObserver !== 'undefined') {
+        const resizeObserver = new ResizeObserver(syncHeight);
+        resizeObserver.observe(textItem);
+      }
+    }
+
+    // Initialize Mobile Horizontal Slider 1 - Navigates Right
+    if (mobileSliderRightEl) {
+      new Swiper('.swiper-mobile-horizontal-right', {
+        direction: 'horizontal',
+        slidesPerView: 2,
+        spaceBetween: 0,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        loop: true,
+      });
+    }
+
+    // Initialize Mobile Horizontal Slider 2 - Navigates Left (reverse direction)
+    if (mobileSliderLeftEl) {
+      new Swiper('.swiper-mobile-horizontal-left', {
+        direction: 'horizontal',
+        slidesPerView: 2,
+        spaceBetween: 0,
+        reverseDirection: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+          reverseDirection: true,
+        },
+        loop: true,
+      });
+    }
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSliders);
+  } else {
+    initSliders();
+  }
+})();
+</script>
 
 
 {%- style -%}
@@ -103,8 +205,73 @@ if (mediaItem && textItem) {
     .image-with-text__text-box:nth-child(2n){
       padding-left: 0px;
     }
+  }
 
-  } 
+  {% comment %} Slider visibility - Desktop vertical, Mobile horizontal {% endcomment %}
+  .swiper-desktop-vertical {
+    display: block;
+  }
+  .swiper-mobile-horizontal {
+    display: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .swiper-desktop-vertical {
+      display: none;
+    }
+    .swiper-mobile-horizontal {
+      display: block;
+    }
+  }
+
+  {% comment %} Position sliders side by side on desktop, side by side on mobile {% endcomment %}
+  .image-with-text__media-item {
+    display: flex;
+    gap: 10px;
+  }
+  .image-with-text__media-item .swiper {
+    flex: 1;
+  }
+
+  {% comment %} Ensure sliders respect text item height {% endcomment %}
+  .image-with-text--slider .image-with-text__grid {
+    align-items: flex-start;
+  }
+  .image-with-text__media-item {
+    align-self: flex-start;
+    overflow: hidden;
+    height: auto;
+  }
+  .image-with-text__media-item .swiper {
+    width: 100%;
+    overflow: hidden;
+  }
+  .image-with-text__media-item .swiper-desktop-vertical {
+    max-height: 100%;
+    overflow: hidden;
+  }
+  .image-with-text__media-item .swiper-wrapper {
+    height: 100%;
+  }
+  .image-with-text__media-item .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .image-with-text__media-item .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  {% comment %} For vertical sliders with 2 slides visible, each slide should be 50% height {% endcomment %}
+  .image-with-text__media-item .swiper-desktop-vertical .swiper-slide {
+    height: 50%;
+  }
+  {% comment %} For horizontal sliders with 2 slides visible, each slide should be 50% width {% endcomment %}
+  .image-with-text__media-item .swiper-mobile-horizontal .swiper-slide {
+    width: 50%;
+  }
 {%- endstyle -%}
 
 {%- liquid
@@ -123,25 +290,86 @@ if (mediaItem && textItem) {
       <div class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}35-col-tablet{% endif %}{% if section.settings.layout == 'text_first' %} image-with-text__grid--reverse{% endif %}">
         <div class="image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} image-with-text__media-item--{{ section.settings.desktop_content_position }} grid__item">
 
-            <!-- Slider main container -->
-            <div class="swiper" style="height: 100%; width: 100%;">
-              <!-- Additional required wrapper -->
+            <!-- Desktop Vertical Slider 1 - Navigates Down (visible on desktop only) -->
+            <div class="swiper swiper-desktop-vertical swiper-desktop-vertical-down" style="height: 100%; width: 100%;">
               <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide">Slide 1</div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
-                ...
+                {%- for block in section.blocks -%}
+                  {%- if block.type == 'slider_1_image' -%}
+                    <div class="swiper-slide" {{ block.shopify_attributes }}>
+                      {%- if block.settings.image != blank -%}
+                        {{
+                          block.settings.image
+                          | image_url: width: 1500
+                          | image_tag: loading: 'lazy', sizes: '50vw', widths: '375, 550, 750, 1100, 1500'
+                        }}
+                      {%- else -%}
+                        {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+                {%- endfor -%}
               </div>
-              <!-- If we need pagination -->
-              <div class="swiper-pagination"></div>
+            </div>
 
-              <!-- If we need navigation buttons -->
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
+            <!-- Desktop Vertical Slider 2 - Navigates Up (visible on desktop only) -->
+            <div class="swiper swiper-desktop-vertical swiper-desktop-vertical-up" style="height: 100%; width: 100%;">
+              <div class="swiper-wrapper">
+                {%- assign slider_2_blocks = section.blocks | where: 'type', 'slider_2_image' -%}
+                {%- for block in slider_2_blocks reversed -%}
+                  <div class="swiper-slide" {{ block.shopify_attributes }}>
+                    {%- if block.settings.image != blank -%}
+                      {{
+                        block.settings.image
+                        | image_url: width: 1500
+                        | image_tag: loading: 'lazy', sizes: '50vw', widths: '375, 550, 750, 1100, 1500'
+                      }}
+                    {%- else -%}
+                      {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {%- endif -%}
+                  </div>
+                {%- endfor -%}
+              </div>
+            </div>
 
-              <!-- If we need scrollbar -->
-              <div class="swiper-scrollbar"></div>
+            <!-- Mobile Horizontal Slider 1 - Navigates Right (visible on mobile only) -->
+            <div class="swiper swiper-mobile-horizontal swiper-mobile-horizontal-right" style="height: 100%; width: 100%;">
+              <div class="swiper-wrapper">
+                {%- for block in section.blocks -%}
+                  {%- if block.type == 'slider_1_image' -%}
+                    <div class="swiper-slide" {{ block.shopify_attributes }}>
+                      {%- if block.settings.image != blank -%}
+                        {{
+                          block.settings.image
+                          | image_url: width: 1500
+                          | image_tag: loading: 'lazy', sizes: '50vw', widths: '375, 550, 750, 1100, 1500'
+                        }}
+                      {%- else -%}
+                        {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            </div>
+
+            <!-- Mobile Horizontal Slider 2 - Navigates Left (visible on mobile only) -->
+            <div class="swiper swiper-mobile-horizontal swiper-mobile-horizontal-left" style="height: 100%; width: 100%;">
+              <div class="swiper-wrapper">
+                {%- assign slider_2_blocks = section.blocks | where: 'type', 'slider_2_image' -%}
+                {%- for block in slider_2_blocks reversed -%}
+                  <div class="swiper-slide" {{ block.shopify_attributes }}>
+                    {%- if block.settings.image != blank -%}
+                      {{
+                        block.settings.image
+                        | image_url: width: 1500
+                        | image_tag: loading: 'lazy', sizes: '50vw', widths: '375, 550, 750, 1100, 1500'
+                      }}
+                    {%- else -%}
+                      {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {%- endif -%}
+                  </div>
+                {%- endfor -%}
+              </div>
             </div>
           </div>
 

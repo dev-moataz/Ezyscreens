@@ -1412,9 +1412,24 @@ span.strike-through-price {
 .contact-item svg.icon.icon-accordion > path{
   fill: #ffffff !important;
 }
+.image-with-text--slider .swiper-slide {
+  margin-inline: 5px;
+}
+.image-with-text--slider .swiper-slide img{
+  border-radius: 5px;
+}
+@media screen and (min-width: 750px) {
+.image-with-text--slider .image-with-text__content{ 
+  padding-inline: 2rem !important;
+}
+}
 
 /* mobile */
 @media screen and (max-width: 749px) {
+  .image-with-text--slider .image-with-text__media-item{ 
+    
+    flex-direction: column;
+  }
   .video-container-box .rating{
     margin-bottom: 0px;
 }

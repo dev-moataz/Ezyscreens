@@ -283,6 +283,7 @@
         "text_box_QjU3Wq",
         "button_XDKhmC"
       ],
+      "disabled": true,
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/Image-Slider-_1.jpg",
@@ -304,6 +305,54 @@
     "slider_with_text_7qANwF": {
       "type": "slider-with-text",
       "blocks": {
+        "slider_2_image_ncy8xz": {
+          "type": "slider_2_image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_8339.jpg"
+          }
+        },
+        "slider_2_image_3eVCgk": {
+          "type": "slider_2_image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_8287.jpg"
+          }
+        },
+        "slider_1_image_KriFH6": {
+          "type": "slider_1_image",
+          "settings": {
+            "image": "shopify://shop_images/Sss.jpg"
+          }
+        },
+        "slider_1_image_brWbfA": {
+          "type": "slider_1_image",
+          "settings": {
+            "image": "shopify://shop_images/att_79b67f42-c0a0-48c1-a3f4-d5d2c0c63c7b.jpg"
+          }
+        },
+        "slider_2_image_dyfaKb": {
+          "type": "slider_2_image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_6794_7e30b4a8-1a3a-40cd-bb26-e602983ef1d8.jpg"
+          }
+        },
+        "slider_2_image_cC7r6x": {
+          "type": "slider_2_image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_5465_6c17f3fa-8a5d-432b-9073-ab43635b9e72.jpg"
+          }
+        },
+        "slider_1_image_fMjc7m": {
+          "type": "slider_1_image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_4434_3516c2fe-effd-49e5-8cdb-7bafc1f9b1be.jpg"
+          }
+        },
+        "slider_1_image_xfKran": {
+          "type": "slider_1_image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_9223_dc3ba5b0-228d-490c-8f33-19e1c5e6a102.jpg"
+          }
+        },
         "heading_9UCBnP": {
           "type": "heading",
           "settings": {
@@ -359,6 +408,14 @@
         }
       },
       "block_order": [
+        "slider_2_image_ncy8xz",
+        "slider_2_image_3eVCgk",
+        "slider_1_image_KriFH6",
+        "slider_1_image_brWbfA",
+        "slider_2_image_dyfaKb",
+        "slider_2_image_cC7r6x",
+        "slider_1_image_fMjc7m",
+        "slider_1_image_xfKran",
         "heading_9UCBnP",
         "text_box_gzdCmg",
         "text_box_dnrwdt",
@@ -367,10 +424,9 @@
         "text_box_trRycd",
         "button_nzBhdH"
       ],
-      "disabled": true,
       "name": "Slider with text",
       "settings": {
-        "desktop_image_width": "small",
+        "desktop_image_width": "medium",
         "layout": "text_first",
         "image_behavior": "none",
         "content_layout": "no-overlap",

@@ -19,19 +19,103 @@
     const textItem = section.querySelector('.image-with-text__text-item');
     const mediaItem = section.querySelector('.image-with-text__media-item');
 
-    // Initialize Desktop Vertical Slider 1 - Navigates Down
+    // Initialize Desktop Vertical Slider 1 - Navigates Down (slidesPerView will be calculated dynamically)
     let desktopSwiperDown = null;
     if (desktopSliderDownEl) {
       desktopSwiperDown = new Swiper('.swiper-desktop-vertical-down', {
         direction: 'vertical',
-        slidesPerView: 2,
+        slidesPerView: 2, // Initial value, will be updated dynamically
         spaceBetween: 0,
-        initialSlide: 1, // Start at slide 2 to show slide 2 and slide 3
+        loop: true,
+        loopAdditionalSlides: 1,
         autoplay: {
           delay: 3000,
           disableOnInteraction: false,
         },
-        loop: true,
+        autoHeight: false,
+        on: {
+          init: function() {
+            // Set up Intersection Observer to detect when last slide becomes visible
+            const swiper = this;
+            const slides = swiper.slides;
+            const realSlides = slides.filter(slide => {
+              return slide.classList.contains('swiper-slide') && 
+                     !slide.classList.contains('swiper-slide-duplicate');
+            });
+            
+            if (realSlides.length > 0) {
+              const lastRealSlide = realSlides[realSlides.length - 1];
+              
+              const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                  if (entry.isIntersecting && entry.intersectionRatio > 0) {
+                    // Last slide is visible, loop immediately
+                    if (!swiper.loopTriggered) {
+                      swiper.loopTriggered = true;
+                      // Stop autoplay temporarily to prevent conflicts
+                      if (swiper.autoplay && swiper.autoplay.running) {
+                        swiper.autoplay.stop();
+                      }
+                      setTimeout(() => {
+                        swiper.slideToLoop(0, 0, false);
+                        // Restart autoplay after a short delay
+                        setTimeout(() => {
+                          if (swiper.autoplay) {
+                            swiper.autoplay.start();
+                          }
+                          swiper.loopTriggered = false;
+                        }, 50);
+                      }, 100);
+                    }
+                  }
+                });
+              }, {
+                threshold: 0.1 // Trigger when 10% of slide is visible
+              });
+              
+              observer.observe(lastRealSlide);
+              swiper.lastSlideObserver = observer;
+            }
+          },
+          reachEnd: function() {
+            // Immediately loop when reaching the end
+            if (!this.loopTriggered) {
+              this.loopTriggered = true;
+              // Stop autoplay temporarily to prevent conflicts
+              if (this.autoplay && this.autoplay.running) {
+                this.autoplay.stop();
+              }
+              setTimeout(() => {
+                this.slideToLoop(0, 0, false);
+                // Restart autoplay after a short delay
+                setTimeout(() => {
+                  if (this.autoplay) {
+                    this.autoplay.start();
+                  }
+                  this.loopTriggered = false;
+                }, 50);
+              }, 0);
+            }
+          },
+          slideChangeTransitionEnd: function() {
+            // Ensure autoplay continues after slide change
+            if (this.autoplay) {
+              if (!this.autoplay.running) {
+                this.autoplay.start();
+              }
+            }
+          },
+          slideChange: function() {
+            // Ensure autoplay is running after any slide change
+            if (this.autoplay && !this.autoplay.running && !this.loopTriggered) {
+              setTimeout(() => {
+                if (this.autoplay && !this.autoplay.running) {
+                  this.autoplay.start();
+                }
+              }, 100);
+            }
+          }
+        }
       });
     }
 
@@ -40,52 +124,146 @@
     if (desktopSliderUpEl) {
       desktopSwiperUp = new Swiper('.swiper-desktop-vertical-up', {
         direction: 'vertical',
-        slidesPerView: 2,
+        slidesPerView: 2, // Initial value, will be updated dynamically
         spaceBetween: 0,
-        initialSlide: 1, // Start at slide 5 (index 1 in reversed order) to show slide 5 and slide 4
         reverseDirection: true,
         autoplay: {
           delay: 3000,
           disableOnInteraction: false,
           reverseDirection: true,
         },
-        loop: true,
+        autoHeight: false,
       });
     }
 
-    // Sync height with text item - text item controls the height
+    // Sync height with text item - dynamically calculate slidesPerView based on available space
     if (textItem && mediaItem && (desktopSliderDownEl || desktopSliderUpEl)) {
-      const syncHeight = () => {
+      const updateSliderHeights = () => {
         const textHeight = textItem.getBoundingClientRect().height;
         
-        // Set max-height and height on sliders to match text item
+        // Function to calculate how many slides can fit
+        const calculateSlidesPerView = (sliderEl) => {
+          if (!sliderEl) return 2;
+          
+          const sliderWidth = sliderEl.getBoundingClientRect().width;
+          if (sliderWidth <= 0) return 2;
+          
+          const slides = sliderEl.querySelectorAll('.swiper-slide');
+          if (slides.length === 0) return 2;
+          
+          let totalHeight = 0;
+          let visibleCount = 0;
+          
+          for (let i = 0; i < slides.length; i++) {
+            const slide = slides[i];
+            const img = slide.querySelector('img');
+            
+            if (img && img.complete && img.naturalWidth > 0 && img.naturalHeight > 0) {
+              const aspectRatio = img.naturalHeight / img.naturalWidth;
+              const slideHeight = sliderWidth * aspectRatio;
+              
+              if (totalHeight + slideHeight <= textHeight) {
+                totalHeight += slideHeight;
+                visibleCount++;
+              } else {
+                break;
+              }
+            } else {
+              // If image not loaded, estimate based on average
+              visibleCount++;
+            }
+          }
+          
+          return Math.max(1, visibleCount);
+        };
+        
+        // Set max-height on sliders and media item container
         if (desktopSliderDownEl) {
-          desktopSliderDownEl.style.height = `${textHeight}px`;
           desktopSliderDownEl.style.maxHeight = `${textHeight}px`;
+          const slidesPerView = calculateSlidesPerView(desktopSliderDownEl);
+          
+          if (desktopSwiperDown) {
+            const needsUpdate = desktopSwiperDown.params.slidesPerView !== slidesPerView;
+            
+            if (needsUpdate) {
+              desktopSwiperDown.params.slidesPerView = slidesPerView;
+              desktopSwiperDown.update();
+              desktopSwiperDown.updateSlides();
+              desktopSwiperDown.updateSlidesClasses();
+            }
+          }
         }
         if (desktopSliderUpEl) {
-          desktopSliderUpEl.style.height = `${textHeight}px`;
           desktopSliderUpEl.style.maxHeight = `${textHeight}px`;
+          const slidesPerView = calculateSlidesPerView(desktopSliderUpEl);
+          
+          if (desktopSwiperUp) {
+            const needsUpdate = desktopSwiperUp.params.slidesPerView !== slidesPerView;
+            
+            if (needsUpdate) {
+              desktopSwiperUp.params.slidesPerView = slidesPerView;
+              desktopSwiperUp.update();
+              desktopSwiperUp.updateSlides();
+              desktopSwiperUp.updateSlidesClasses();
+            }
+          }
         }
         
-        // Also constrain the media item container
         mediaItem.style.maxHeight = `${textHeight}px`;
-        mediaItem.style.height = `${textHeight}px`;
-        
-        // Update swipers to recalculate dimensions
-        if (desktopSwiperDown) desktopSwiperDown.update();
-        if (desktopSwiperUp) desktopSwiperUp.update();
       };
 
-      // Initial sync
-      syncHeight();
+      // Wait for images to load before calculating heights
+      const images = section.querySelectorAll('.swiper-slide img');
+      let imagesLoaded = 0;
+      const totalImages = images.length;
+      
+      const checkAndUpdate = () => {
+        if (imagesLoaded === totalImages || totalImages === 0) {
+          // Ensure all slides have auto height
+          const allSlides = section.querySelectorAll('.swiper-slide');
+          allSlides.forEach(slide => {
+            slide.style.height = 'auto';
+          });
+          updateSliderHeights();
+        }
+      };
+      
+      // Initial call
+      setTimeout(() => {
+        const allSlides = section.querySelectorAll('.swiper-slide');
+        allSlides.forEach(slide => {
+          slide.style.height = 'auto';
+        });
+        updateSliderHeights();
+        
+      }, 100);
+      
+      if (totalImages === 0) {
+        checkAndUpdate();
+      } else {
+        images.forEach(img => {
+          if (img.complete && img.naturalWidth > 0) {
+            imagesLoaded++;
+            checkAndUpdate();
+          } else {
+            img.addEventListener('load', () => {
+              imagesLoaded++;
+              checkAndUpdate();
+            });
+            img.addEventListener('error', () => {
+              imagesLoaded++;
+              checkAndUpdate();
+            });
+          }
+        });
+      }
 
       // Update on window resize
-      window.addEventListener('resize', syncHeight);
+      window.addEventListener('resize', updateSliderHeights);
 
       // Watch text for dynamic changes
       if (typeof ResizeObserver !== 'undefined') {
-        const resizeObserver = new ResizeObserver(syncHeight);
+        const resizeObserver = new ResizeObserver(updateSliderHeights);
         resizeObserver.observe(textItem);
       }
     }
@@ -100,7 +278,6 @@
           delay: 3000,
           disableOnInteraction: false,
         },
-        loop: true,
       });
     }
 
@@ -116,7 +293,6 @@
           disableOnInteraction: false,
           reverseDirection: true,
         },
-        loop: true,
       });
     }
   }
@@ -133,7 +309,7 @@
 
 {%- style -%}
   .section-{{ section.id }}-padding .image-with-text__text-item {
-    padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top | times: 0.3 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
   }
 
@@ -239,38 +415,71 @@
   }
   .image-with-text__media-item {
     align-self: flex-start;
-    overflow: hidden;
     height: auto;
   }
   .image-with-text__media-item .swiper {
-    width: 100%;
-    overflow: hidden;
+    width: 100%;    overflow: hidden;
+
+    height: auto;
   }
   .image-with-text__media-item .swiper-desktop-vertical {
     max-height: 100%;
-    overflow: hidden;
+    height: auto;
   }
   .image-with-text__media-item .swiper-wrapper {
-    height: 100%;
+    height: auto;
+    display: flex;
   }
   .image-with-text__media-item .swiper-slide {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  .image-with-text__media-item .swiper-slide .slider-image-container {
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 0;
+    margin: 0;
   }
   .image-with-text__media-item .swiper-slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
   }
-  {% comment %} For vertical sliders with 2 slides visible, each slide should be 50% height {% endcomment %}
+  {% comment %} For vertical sliders, each slide adapts to image height automatically {% endcomment %}
   .image-with-text__media-item .swiper-desktop-vertical .swiper-slide {
-    height: 50%;
+    height: auto !important;
+    width: 100%;
+    margin-block: 5px;
   }
-  {% comment %} For horizontal sliders with 2 slides visible, each slide should be 50% width {% endcomment %}
+  .image-with-text__media-item .swiper-desktop-vertical .swiper-slide img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    display: block;
+  }
+  {% comment %} For horizontal sliders with 2 slides visible, each slide adapts to image width {% endcomment %}
   .image-with-text__media-item .swiper-mobile-horizontal .swiper-slide {
     width: 50%;
+    height: auto;
+    flex-shrink: 0;
+    margin-inline: 5px;
+  }
+  .image-with-text__media-item .swiper-mobile-horizontal .swiper-slide img {
+    width: 100%;
+    border-radius: 7px;
+    height: auto;
+    max-width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
   }
 {%- endstyle -%}
 
@@ -296,15 +505,17 @@
                 {%- for block in section.blocks -%}
                   {%- if block.type == 'slider_1_image' -%}
                     <div class="swiper-slide" {{ block.shopify_attributes }}>
-                      {%- if block.settings.image != blank -%}
-                        {{
-                          block.settings.image
-                          | image_url: width: 1500
-                          | image_tag: loading: 'lazy', sizes: '50vw', widths: '375, 550, 750, 1100, 1500'
-                        }}
-                      {%- else -%}
-                        {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
-                      {%- endif -%}
+                      <div class="slider-image-container">
+                        {%- if block.settings.image != blank -%}
+                          {{
+                            block.settings.image
+                            | image_url: width: 1500
+                            | image_tag: loading: 'lazy', sizes: '50vw', widths: '375, 550, 750, 1100, 1500'
+                          }}
+                        {%- else -%}
+                          {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                        {%- endif -%}
+                      </div>
                     </div>
                   {%- endif -%}
                 {%- endfor -%}
@@ -317,15 +528,17 @@
                 {%- assign slider_2_blocks = section.blocks | where: 'type', 'slider_2_image' -%}
                 {%- for block in slider_2_blocks reversed -%}
                   <div class="swiper-slide" {{ block.shopify_attributes }}>
-                    {%- if block.settings.image != blank -%}
-                      {{
-                        block.settings.image
-                        | image_url: width: 1500
-                        | image_tag: loading: 'lazy', sizes: '50vw', widths: '375, 550, 750, 1100, 1500'
-                      }}
-                    {%- else -%}
-                      {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
-                    {%- endif -%}
+                    <div class="slider-image-container">
+                      {%- if block.settings.image != blank -%}
+                        {{
+                          block.settings.image
+                          | image_url: width: 1500
+                          | image_tag: loading: 'lazy', sizes: '50vw', widths: '375, 550, 750, 1100, 1500'
+                        }}
+                      {%- else -%}
+                        {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                      {%- endif -%}
+                    </div>
                   </div>
                 {%- endfor -%}
               </div>
@@ -337,15 +550,17 @@
                 {%- for block in section.blocks -%}
                   {%- if block.type == 'slider_1_image' -%}
                     <div class="swiper-slide" {{ block.shopify_attributes }}>
-                      {%- if block.settings.image != blank -%}
-                        {{
-                          block.settings.image
-                          | image_url: width: 1500
-                          | image_tag: loading: 'lazy', sizes: '50vw', widths: '375, 550, 750, 1100, 1500'
-                        }}
-                      {%- else -%}
-                        {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
-                      {%- endif -%}
+                      <div class="slider-image-container">
+                        {%- if block.settings.image != blank -%}
+                          {{
+                            block.settings.image
+                            | image_url: width: 1500
+                            | image_tag: loading: 'lazy', sizes: '50vw', widths: '375, 550, 750, 1100, 1500'
+                          }}
+                        {%- else -%}
+                          {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                        {%- endif -%}
+                      </div>
                     </div>
                   {%- endif -%}
                 {%- endfor -%}
@@ -358,15 +573,17 @@
                 {%- assign slider_2_blocks = section.blocks | where: 'type', 'slider_2_image' -%}
                 {%- for block in slider_2_blocks reversed -%}
                   <div class="swiper-slide" {{ block.shopify_attributes }}>
-                    {%- if block.settings.image != blank -%}
-                      {{
-                        block.settings.image
-                        | image_url: width: 1500
-                        | image_tag: loading: 'lazy', sizes: '50vw', widths: '375, 550, 750, 1100, 1500'
-                      }}
-                    {%- else -%}
-                      {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
-                    {%- endif -%}
+                    <div class="slider-image-container">
+                      {%- if block.settings.image != blank -%}
+                        {{
+                          block.settings.image
+                          | image_url: width: 1500
+                          | image_tag: loading: 'lazy', sizes: '50vw', widths: '375, 550, 750, 1100, 1500'
+                        }}
+                      {%- else -%}
+                        {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                      {%- endif -%}
+                    </div>
                   </div>
                 {%- endfor -%}
               </div>

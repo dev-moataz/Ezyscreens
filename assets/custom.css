@@ -1412,11 +1412,27 @@ span.strike-through-price {
 .contact-item svg.icon.icon-accordion > path{
   fill: #ffffff !important;
 }
-.image-with-text--slider .swiper-slide {
-  margin-inline: 5px;
-}
 .image-with-text--slider .swiper-slide img{
-  border-radius: 5px;
+
+  width: 100%; border-radius: 15px;
+  overflow: hidden;
+  height: auto;
+  object-fit: contain;
+}
+.slider-image-container{
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+}
+.slider-image-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
 @media screen and (min-width: 750px) {
 .image-with-text--slider .image-with-text__content{ 
